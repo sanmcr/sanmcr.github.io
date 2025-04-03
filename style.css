@@ -139,7 +139,7 @@ img {
 }
 
 .masthead {
-  padding: 20px 0;
+  padding: 40px 0; /* Aumenté el padding para que quede debajo de "Web Developer" */
   border-bottom: none; /* Se eliminó la línea debajo de tu nombre */
   background-color: var(--white); /* Franja más grande en blanco */
 }
@@ -200,7 +200,7 @@ nav {
 .posts > .post {
   padding: 20px;
   background-color: var(--white); /* Fondo blanco para los posts */
-  border: 2px solid var(--greenSageLight); /* Borde verde claro */
+  border: 2px solid var(--white); /* Eliminar borde verde en los posts */
   margin-bottom: 20px;
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
