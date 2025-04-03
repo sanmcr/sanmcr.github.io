@@ -22,10 +22,11 @@ html {
 }
 
 body {
-  background: $greenSageLight; // Fondo verde claro
+  background: linear-gradient(to bottom, $greenSageLight, $white); // Degradado de verde claro a blanco
   font: 18px/1.4 $helvetica;
   color: $greenSageDarker; // Texto oscuro para contraste
 }
+
 
 .container {
   margin: 0 auto;
