@@ -139,16 +139,12 @@ img {
   border-bottom: 1px solid $greenSageLight; // Borde verde claro en la cabecera
 }
 
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-
-  img {
-    border-radius: 5px;
-  }
+.site-avatar img {
+  width: 70px;  // Puedes ajustar el tamaño aquí
+  height: 70px; // Asegúrate de mantener la proporción si es una imagen cuadrada
+  border-radius: 50%; // Para darle forma circular
 }
+
 
 .site-info {
   float: left;
