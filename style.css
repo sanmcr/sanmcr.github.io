@@ -12,6 +12,7 @@
   --helvetica: 'Helvetica', sans-serif;
   --helveticaNeue: 'Helvetica Neue', sans-serif;
   --lightGreen: #f3f9f3; /* Fondo suave más claro */
+  --hoverEffect: rgba(0,0,0,0.1);
 }
 
 /* BASE RULES */
@@ -20,7 +21,7 @@ html {
 }
 
 body {
-  background: var(--lightGreen); /* Fondo suave, casi blanco con un toque verde */
+  background: var(--lightGreen); /* Fondo muy suave, casi blanco con un toque verde */
   font: 18px/1.6 var(--helvetica);
   color: var(--greenSageDarker); /* Texto en verde oscuro para contraste */
   margin: 0;
@@ -45,6 +46,9 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 30px;
+  a {
+    color: inherit;
+  }
 }
 
 h2 {
@@ -132,15 +136,16 @@ img {
 
 .wrapper-masthead {
   margin-bottom: 50px;
-  padding: 20px;
+  padding: 30px;
   background-color: var(--white); /* Fondo blanco en la cabecera */
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centrado del contenido */
 }
 
 .masthead {
   padding: 20px 0;
-  background-color: var(--lightGreen); /* Cambié la franja para que no corte el menú */
+  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
 }
 
 .site-avatar {
@@ -166,7 +171,7 @@ img {
   cursor: pointer;
   font-family: var(--helveticaNeue);
   font-weight: 300;
-  font-size: 28px;
+  font-size: 32px;  /* Un poco más grande */
   letter-spacing: 1px;
 }
 
@@ -213,6 +218,12 @@ nav {
   color: var(--greenSageDarker); /* Color para los títulos de los posts */
 }
 
+.post img {
+  width: 100%; /* Imagen dentro del post */
+  border-radius: 10px;
+  margin-top: 15px; /* Separación entre el texto y la imagen */
+}
+
 .read-more {
   display: inline-block;
   margin-top: 15px;
@@ -251,6 +262,4 @@ footer {
   &:hover {
     background-color: var(--greenSageDark);  /* Hover con verde más oscuro */
   }
-}
-r con verde más oscuro */
 }
