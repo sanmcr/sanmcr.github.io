@@ -133,6 +133,7 @@ img {
 
 /* LAYOUT / SECTIONS */
 
+/* Extensión de la franja del nombre hasta debajo de la descripción y avatar */
 .wrapper-masthead {
   margin-bottom: 50px;
   padding: 20px;
@@ -143,7 +144,7 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
+  /* Eliminamos el borde para no cortar el contenido */
 }
 
 .site-avatar {
@@ -255,4 +256,5 @@ footer {
     background-color: var(--greenSageDark);  /* Hover con verde más oscuro */
   }
 }
+
 
