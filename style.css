@@ -132,8 +132,6 @@ img {
 }
 
 /* LAYOUT / SECTIONS */
-
-/* Extensión de la franja del nombre hasta debajo de la descripción y avatar */
 .wrapper-masthead {
   margin-bottom: 50px;
   padding: 20px;
@@ -144,7 +142,8 @@ img {
 
 .masthead {
   padding: 20px 0;
-  /* Eliminamos el borde para no cortar el contenido */
+  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
+  margin-bottom: 20px; /* Separación del contenido de la franja */
 }
 
 .site-avatar {
@@ -207,6 +206,7 @@ nav {
   margin-bottom: 20px;
   border-radius: 12px; /* Bordes redondeados más marcados */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative; /* Posicionamiento para la imagen */
 }
 
 .posts > .post:last-child {
@@ -217,6 +217,15 @@ nav {
   color: var(--greenSageDarker); /* Color para los títulos de los posts */
 }
 
+/* Imagen dentro del post */
+.post img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 8px; /* Bordes suaves para las imágenes */
+}
+
+/* Eliminar la línea verde debajo de "Read More" */
 .read-more {
   display: inline-block;
   margin-top: 15px;
@@ -228,6 +237,7 @@ nav {
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  border-bottom: none; /* Sin la línea verde */
 }
 
 .read-more:hover {
@@ -256,5 +266,3 @@ footer {
     background-color: var(--greenSageDark);  /* Hover con verde más oscuro */
   }
 }
-
-
