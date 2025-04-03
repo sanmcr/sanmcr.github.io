@@ -131,7 +131,7 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 2px solid var(--greenSageLight);
+  border-bottom: none; /* Se elimina la línea de la cabecera */
 }
 
 .site-avatar {
@@ -233,7 +233,7 @@ nav a:hover {
 .wrapper-footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
-  background-color: var(--greenSageLight);
+  background-color: var(--greenSageLight); /* Fondo muy suave para el pie de página */
   padding: 30px 0;
   text-align: center;
 }
@@ -258,3 +258,4 @@ footer {
 .button:hover, a.button:hover {
   background-color: var(--greenSageDark); /* Hover con verde más oscuro */
 }
+
