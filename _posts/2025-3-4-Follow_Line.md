@@ -61,7 +61,7 @@ mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
 mask = cv2.bitwise_or(mask1, mask2)
 ```
 
-![Mask Image](/images/mask.jpeg)
+![Mask Image](images/mask.jpeg)
 
 
 #### Filtrado Morfológico
@@ -87,7 +87,7 @@ contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 Aquí se utiliza `cv2.RETR_EXTERNAL` para detectar solo los contornos externos, ya que la línea roja es el contorno principal que queremos rastrear.
 
 
-![Countor Image](/images/countors.jpeg)
+![Countor Image](images/countors.jpeg)
 
 ### 2.3. Cálculo del Centro de la Línea
 
