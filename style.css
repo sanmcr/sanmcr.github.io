@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom, var(--greenSageLight) 70%, var(--white)); /* Degradado verde suave */
+  background: var(--greenSageLight); /* Fondo verde suave */
   font: 18px/1.6 var(--helvetica);
   color: var(--greenSageDarker); /* Texto en verde oscuro para contraste */
   margin: 0;
@@ -124,7 +124,7 @@ img {
 .wrapper-masthead {
   margin-bottom: 50px;
   padding: 20px;
-  background-color: var(--greenSageLight);
+  background-color: var(--white); /* Fondo blanco en la cabecera */
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -187,8 +187,16 @@ nav a:hover {
 }
 
 .posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid var(--greenSageLight);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: var(--white); /* Fondo blanco para los posts */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.posts > .post:hover {
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
 }
 
 .posts > .post:last-child {
