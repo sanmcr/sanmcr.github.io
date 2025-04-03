@@ -11,14 +11,17 @@
   --blue: #007BFF;
   --helvetica: 'Helvetica', sans-serif;
   --helveticaNeue: 'Helvetica Neue', sans-serif;
+  --lightGreen: #f3f9f3; /* Fondo suave más claro */
 }
+
+/* BASE RULES */
 
 html {
   font-size: 100%;
 }
 
 body {
-  background: var(--greenSageLight); /* Fondo verde suave */
+  background: var(--lightGreen); /* Fondo muy suave, casi blanco con un toque verde */
   font: 18px/1.6 var(--helvetica);
   color: var(--greenSageDarker); /* Texto en verde oscuro para contraste */
   margin: 0;
@@ -27,8 +30,8 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 800px;
-  padding: 0 15px;
+  max-width: 740px;
+  padding: 0 10px;
   width: 100%;
 }
 
@@ -36,45 +39,46 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--helveticaNeue);
   color: var(--greenSageDark); /* Encabezados en verde más oscuro */
   font-weight: bold;
-  line-height: 1.6;
-  margin: 1em 0 10px;
+  line-height: 1.7;
+  margin: 1em 0 15px;
   padding: 0;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 30px;
+  a {
+    color: inherit;
+  }
 }
 
 h2 {
-  font-size: 28px;
-}
-
-h3 {
   font-size: 24px;
 }
 
+h3 {
+  font-size: 20px;
+}
+
 h4 {
-  font-size: 22px;
-  color: var(--greenSage); /* Verde suave para h4 */
+  font-size: 18px;
+  color: var(--greenSage); /* Un verde suave para h4 */
 }
 
 p {
-  margin: 20px 0;
-  font-size: 18px;
+  margin: 15px 0;
 }
 
 a {
   color: var(--greenAccent); /* Enlaces en verde suave */
   text-decoration: none;
   cursor: pointer;
-}
-
-a:hover, a:active {
-  color: var(--greenSageDark); /* Enlaces en verde más oscuro al hacer hover */
+  &:hover, &:active {
+    color: var(--greenSageDark); /* Enlaces en verde más oscuro al hacer hover */
+  }
 }
 
 ul, ol {
-  margin: 20px 0;
+  margin: 15px 0;
   padding-left: 30px;
 }
 
@@ -84,6 +88,10 @@ ul {
 
 ol {
   list-style-type: decimal;
+}
+
+ol ul, ul ol, ul ul, ol ol {
+  margin: 0;
 }
 
 ul ul, ol ul {
@@ -100,7 +108,10 @@ strong, b {
 
 img {
   max-width: 100%;
-  border-radius: 5px;
+}
+
+.gmnoprint img {
+  max-width: none;
 }
 
 .date {
@@ -108,7 +119,6 @@ img {
   color: var(--greenSage); /* Fecha en verde suave */
 }
 
-/* Estilo de selección de texto */
 ::-moz-selection {
   color: var(--greenSageDark);
   background: var(--greenSageLight);
@@ -131,21 +141,20 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: none; /* Se elimina la línea de la cabecera */
+  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
 }
 
 .site-avatar {
   float: left;
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
-}
+  width: 70px;
+  height: 70px;
+  margin-right: 15px;
 
-.site-avatar img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%; /* Avatar redondeado */
-  border: 3px solid var(--greenSageDarker); /* Borde verde */
+  img {
+    width: 70px;  /* Tamaño del avatar ajustado */
+    height: 70px; /* Tamaño del avatar ajustado */
+    border-radius: 50%; /* Para darle forma circular */
+  }
 }
 
 .site-info {
@@ -154,49 +163,43 @@ img {
 
 .site-name {
   margin: 0;
-  color: var(--greenSageDarker); /* Nombre del sitio */
+  color: var(--greenSageDarker); /* Nombre del sitio en verde más oscuro */
   cursor: pointer;
   font-family: var(--helveticaNeue);
-  font-weight: 400;
-  font-size: 32px;
-  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: 1px;
 }
 
 .site-description {
-  margin: 5px 0 0;
+  margin: -5px 0 0 0;
   color: var(--greenSage); /* Descripción en verde suave */
-  font-size: 18px;
-  font-style: italic;
+  font-size: 16px;
 }
 
 nav {
   float: right;
+  margin-top: 23px;
   font-family: var(--helveticaNeue);
   font-size: 18px;
+
+  a {
+    margin-left: 20px;
+    color: var(--greenSageDarker);
+    text-align: right;
+    font-weight: 300;
+    letter-spacing: 1px;
+
+    &:hover {
+      color: var(--greenAccent); /* Hover en verde más suave */
+    }
+  }
 }
 
-nav a {
-  margin-left: 20px;
-  color: var(--greenSageDarker);
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-
-nav a:hover {
-  color: var(--greenAccent); /* Hover en verde más suave */
-}
-
+/* .main */
 .posts > .post {
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
-  background-color: var(--white); /* Fondo blanco para los posts */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.posts > .post:hover {
-  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+  padding-bottom: 2em;
+  border-bottom: 1px solid var(--greenSageLight);
 }
 
 .posts > .post:last-child {
@@ -204,43 +207,37 @@ nav a:hover {
   border-bottom: none;
 }
 
-.post blockquote {
-  margin: 1.8em .8em;
-  border-left: 2px solid var(--greenSage); /* Borde verde para citas */
-  padding: 0.1em 1em;
-  color: var(--greenSage);
-  font-size: 22px;
-  font-style: italic;
-}
+.post {
+  blockquote {
+    margin: 1.8em .8em;
+    border-left: 2px solid var(--greenSage); /* Borde en verde para citas */
+    padding: 0.1em 1em;
+    color: var(--greenSage);
+    font-size: 22px;
+    font-style: italic;
+  }
 
-.read-more {
-  text-transform: uppercase;
-  font-size: 16px;
-  margin-top: 10px;
-  display: inline-block;
-  padding: 8px 15px;
-  background-color: var(--greenSage);
-  color: var(--white);
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-}
+  .comments {
+    margin-top: 10px;
+  }
 
-.read-more:hover {
-  background-color: var(--greenSageDark); /* Hover con verde más oscuro */
+  .read-more {
+    text-transform: uppercase;
+    font-size: 15px;
+  }
 }
 
 .wrapper-footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
-  background-color: var(--greenSageLight); /* Fondo muy suave para el pie de página */
+  background-color: var(--lightGreen); /* Fondo más claro para el pie de página */
   padding: 30px 0;
   text-align: center;
 }
 
 footer {
-  font-size: 16px;
-  color: var(--greenSageDarker);
+  padding: 20px 0;
+  text-align: center;
 }
 
 /* Estilo para los botones */
@@ -253,9 +250,9 @@ footer {
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
-}
 
-.button:hover, a.button:hover {
-  background-color: var(--greenSageDark); /* Hover con verde más oscuro */
+  &:hover {
+    background-color: var(--greenSageDark);  /* Hover con verde más oscuro */
+  }
 }
 
