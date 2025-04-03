@@ -13,13 +13,12 @@
   --helveticaNeue: 'Helvetica Neue', sans-serif;
 }
 
-/* BASE RULES */
 html {
   font-size: 100%;
 }
 
 body {
-  background: var(--greenSageLight); /* Fondo verde claro */
+  background: linear-gradient(to bottom, var(--greenSageLight) 60%, var(--white)); /* Degradado verde claro a blanco */
   font: 18px/1.4 var(--helvetica);
   color: var(--greenSageDarker); /* Texto oscuro para contraste */
 }
@@ -42,6 +41,9 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 30px;
+  a {
+    color: inherit;
+  }
 }
 
 h2 {
@@ -54,7 +56,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: var(--greenSage);
+  color: var(--greenSage); /* Un verde suave para h4 */
 }
 
 p {
@@ -71,10 +73,59 @@ a:hover, a:active {
   color: var(--greenSageDark); /* Enlaces en verde más oscuro al hacer hover */
 }
 
-/* .masthead */
+ul, ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul ul, ol ul {
+  list-style-type: circle;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+.date {
+  font-style: italic;
+  color: var(--greenSage); /* Fecha en verde suave */
+}
+
+::-moz-selection {
+  color: var(--greenSageDark);
+  background: var(--greenSageLight);
+}
+
+::selection {
+  color: var(--greenSageDark);
+  background: var(--greenSageLight);
+}
+
+/* LAYOUT / SECTIONS */
+
+.wrapper-masthead {
+  margin-bottom: 50px;
+}
+
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid var(--greenSageLight);
+  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
 }
 
 .site-avatar {
@@ -85,14 +136,18 @@ a:hover, a:active {
 }
 
 .site-avatar img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+  width: 70px;  /* Tamaño del avatar ajustado */
+  height: 70px; /* Tamaño del avatar ajustado */
+  border-radius: 50%; /* Para darle forma circular */
+}
+
+.site-info {
+  float: left;
 }
 
 .site-name {
   margin: 0;
-  color: var(--greenSageDarker);
+  color: var(--greenSageDarker); /* Nombre del sitio en verde más oscuro */
   cursor: pointer;
   font-family: var(--helveticaNeue);
   font-weight: 300;
@@ -102,7 +157,7 @@ a:hover, a:active {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: var(--greenSage);
+  color: var(--greenSage); /* Descripción en verde suave */
   font-size: 16px;
 }
 
@@ -122,10 +177,9 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--greenAccent);
+  color: var(--greenAccent); /* Hover en verde más suave */
 }
 
-/* .main */
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid var(--greenSageLight);
@@ -136,13 +190,33 @@ nav a:hover {
   border-bottom: none;
 }
 
-/* footer */
+.post blockquote {
+  margin: 1.8em .8em;
+  border-left: 2px solid var(--greenSage); /* Borde en verde para citas */
+  padding: 0.1em 1em;
+  color: var(--greenSage);
+  font-size: 22px;
+  font-style: italic;
+}
+
+.read-more {
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.wrapper-footer {
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: var(--greenSageLight); /* Fondo del pie de página en verde claro */
+}
+
 footer {
   padding: 20px 0;
   text-align: center;
-  background-color: var(--greenSageLight);
 }
 
+/* Estilo para los botones */
 .button, a.button {
   display: inline-block;
   padding: 10px 20px;
@@ -154,6 +228,6 @@ footer {
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: var(--greenSageDark);
+.button:hover, a.button:hover {
+  background-color: var(--greenSageDark); /* Hover con verde más oscuro */
 }
