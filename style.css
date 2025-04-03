@@ -140,7 +140,8 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
+  border-bottom: none; /* Se eliminó la línea debajo de tu nombre */
+  background-color: var(--white); /* Franja más grande en blanco */
 }
 
 .site-avatar {
