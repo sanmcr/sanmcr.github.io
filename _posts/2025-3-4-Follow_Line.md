@@ -33,7 +33,7 @@ El objetivo principal fue optimizar la precisión de seguimiento de la línea ro
 El sistema utiliza una cámara incorporada en el robot para capturar imágenes del entorno en tiempo real. Estas imágenes sirven como la entrada al sistema de visión por computadora y son procesadas a una alta frecuencia para permitir el seguimiento continuo de la línea.
 
 
-![Raw Image](/images/raw.jpeg)
+![Raw Image](../images/raw.jpeg)
 
 #### Conversión al Espacio de Color HSV
 Uno de los primeros pasos en el procesamiento de las imágenes es la conversión de la imagen del espacio de color BGR (azul, verde, rojo) a HSV (matiz, saturación, valor). El espacio HSV es particularmente útil en visión por computadora porque separa el componente de color (matiz) de los componentes de brillo (saturación y valor), lo que facilita la detección de colores específicos en condiciones de iluminación cambiantes.
@@ -61,7 +61,7 @@ mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
 mask = cv2.bitwise_or(mask1, mask2)
 ```
 
-![Mask Image](images/mask.jpeg)
+![Mask Image](../images/mask.jpeg)
 
 
 #### Filtrado Morfológico
@@ -87,7 +87,7 @@ contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 Aquí se utiliza `cv2.RETR_EXTERNAL` para detectar solo los contornos externos, ya que la línea roja es el contorno principal que queremos rastrear.
 
 
-![Countor Image](images/countors.jpeg)
+![Countor Image](../images/countors.jpeg)
 
 ### 2.3. Cálculo del Centro de la Línea
 
@@ -102,7 +102,7 @@ cY = int(M["m01"] / M["m00"])
 
 El cálculo del centro de la línea `(cX, cY)` es crucial para determinar la dirección en la que el robot debe moverse.
 
-![Center Image](/images/center.jpeg)
+![Center Image](../images/center.jpeg)
 
 ### 2.4. Control PID para Seguimiento de la Línea
 
