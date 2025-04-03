@@ -1,149 +1,254 @@
-/* --- General --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Variables de color para verde sage */
+:root {
+  --greenSage: #A8CBB9;
+  --greenSageDark: #6B8C63;
+  --greenSageLight: #E0E8D3;
+  --greenSageDarker: #3A4C40;
+  --greenAccent: #7D9A75;
+  --white: #ffffff;
+  --darkGray: #333333;
+  --gray: #777777;
+  --blue: #007BFF;
+  --helvetica: 'Helvetica', sans-serif;
+  --helveticaNeue: 'Helvetica Neue', sans-serif;
+  --lightGreen: #f3f9f3; /* Fondo suave más claro */
+}
+
+/* BASE RULES */
+html {
+  font-size: 100%;
 }
 
 body {
-  font-family: 'Helvetica', sans-serif;
-  background-color: #e5f1e5;
+  background: var(--lightGreen); /* Fondo muy suave, casi blanco con un toque verde */
+  font: 18px/1.6 var(--helvetica);
+  color: var(--greenSageDarker); /* Texto en verde oscuro para contraste */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 0 10px;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: var(--helveticaNeue);
+  color: var(--greenSageDark); /* Encabezados en verde más oscuro */
+  font-weight: bold;
+  line-height: 1.7;
+  margin: 1em 0 15px;
+  padding: 0;
 }
 
-/* --- Header (Encabezado) --- */
-header {
-  background-color: #A8CBB9; /* Fondo verde claro */
-  padding: 20px;
-  border-bottom: 1px solid #B8D7B5;
+h1 {
+  font-size: 30px;
+  a {
+    color: inherit;
+  }
 }
 
-header .site-info {
-  display: flex;
-  align-items: center;
+h2 {
+  font-size: 24px;
 }
 
-.site-avatar {
-  border-radius: 50%;
-  margin-right: 20px;
+h3 {
+  font-size: 20px;
 }
 
-.site-name {
-  color: #3A4C40; /* Color de texto para el nombre */
-  font-size: 28px;
-  font-weight: 300;
-}
-
-.site-description {
-  color: #7D9A75;
-  font-size: 16px;
-}
-
-/* --- Navigation (Navegación) --- */
-nav {
-  float: right;
-  margin-top: 25px;
-}
-
-nav a {
-  color: #3A4C40;
+h4 {
   font-size: 18px;
-  margin-left: 20px;
+  color: var(--greenSage); /* Un verde suave para h4 */
+}
+
+p {
+  margin: 15px 0;
+}
+
+a {
+  color: var(--greenAccent); /* Enlaces en verde suave */
   text-decoration: none;
-  letter-spacing: 1px;
+  cursor: pointer;
+  &:hover, &:active {
+    color: var(--greenSageDark); /* Enlaces en verde más oscuro al hacer hover */
+  }
 }
 
-nav a:hover {
-  color: #A8CBB9;
+ul, ol {
+  margin: 15px 0;
+  padding-left: 30px;
 }
 
-/* --- Main Content (Contenido Principal) --- */
-main {
-  margin-top: 50px;
+ul {
+  list-style-type: disc;
 }
 
-.posts {
-  margin-top: 30px;
+ol {
+  list-style-type: decimal;
 }
 
-.post {
-  background-color: white;
-  border: 2px solid #A8CBB9;
+ol ul, ul ol, ul ul, ol ol {
+  margin: 0;
+}
+
+ul ul, ol ul {
+  list-style-type: circle;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+.gmnoprint img {
+  max-width: none;
+}
+
+.date {
+  font-style: italic;
+  color: var(--greenSage); /* Fecha en verde suave */
+}
+
+::-moz-selection {
+  color: var(--greenSageDark);
+  background: var(--greenSageLight);
+}
+
+::selection {
+  color: var(--greenSageDark);
+  background: var(--greenSageLight);
+}
+
+/* LAYOUT / SECTIONS */
+
+.wrapper-masthead {
+  margin-bottom: 50px;
   padding: 20px;
-  margin-bottom: 20px;
+  background-color: var(--white); /* Fondo blanco en la cabecera */
+  border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.post h2 {
-  color: #3A4C40;
+.masthead {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
 }
 
-.post p {
-  color: #7D9A75;
-  line-height: 1.6;
+.site-avatar {
+  float: left;
+  width: 70px;
+  height: 70px;
+  margin-right: 15px;
+
+  img {
+    width: 70px;  /* Tamaño del avatar ajustado */
+    height: 70px; /* Tamaño del avatar ajustado */
+    border-radius: 50%; /* Para darle forma circular */
+  }
+}
+
+.site-info {
+  float: left;
+}
+
+.site-name {
+  margin: 0;
+  color: var(--greenSageDarker); /* Nombre del sitio en verde más oscuro */
+  cursor: pointer;
+  font-family: var(--helveticaNeue);
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.site-description {
+  margin: -5px 0 0 0;
+  color: var(--greenSage); /* Descripción en verde suave */
+  font-size: 16px;
+}
+
+nav {
+  float: right;
+  margin-top: 23px;
+  font-family: var(--helveticaNeue);
+  font-size: 18px;
+
+  a {
+    margin-left: 20px;
+    color: var(--greenSageDarker);
+    text-align: right;
+    font-weight: 300;
+    letter-spacing: 1px;
+
+    &:hover {
+      color: var(--greenAccent); /* Hover en verde más suave */
+    }
+  }
+}
+
+/* --- Posts --- */
+.posts > .post {
+  padding: 20px;
+  background-color: var(--white); /* Fondo blanco para los posts */
+  border: 2px solid var(--greenSageLight); /* Borde verde claro */
+  margin-bottom: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.posts > .post:last-child {
+  margin-bottom: 0;
+}
+
+.post h2 {
+  color: var(--greenSageDarker); /* Color para los títulos de los posts */
 }
 
 .read-more {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 10px 20px;
-  background-color: #3A4C40;
-  color: white;
-  text-decoration: none;
+  background-color: var(--greenSage);
+  color: var(--white);
+  text-align: center;
   border-radius: 5px;
   font-weight: bold;
-}
-
-.read-more:hover {
-  background-color: #6B8C63;
-}
-
-/* --- Footer (Pie de Página) --- */
-footer {
-  background-color: #A8CBB9;
-  padding: 20px;
-  text-align: center;
-  color: white;
-}
-
-/* --- Buttons --- */
-.button, a.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #A8CBB9;
-  color: white;
-  text-align: center;
-  border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-.button:hover, a.button:hover {
-  background-color: #6B8C63;
+.read-more:hover {
+  background-color: var(--greenSageDark); /* Hover en verde más oscuro */
 }
 
-/* --- Responsive Design --- */
-@media screen and (max-width: 768px) {
-  header {
-    padding: 10px;
-  }
+/* --- Footer (Pie de Página) --- */
+footer {
+  background-color: var(--greenSageLight);
+  padding: 20px 0;
+  text-align: center;
+}
 
-  .site-name {
-    font-size: 24px;
-  }
+/* --- Estilo para los botones --- */
+.button, a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--greenSage);
+  color: var(--white);
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 
-  .site-description {
-    font-size: 14px;
-  }
-
-  .post {
-    padding: 15px;
-  }
-
-  .read-more {
-    padding: 8px 15px;
+  &:hover {
+    background-color: var(--greenSageDark);  /* Hover con verde más oscuro */
   }
 }
