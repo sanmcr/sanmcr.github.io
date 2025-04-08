@@ -262,12 +262,64 @@ footer {
     height: 250px; /* Ajusta la altura según lo necesites */
     overflow: hidden;
     margin-bottom: 15px;
+    border-radius: 12px; /* Bordes redondeados para un look más suave */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
 }
 
 .post-thumbnail img {
     width: 100%;
-    height: 100%; /* Asegura que la imagen ocupe todo el espacio disponible */
-    object-fit: cover; /* La imagen cubre todo el espacio sin deformarse */
-    object-position: top center; /* Centra la imagen en la parte superior */
-    border-radius: 8px; /* Bordes redondeados */
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Centra la imagen */
+    border-radius: 12px; /* Bordes redondeados */
+}
+
+/* Estilo para los posts */
+.post {
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 15px; /* Bordes más suaves */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    margin-bottom: 30px;
+}
+
+/* Título del post */
+.post h1 {
+    font-size: 28px;
+    color: var(--greenSageDarker); /* Título en verde oscuro */
+    font-family: 'Montserrat', sans-serif; /* Cambiar a una tipografía más moderna */
+    margin-bottom: 10px;
+}
+
+/* Subtítulo "Follow Line" */
+.post h1 a {
+    color: #FF6347; /* Un color cálido, por ejemplo, tomate */
+    font-size: 22px; /* Tamaño menor que el título */
+    font-weight: 400; /* Un poco más ligero */
+}
+
+/* Texto de la entrada (subtítulo) */
+.entry {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--greenSage);
+    margin-bottom: 20px;
+}
+
+/* Botón "Read More" */
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--greenSage);
+    color: var(--white);
+    text-align: center;
+    border-radius: 25px; /* Bordes del botón más redondeados */
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: var(--greenSageDark); /* Hover con verde más oscuro */
 }
