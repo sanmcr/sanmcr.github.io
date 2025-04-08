@@ -128,11 +128,10 @@ img {
   background: var(--greenSageLight);
 }
 
-
 /* --- Cabecera --- */
 header {
     background-color: #d8e7dc; /* Fondo suave y claro */
-    padding: 30px 20px; /* Ajustar el padding para más espacio */
+    padding: 20px 20px; /* Ajustar el padding para más espacio */
     text-align: left; /* Alineación a la izquierda */
     border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -157,7 +156,7 @@ header .site-avatar {
 .site-name {
     font-family: 'Helvetica', sans-serif;
     font-size: 28px; /* Tamaño adecuado */
-    color: var(--greenSageDarker); /* Un verde suave para el nombre */
+    color: #000000; /* Nombre en color negro */
     font-weight: 700;
     letter-spacing: 1px; /* Más espaciado entre las letras para dar elegancia */
     margin-bottom: 10px;
@@ -177,7 +176,7 @@ header .site-avatar {
 /* Enlaces de la cabecera */
 nav a {
     color: var(--greenSageDarker); /* Enlaces en verde oscuro */
-    font-size: 18px; /* Tamaño mediano */
+    font-size: 18px; /* Tamaño moderado */
     font-family: 'Helvetica', sans-serif;
     text-decoration: none;
     margin: 0 10px;
@@ -204,25 +203,22 @@ nav a:hover {
     transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
 }
 
-
 /* --- Posts --- */
 .posts > .post {
   padding: 20px;
   background-color: var(--white); /* Fondo blanco para los posts */
-  border: 2px solid var(--greenSageLight); /* Borde verde claro */
+  border: 2px solid #d8e7dc; /* Usar el mismo color de la cabecera para el borde */
   margin-bottom: 20px;
-  border-radius: 12px; /* Bordes redondeados más marcados */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
+/* Para el último post */
 .posts > .post:last-child {
   margin-bottom: 0;
 }
 
-.post h2 {
-  color: var(--greenSageDarker); /* Color para los títulos de los posts */
-}
-
+/* --- Botón "Read More" --- */
 .read-more {
   display: inline-block;
   margin-top: 15px;
@@ -282,59 +278,3 @@ footer {
     border-radius: 15px; /* Bordes redondeados */
 }
 
-/* --- Estilo para los posts --- */
-.posts > .post {
-    padding: 20px;
-    background-color: var(--white); /* Fondo blanco para los posts */
-    border: 2px solid #d8e7dc; /* Usar el mismo color de la cabecera para el borde */
-    margin-bottom: 20px;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-/* Para el último post */
-.posts > .post:last-child {
-    margin-bottom: 0;
-}
-
-/* Título del post */
-.post h1 {
-    font-size: 28px;
-    color: var(--greenSageDarker); /* Título en verde oscuro */
-    font-family: 'Helvetica', sans-serif; /* Fuente común para el resto de la página */
-    margin-bottom: 10px;
-}
-
-/* Subtítulo "Follow Line" */
-.post h1 a {
-    color: var(--greenSage); /* Color verde */
-    font-size: 36px; /* Hacerlo más grande que el título */
-    font-family: 'Helvetica', sans-serif; /* Usar la misma tipografía que el resto */
-    font-weight: 600; /* Negrita moderada */
-}
-
-/* Texto de la entrada (subtítulo) */
-.entry {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--greenSage);
-    margin-bottom: 20px;
-}
-
-/* Botón "Read More" */
-.read-more {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: var(--greenSage);
-    color: var(--white);
-    text-align: center;
-    border-radius: 25px; /* Bordes del botón más redondeados */
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.read-more:hover {
-    background-color: var(--greenSageDark); /* Hover con verde más oscuro */
-}
