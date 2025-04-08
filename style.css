@@ -128,6 +128,7 @@ img {
   background: var(--greenSageLight);
 }
 
+
 /* --- Cabecera --- */
 header {
     background-color: #d8e7dc; /* Fondo suave y claro */
@@ -136,14 +137,14 @@ header {
     border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
     margin-bottom: 30px;
-    background-image: url('https://www.transparenttextures.com/patterns/abstract-squares.png'); /* Añadir patrón de fondo */
-    background-size: cover; /* Asegura que el patrón cubra todo el fondo */
+    max-width: 700px; /* Hacer la cabecera más estrecha */
+    margin: 0 auto; /* Centrar la cabecera */
 }
 
 /* Estilo para la imagen de VR VISION ROBÓTICA (Avatar) */
 header .site-avatar {
-    width: 80px; /* Tamaño reducido de la imagen */
-    height: 80px;
+    width: 60px; /* Tamaño reducido de la imagen */
+    height: 60px;
     margin-right: 20px; /* Espacio entre la imagen y el texto */
     border-radius: 50%; /* Redondear la imagen */
     border: 4px solid var(--white); /* Borde blanco alrededor */
@@ -277,4 +278,3 @@ footer {
     object-position: center; /* Centra la imagen */
     border-radius: 15px; /* Bordes redondeados */
 }
-
