@@ -251,7 +251,7 @@ nav a:hover {
   display: inline-block;
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: #000000; /* Fondo negro, el mismo que el nombre */
+  background-color: (--greenSage); /* Fondo negro, el mismo que el nombre */
   color: var(--white); /* El color del texto sigue siendo blanco */
   text-align: center;
   border-radius: 25px; /* Bordes redondeados */
