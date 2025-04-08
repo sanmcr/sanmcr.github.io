@@ -130,63 +130,54 @@ img {
 
 /* --- Cabecera --- */
 header {
-    background-color: var(--greenSageLight); /* Fondo suave claro */
-    padding: 30px 20px;
+    background-color: var(--greenSageLight); /* Fondo más suave y claro */
+    padding: 40px 20px;
     text-align: center;
     border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
-    margin-bottom: 30px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 40px;
 }
 
-/* Estilo para el texto de "VR VISION ROBÓTICA" */
-header h1 {
-    font-size: 3rem; /* Tamaño más pequeño para ajustarse mejor */
-    color: var(--greenSageDark); /* Color más oscuro y suave */
-    font-weight: 700; /* Negrita */
-    letter-spacing: 2px; /* Espaciado entre letras */
-    line-height: 1.2; /* Ajuste de altura de línea */
-    margin: 0; /* Eliminar márgenes */
-    text-transform: uppercase; /* Asegura que todo esté en mayúsculas */
-}
-
-/* Estilo del avatar */
-.site-avatar {
-    width: 120px; /* Aumentar el tamaño del avatar */
-    height: 120px;
+/* Estilo para la imagen de VR VISION ROBÓTICA (Avatar) */
+header .site-avatar {
+    width: 100px; /* Hacer la imagen más pequeña */
+    height: 100px;
     margin: 0 auto 15px auto; /* Centrado y margen abajo */
-    border-radius: 50%; /* Hacer el avatar redondo */
-    border: 4px solid var(--white); /* Borde blanco alrededor del avatar */
-    overflow: hidden; /* Asegura que la imagen no sobresalga del borde */
+    border-radius: 50%; /* Redondear la imagen */
+    border: 4px solid var(--white); /* Borde blanco alrededor */
+    overflow: hidden; /* Asegura que la imagen no sobresalga */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-.site-avatar img {
+header .site-avatar img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen no se distorsione */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien */
 }
 
 /* Nombre del sitio */
 .site-name {
     font-family: 'Helvetica', sans-serif;
-    font-size: 36px; /* Tamaño grande para el nombre */
-    color: var(--greenSageDarker); /* Color oscuro */
-    font-weight: 700; /* Negrita para destacar */
-    letter-spacing: 1px;
+    font-size: 28px; /* Tamaño más pequeño para ajustarse mejor */
+    color: var(--greenSageDarker); /* Un verde suave para el nombre */
+    font-weight: 700; /* Negrita */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    margin-bottom: 10px;
 }
 
 /* Descripción del sitio */
 .site-description {
     font-family: 'Helvetica', sans-serif;
-    font-size: 18px; /* Tamaño más pequeño para la descripción */
-    color: var(--greenSage); /* Blanco para la descripción */
+    font-size: 16px; /* Tamaño más pequeño */
+    color: var(--greenSage); /* Descripción en un verde suave */
     margin-top: 10px;
-    font-weight: 300; /* Ligero para la descripción */
+    font-weight: 300; /* Ligero para una sensación delicada */
 }
 
 /* Enlaces de la cabecera */
 nav a {
-    color: var(--greenSageDarker); /* Blanco para los enlaces */
-    font-size: 18px; /* Tamaño mediano para los enlaces */
+    color: var(--greenSageDarker); /* Enlaces en verde oscuro */
+    font-size: 18px; /* Tamaño moderado */
     font-family: 'Helvetica', sans-serif;
     text-decoration: none;
     margin: 0 10px;
@@ -196,6 +187,9 @@ nav a {
 nav a:hover {
     color: #FF6347; /* Un color más cálido para el hover */
 }
+
+
+
 
 /* --- Posts --- */
 .posts > .post {
