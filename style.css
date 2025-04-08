@@ -282,15 +282,19 @@ footer {
     border-radius: 15px; /* Bordes redondeados */
 }
 
-/* Estilo para los posts */
-.post {
+/* --- Estilo para los posts --- */
+.posts > .post {
     padding: 20px;
-    background-color: var(--white);
-    border-radius: 15px; /* Bordes más suaves y uniformes */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
-    margin-bottom: 30px;
-    border: none; /* Asegura que no haya borde verde ni en el post */
-    background-color: var(--white); /* Fondo blanco limpio */
+    background-color: var(--white); /* Fondo blanco para los posts */
+    border: 2px solid #d8e7dc; /* Usar el mismo color de la cabecera para el borde */
+    margin-bottom: 20px;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Para el último post */
+.posts > .post:last-child {
+    margin-bottom: 0;
 }
 
 /* Título del post */
