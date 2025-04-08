@@ -23,13 +23,17 @@ html {
   font-size: 100%;
 }
 
+/* Fondo general con patrón de puntos */
 body {
-  background: var(--lightGreen); /* Fondo muy suave, casi blanco con un toque verde */
+  background: var(--lightGreen);
+  background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png'); /* Ejemplo de patrón */
+  background-repeat: repeat; /* Repite el patrón */
   font: 18px/1.6 var(--helvetica);
-  color: var(--greenSageDarker); /* Texto en verde oscuro para contraste */
+  color: var(--greenSageDarker);
   margin: 0;
   padding: 0;
 }
+
 
 .container {
   margin: 0 auto;
