@@ -377,3 +377,27 @@ footer {
     border-radius: 15px; /* Bordes redondeados */
 }
 
+/* Página About: Fuente Open Sans y fondo */
+.page-about {
+    font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
+    background-image: url('https://www.example.com/your-image.jpg'); /* URL de tu imagen */
+    background-size: cover; /* La imagen cubre todo el fondo */
+    background-position: center center; /* Centra la imagen */
+    background-attachment: fixed; /* Fija el fondo mientras se hace scroll */
+    padding: 40px 20px; /* Espaciado alrededor del contenido */
+    color: var(--greenSageDarker); /* Color de texto */
+}
+
+/* Estilo para los encabezados y párrafos en About */
+.page-about h1, .page-about h2 {
+    font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
+    color: var(--greenSageDark); /* Color para los encabezados */
+}
+
+.page-about p {
+    font-size: 18px; /* Tamaño de fuente para los párrafos */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: var(--greenSageDarker); /* Color del texto */
+}
+
+
