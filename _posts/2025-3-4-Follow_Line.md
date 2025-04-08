@@ -3,6 +3,7 @@ layout: post
 title: Follow Line
 date: 2025-03-04
 image: /images/cochecito.png
+thumbnail: "/images/ cochecito.png" 
 ---
 
 
