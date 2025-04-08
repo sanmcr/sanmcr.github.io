@@ -174,6 +174,7 @@ header .site-avatar {
     letter-spacing: 0.5px; /* Ligero espaciado para un look más moderno */
 }
 
+
 /* Enlaces de la cabecera */
 nav a {
     color: var(--greenSageDarker); /* Enlaces en verde oscuro */
@@ -182,12 +183,32 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
+    position: relative; /* Necesario para colocar la línea */
+}
+
+/* Línea encima del enlace */
+nav a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--greenAccent); /* Usar el verde como color de la línea */
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    transform: scaleX(1); /* Aparece la línea al hacer hover */
 }
 
 nav a:hover {
     color: #FF6347; /* Un color cálido para el hover */
     text-decoration: underline; /* Subrayado al pasar el ratón */
+    transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
 }
+
 
 /* Efecto de borde inferior en la cabecera */
 header .site-info {
