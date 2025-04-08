@@ -390,7 +390,7 @@ footer {
 
 /* Estilos para la imagen en la página About */
 .page-about .about-image {
-    width: 50%; /* La imagen ocupa el 50% del ancho del contenedor */
+    width: 30%; /* La imagen ocupa el 50% del ancho del contenedor */
     height: auto; /* Mantiene las proporciones */
     border-radius: 10px; /* Bordes ligeramente redondeados */
     border: 2px solid var(--greenAccent); /* Borde más fino con color verde */
