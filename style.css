@@ -262,7 +262,7 @@ footer {
     height: 250px; /* Ajusta la altura según lo necesites */
     overflow: hidden;
     margin-bottom: 15px;
-    border-radius: 12px; /* Bordes redondeados para un look más suave */
+    border-radius: 15px; /* Bordes redondeados para un look más suave */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
 }
 
@@ -271,29 +271,30 @@ footer {
     height: 100%;
     object-fit: cover;
     object-position: center; /* Centra la imagen */
-    border-radius: 12px; /* Bordes redondeados */
+    border-radius: 15px; /* Bordes redondeados */
 }
 
 /* Estilo para los posts */
 .post {
     padding: 20px;
     background-color: var(--white);
-    border-radius: 15px; /* Bordes más suaves */
+    border-radius: 15px; /* Bordes más suaves y uniformes */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
     margin-bottom: 30px;
+    border: 2px solid var(--greenSage); /* Bordes uniformes */
 }
 
 /* Título del post */
 .post h1 {
     font-size: 28px;
     color: var(--greenSageDarker); /* Título en verde oscuro */
-    font-family: 'Montserrat', sans-serif; /* Cambiar a una tipografía más moderna */
+    font-family: 'Lora', serif; /* Tipografía más elegante */
     margin-bottom: 10px;
 }
 
 /* Subtítulo "Follow Line" */
 .post h1 a {
-    color: #FF6347; /* Un color cálido, por ejemplo, tomate */
+    color: var(--greenSage); /* Cambio a verde para el subtítulo */
     font-size: 22px; /* Tamaño menor que el título */
     font-weight: 400; /* Un poco más ligero */
 }
