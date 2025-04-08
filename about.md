@@ -9,7 +9,7 @@ permalink: /about/
     <p>Some information about you!</p>
 
     <!-- Insertar una imagen dentro de la página About -->
-    <img src="/images/robotito.png".>
+    <img src="/images/robotito.png">
 
     <h2>More Information</h2>
     <p>A place to include any other types of information that you'd like to include about yourself.</p>
