@@ -281,7 +281,7 @@ footer {
     border-radius: 15px; /* Bordes más suaves y uniformes */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
     margin-bottom: 30px;
-    border: 2px solid var(--greenSage); /* Bordes uniformes */
+    border: none; /* Elimina el borde inferior */
 }
 
 /* Título del post */
@@ -295,8 +295,9 @@ footer {
 /* Subtítulo "Follow Line" */
 .post h1 a {
     color: var(--greenSage); /* Cambio a verde para el subtítulo */
-    font-size: 22px; /* Tamaño menor que el título */
-    font-weight: 400; /* Un poco más ligero */
+    font-size: 36px; /* Hacerlo más grande que el título */
+    font-family: 'Playfair Display', serif; /* Elegante tipografía serif */
+    font-weight: 700; /* Un poco más pesado */
 }
 
 /* Texto de la entrada (subtítulo) */
