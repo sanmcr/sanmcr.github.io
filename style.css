@@ -390,13 +390,19 @@ footer {
 
 /* Estilos para la imagen en la página About */
 .page-about .about-image {
-    width: 100px; /* Tamaño de la imagen (ajusta como desees) */
-    height: 100px; /* Mantenerla cuadrada */
-    border-radius: 50%; /* Hacer la imagen redonda */
-    border: 4px solid var(--greenAccent); /* Borde con el color verde */
+    width: 50%; /* La imagen ocupa el 50% del ancho del contenedor */
+    height: auto; /* Mantiene las proporciones */
+    border-radius: 10px; /* Bordes ligeramente redondeados */
+    border: 2px solid var(--greenAccent); /* Borde más fino con color verde */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
     float: left; /* Alinear la imagen a la izquierda */
     margin-right: 20px; /* Espacio a la derecha de la imagen para separar el texto */
     margin-bottom: 20px; /* Espacio debajo de la imagen para separarla del contenido */
 }
 
+/* Estilo para la página About: Alinear el texto a la derecha de la imagen */
+.page-about h1, 
+.page-about p, 
+.page-about h2 {
+    overflow: hidden; /* Asegura que el texto fluya bien a la derecha de la imagen */
+}
