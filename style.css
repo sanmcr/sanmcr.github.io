@@ -10,11 +10,13 @@
   --gray: #777777;
   --blue: #007BFF;
   --helvetica: 'Helvetica', sans-serif;
-  --lightGreen: #f3f9f3;
+  --helveticaNeue: 'Helvetica Neue', sans-serif;
+  --lightGreen: #f3f9f3; /* Fondo suave más claro */
 }
 
 /* Importar fuentes de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Nunito:wght@400&display=swap');
+
 
 /* BASE RULES */
 html {
@@ -22,9 +24,9 @@ html {
 }
 
 body {
-  background: var(--lightGreen);
+  background: var(--lightGreen); /* Fondo muy suave, casi blanco con un toque verde */
   font: 18px/1.6 var(--helvetica);
-  color: var(--greenSageDarker);
+  color: var(--greenSageDarker); /* Texto en verde oscuro para contraste */
   margin: 0;
   padding: 0;
 }
@@ -37,138 +39,250 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--helvetica);
-  color: var(--greenSageDark);
+  font-family: var(--helveticaNeue);
+  color: var(--greenSageDark); /* Encabezados en verde más oscuro */
   font-weight: bold;
   line-height: 1.7;
   margin: 1em 0 15px;
   padding: 0;
 }
 
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+  color: var(--greenSage); /* Un verde suave para h4 */
+}
+
+p {
+  margin: 15px 0;
+}
+
 a {
-  color: var(--greenAccent);
+  color: var(--greenAccent); /* Enlaces en verde suave */
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-a:hover {
+a:hover, a:active {
+  color: var(--greenSageDark); /* Enlaces en verde más oscuro al hacer hover */
+  transform: scale(1.05); /* Efecto de ampliación suave */
+}
+
+ul, ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ul, ul ol, ul ul, ol ol {
+  margin: 0;
+}
+
+ul ul, ol ul {
+  list-style-type: circle;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+.gmnoprint img {
+  max-width: none;
+}
+
+.date {
+  font-style: italic;
+  color: var(--greenSage); /* Fecha en verde suave */
+}
+
+::-moz-selection {
   color: var(--greenSageDark);
-  transform: scale(1.05);
+  background: var(--greenSageLight);
 }
 
-/* --- Enlaces --- */
-nav a {
-  color: var(--greenSageDarker);
-  font-size: 18px;
-  font-family: var(--helvetica);
-  text-decoration: none;
-  margin: 0 10px;
-  position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-nav a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: var(--greenAccent);
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-nav a:hover::before {
-  transform: scaleX(1);
-}
-
-nav a:hover {
-  color: #FF6347;
-  text-decoration: underline;
-  transform: scale(1.05);
+::selection {
+  color: var(--greenSageDark);
+  background: var(--greenSageLight);
 }
 
 /* --- Cabecera --- */
 header {
-  background-color: #d8e7dc;
-  padding: 15px 20px;
-  text-align: left;
-  border-radius: 15px;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-  background-image: url('https://www.transparenttextures.com/patterns/abstract-squares.png');
-  background-size: cover;
+    background-color: #d8e7dc; /* Fondo suave y claro */
+    padding: 15px 20px; /* Reducir el padding para hacerla más estrecha */
+    text-align: left; /* Alineación a la izquierda */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 30px; /* Deja un espacio entre la cabecera y el post */
+    background-image: url('https://www.transparenttextures.com/patterns/abstract-squares.png'); /* Añadir patrón de fondo */
+    background-size: cover; /* Asegura que el patrón cubra todo el fondo */
 }
 
+/* Estilo para la imagen de VR VISION ROBÓTICA (Avatar) */
 header .site-avatar {
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
-  border-radius: 50%;
-  border: 4px solid var(--greenAccent);
-  overflow: hidden;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  float: left;
-  transition: all 0.3s ease;
+    width: 80px; /* Tamaño reducido de la imagen */
+    height: 80px;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+    border-radius: 50%; /* Redondear la imagen */
+    border: 4px solid var(--greenAccent); /* Borde suave en color verde */
+    overflow: hidden; /* Asegura que la imagen no sobresalga */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    float: left; /* Alineación a la izquierda */
+    transition: all 0.3s ease; /* Transición suave para efectos de hover */
 }
 
+/* Efecto cuando el ratón pasa por encima */
 header .site-avatar:hover {
-  border: 4px solid var(--greenSageDark);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+    border: 4px solid var(--greenSageDark); /* Cambio de color del borde a un verde más oscuro */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Aumentar la sombra para dar profundidad */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al hacer hover */
 }
 
-/* Títulos */
+
+
+/* Título y nombre */
 .site-name {
-  font-family: 'Helvetica', sans-serif;
-  font-size: 28px;
-  color: #000000;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 28px; /* Tamaño adecuado */
+    color: #000000; /* Nombre en color negro */
+    font-weight: 700;
+    letter-spacing: 1px; /* Más espaciado entre las letras para dar elegancia */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Convertir en mayúsculas para un toque moderno */
 }
 
+/* Descripción */
 .site-description {
-  font-family: 'Helvetica', sans-serif;
-  font-size: 16px;
-  color: #000000;
-  margin-top: 10px;
-  font-weight: 300;
-  letter-spacing: 0.5px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px; /* Tamaño pequeño */
+    color: #000000; /* Descripción en un verde suave */
+    margin-top: 10px;
+    font-weight: 300;
+    letter-spacing: 0.5px; /* Ligero espaciado para un look más moderno */
+}
+
+
+/* Enlaces de la cabecera */
+nav a {
+    color: var(--greenSageDarker); /* Enlaces en verde oscuro */
+    font-size: 18px; /* Tamaño moderado */
+    font-family: 'Helvetica', sans-serif;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    position: relative; /* Necesario para colocar la línea */
+}
+
+/* Línea encima del enlace */
+nav a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--greenAccent); /* Usar el verde como color de la línea */
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    transform: scaleX(1); /* Aparece la línea al hacer hover */
+}
+
+nav a:hover {
+    color: #FF6347; /* Un color cálido para el hover */
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+    transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
+}
+
+
+/* Efecto de borde inferior en la cabecera */
+header .site-info {
+    border-bottom: 2px solid var(--greenAccent); /* Añadir un borde inferior decorativo */
+    padding-bottom: 10px;
+}
+
+/* Estilo de sombra para los enlaces de la cabecera */
+nav a {
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
 }
 
 /* --- Post --- */
 .posts > .post {
   padding: 20px;
-  background-color: var(--white);
-  border: 2px solid #d8e7dc;
+  background-color: var(--white); /* Fondo blanco para los posts */
+  border: 2px solid #d8e7dc; /* Usar el mismo color de la cabecera para el borde */
   margin-bottom: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  margin-top: 20px; /* Espacio entre el post y la cabecera */
 }
 
+/* Para el último post */
+.posts > .post:last-child {
+  margin-bottom: 0;
+}
+
+/* Título del post "Follow Line" */
 .post h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 36px;
-  color: #000000;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: 0.5px;
-  text-transform: capitalize;
+    font-family: 'Poppins', sans-serif; /* Fuente moderna y redondeada */
+    font-size: 36px; /* Tamaño más grande */
+    color: #000000; /* Color negro */
+    font-weight: 700; /* Peso en negrita */
+    margin-bottom: 10px;
+    letter-spacing: 0.5px; /* Espaciado entre letras para mayor claridad */
+    text-transform: capitalize; /* Primera letra de cada palabra en mayúscula */
 }
 
+/* Subtítulo "Reporte: Implementación..." */
 .post h2 {
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  color: var(--greenSage);
-  font-weight: 400;
-  margin-bottom: 10px;
+    font-family: 'Nunito', sans-serif; /* Fuente redondeada y suave */
+    font-size: 20px; /* Tamaño más pequeño */
+    color: var(--greenSage); /* Color verde suave */
+    font-weight: 400; /* Peso de fuente normal */
+    margin-bottom: 10px;
+    line-height: 1.6; /* Mejor interlineado para legibilidad */
+    letter-spacing: 0.3px; /* Ligero espaciado entre letras */
+}
+
+
+/* Texto de la entrada (subtítulo) */
+.entry {
+  font-size: 16px;
   line-height: 1.6;
-  letter-spacing: 0.3px;
+  color: var(--greenSage);
+  margin-bottom: 20px;
 }
 
 /* Botón "Read More" */
@@ -176,22 +290,60 @@ header .site-avatar:hover {
   display: inline-block;
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: var(--greenSage);
-  color: var(--white);
+  background-color: var(--greenSage); /* Corregido para usar la variable de color */
+  color: var(--white); /* El color del texto sigue siendo blanco */
   text-align: center;
-  border-radius: 25px;
+  border-radius: 25px; /* Bordes redondeados */
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
+/* Hover del botón */
 .read-more:hover {
-  background-color: var(--greenSageDark);
+  background-color: var(--greenSageDark); /* Hover con verde más oscuro */
 }
 
-/* Footer */
+
+/* --- Footer (Pie de Página) --- */
 footer {
   background-color: var(--greenSageLight);
   padding: 20px 0;
   text-align: center;
 }
+
+/* --- Estilo para los botones --- */
+.button, a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--greenSage);
+  color: var(--white);
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--greenSageDark);  /* Hover con verde más oscuro */
+  }
+}
+
+/* Estilo para las miniaturas de los posts */
+.post-thumbnail {
+    width: 100%;
+    height: 250px; /* Ajusta la altura según lo necesites */
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 15px; /* Bordes redondeados para un look más suave */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    border: none; /* Asegura que no haya borde */
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Centra la imagen */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
