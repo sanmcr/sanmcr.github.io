@@ -222,7 +222,7 @@ nav a:hover {
 
 /* Título del post "Follow Line" */
 .post h1 {
-    font-size: 40px; /* Aumentar el tamaño */
+    font-size: 32px; /* Ajusta el tamaño */
     color: #000000; /* Color negro */
     font-family: 'Helvetica', sans-serif; /* Fuente común para el resto de la página */
     margin-bottom: 10px;
