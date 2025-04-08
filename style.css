@@ -131,8 +131,8 @@ img {
 
 /* --- Cabecera --- */
 header {
-    background-color: var(--greenSageLight); /* Fondo más suave y claro */
-    padding: 40px 20px;
+    background-color: #A8CBB9; /* Nuevo color suave con más contraste */
+    padding: 20px 20px; /* Reducir el padding para hacer la cabecera más pequeña */
     text-align: left; /* Alineación a la izquierda */
     border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -141,7 +141,7 @@ header {
 
 /* Estilo para la imagen de VR VISION ROBÓTICA (Avatar) */
 header .site-avatar {
-    width: 80px; /* Reducir tamaño de la imagen */
+    width: 80px; /* Tamaño más pequeño de la imagen */
     height: 80px;
     margin-right: 20px; /* Espacio entre la imagen y el texto */
     border-radius: 50%; /* Redondear la imagen */
@@ -160,7 +160,7 @@ header .site-avatar img {
 /* Nombre del sitio */
 .site-name {
     font-family: 'Helvetica', sans-serif;
-    font-size: 28px; /* Tamaño ajustado */
+    font-size: 28px; /* Tamaño más pequeño para ajustarse mejor */
     color: var(--greenSageDarker); /* Un verde suave para el nombre */
     font-weight: 700; /* Negrita */
     letter-spacing: 0.5px; /* Espaciado entre letras */
@@ -189,7 +189,6 @@ nav a {
 nav a:hover {
     color: #FF6347; /* Un color más cálido para el hover */
 }
-
 
 
 /* --- Posts --- */
