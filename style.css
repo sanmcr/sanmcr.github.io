@@ -12,7 +12,7 @@
   --helvetica: 'Helvetica', sans-serif;
   --helveticaNeue: 'Helvetica Neue', sans-serif;
   --lightGreen: #f3f9f3; /* Fondo suave más claro */
-  --hoverEffect: rgba(0,0,0,0.1);
+  --buttonHover: #6B8C63;
 }
 
 /* BASE RULES */
@@ -35,178 +35,79 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--helveticaNeue);
-  color: var(--greenSageDark); /* Encabezados en verde más oscuro */
-  font-weight: bold;
-  line-height: 1.7;
-  margin: 1em 0 15px;
-  padding: 0;
-}
-
-h1 {
-  font-size: 30px;
-  a {
-    color: inherit;
-  }
-}
-
-h2 {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 18px;
-  color: var(--greenSage); /* Un verde suave para h4 */
-}
-
-p {
-  margin: 15px 0;
-}
-
-a {
-  color: var(--greenAccent); /* Enlaces en verde suave */
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-a:hover, a:active {
-  color: var(--greenSageDark); /* Enlaces en verde más oscuro al hacer hover */
-  transform: scale(1.05); /* Efecto de ampliación suave */
-}
-
-ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
-}
-
-ul ul, ol ul {
-  list-style-type: circle;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
-}
-
-img {
-  max-width: 100%;
-}
-
-.gmnoprint img {
-  max-width: none;
-}
-
-.date {
-  font-style: italic;
-  color: var(--greenSage); /* Fecha en verde suave */
-}
-
-::-moz-selection {
-  color: var(--greenSageDark);
-  background: var(--greenSageLight);
-}
-
-::selection {
-  color: var(--greenSageDark);
-  background: var(--greenSageLight);
-}
-
-/* LAYOUT / SECTIONS */
-
+/* NUEVO FORMATO DE CABECERA */
 .wrapper-masthead {
-  margin-bottom: 50px;
-  padding: 30px;
-  background-color: var(--white); /* Fondo blanco en la cabecera */
-  border-radius: 10px;
+  background-color: var(--greenSage); /* Fondo suave */
+  padding: 30px 20px;
+  border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Centrado del contenido */
+  text-align: center; /* Centrado de contenido */
+  margin-bottom: 40px;
 }
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid var(--greenSageLight); /* Borde verde claro en la cabecera */
+  border-bottom: 1px solid var(--greenSageLight);
 }
 
 .site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
 
   img {
-    width: 70px;  /* Tamaño del avatar ajustado */
-    height: 70px; /* Tamaño del avatar ajustado */
-    border-radius: 50%; /* Para darle forma circular */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid var(--greenSageDarker);
   }
 }
 
 .site-info {
-  float: left;
+  margin-top: 20px;
 }
 
 .site-name {
   margin: 0;
-  color: var(--greenSageDarker); /* Nombre del sitio en verde más oscuro */
-  cursor: pointer;
+  color: var(--white);
   font-family: var(--helveticaNeue);
-  font-weight: 300;
-  font-size: 32px;  /* Un poco más grande */
+  font-weight: bold;
+  font-size: 36px;
   letter-spacing: 1px;
 }
 
 .site-description {
-  margin: -5px 0 0 0;
-  color: var(--greenSage); /* Descripción en verde suave */
-  font-size: 16px;
+  color: var(--greenSageLight);
+  font-size: 18px;
+  margin-top: 10px;
 }
 
+/* Botones de navegación */
 nav {
-  float: right;
-  margin-top: 23px;
-  font-family: var(--helveticaNeue);
+  margin-top: 20px;
+}
+
+nav a {
+  margin-left: 20px;
+  color: var(--white);
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   font-size: 18px;
+}
 
-  a {
-    margin-left: 20px;
-    color: var(--greenSageDarker);
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
-
-    &:hover {
-      color: var(--greenAccent); /* Hover en verde más suave */
-    }
-  }
+nav a:hover {
+  color: var(--greenSageDark);
 }
 
 /* --- Posts --- */
 .posts > .post {
   padding: 20px;
   background-color: var(--white); /* Fondo blanco para los posts */
-  border: 2px solid var(--greenSageLight); /* Borde verde claro */
+  border: 2px solid var(--greenSageLight);
   margin-bottom: 20px;
-  border-radius: 12px; /* Bordes redondeados más marcados */
+  border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -221,24 +122,25 @@ nav {
 .post img {
   width: 100%; /* Imagen dentro del post */
   border-radius: 10px;
-  margin-top: 15px; /* Separación entre el texto y la imagen */
+  margin-top: 15px;
 }
 
 .read-more {
   display: inline-block;
   margin-top: 15px;
-  padding: 10px 20px;
-  background-color: var(--greenSage);
+  padding: 12px 24px;
+  background-color: var(--greenAccent);
   color: var(--white);
   text-align: center;
-  border-radius: 5px;
+  border-radius: 30px;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .read-more:hover {
-  background-color: var(--greenSageDark); /* Hover en verde más oscuro */
+  background-color: var(--greenSageDark);
+  transform: scale(1.05);
 }
 
 /* --- Footer (Pie de Página) --- */
@@ -246,20 +148,23 @@ footer {
   background-color: var(--greenSageLight);
   padding: 20px 0;
   text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid var(--greenSageDark);
 }
 
 /* --- Estilo para los botones --- */
 .button, a.button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: var(--greenSage);
   color: var(--white);
   text-align: center;
-  border-radius: 5px;
+  border-radius: 30px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-  &:hover {
-    background-color: var(--greenSageDark);  /* Hover con verde más oscuro */
-  }
+.button:hover, a.button:hover {
+  background-color: var(--buttonHover);
+  transform: scale(1.05);
 }
