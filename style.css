@@ -219,7 +219,31 @@ nav a:hover {
   margin-bottom: 0;
 }
 
-/* --- Botón "Read More" --- */
+/* Título principal del post ("Follow Line") */
+.post h1 {
+  font-size: 36px; /* Tamaño grande para el título */
+  color: #000000; /* En color negro */
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 700; /* Negrita */
+  margin-bottom: 10px;
+}
+
+/* Subtítulo del post (descripción) */
+.post h1 a {
+  font-size: 28px; /* Reducido para que sea más pequeño que el título principal */
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 600; /* Negrita moderada */
+}
+
+/* Texto de la entrada (subtítulo) */
+.entry {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--greenSage);
+  margin-bottom: 20px;
+}
+
+/* Botón "Read More" */
 .read-more {
   display: inline-block;
   margin-top: 15px;
@@ -227,7 +251,7 @@ nav a:hover {
   background-color: var(--greenSage);
   color: var(--white);
   text-align: center;
-  border-radius: 5px;
+  border-radius: 25px; /* Bordes del botón más redondeados */
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
