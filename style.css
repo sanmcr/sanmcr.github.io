@@ -268,6 +268,6 @@ footer {
     width: 100%;
     height: auto;
     object-fit: cover; /* Asegura que la imagen se recorte bien si es necesario */
-    object-position: 50% 55%; /* Ajusta para que la imagen enfoque más la parte inferior */
+    object-position: 50% 65%; /* Ajusta para que la imagen enfoque más la parte inferior */
     border-radius: 8px; /* Bordes redondeados */
 }
