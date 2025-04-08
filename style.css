@@ -12,7 +12,6 @@
   --helvetica: 'Helvetica', sans-serif;
   --helveticaNeue: 'Helvetica Neue', sans-serif;
   --lightGreen: #f3f9f3; /* Fondo suave más claro */
-  --buttonHover: #6B8C63;
 }
 
 /* BASE RULES */
@@ -35,136 +34,10 @@ body {
   width: 100%;
 }
 
-/* NUEVO FORMATO DE CABECERA */
-.wrapper-masthead {
-  background-color: var(--greenSage); /* Fondo suave */
-  padding: 30px 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Centrado de contenido */
-  margin-bottom: 40px;
-}
-
-.masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--greenSageLight);
-}
-
-.site-avatar {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 20px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 5px solid var(--greenSageDarker);
-  }
-}
-
-.site-info {
-  margin-top: 20px;
-}
-
-.site-name {
-  margin: 0;
-  color: var(--white);
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--helveticaNeue);
+  color: var(--greenSageDark); /* Encabezados en verde más oscuro */
   font-weight: bold;
-  font-size: 36px;
-  letter-spacing: 1px;
-}
-
-.site-description {
-  color: var(--greenSageLight);
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-/* Botones de navegación */
-nav {
-  margin-top: 20px;
-}
-
-nav a {
-  margin-left: 20px;
-  color: var(--white);
-  text-align: center;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 18px;
-}
-
-nav a:hover {
-  color: var(--greenSageDark);
-}
-
-/* --- Posts --- */
-.posts > .post {
-  padding: 20px;
-  background-color: var(--white); /* Fondo blanco para los posts */
-  border: 2px solid var(--greenSageLight);
-  margin-bottom: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.posts > .post:last-child {
-  margin-bottom: 0;
-}
-
-.post h2 {
-  color: var(--greenSageDarker); /* Color para los títulos de los posts */
-}
-
-.post img {
-  width: 100%; /* Imagen dentro del post */
-  border-radius: 10px;
-  margin-top: 15px;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 24px;
-  background-color: var(--greenAccent);
-  color: var(--white);
-  text-align: center;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.read-more:hover {
-  background-color: var(--greenSageDark);
-  transform: scale(1.05);
-}
-
-/* --- Footer (Pie de Página) --- */
-footer {
-  background-color: var(--greenSageLight);
-  padding: 20px 0;
-  text-align: center;
-  margin-top: 40px;
-  border-top: 1px solid var(--greenSageDark);
-}
-
-/* --- Estilo para los botones --- */
-.button, a.button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: var(--greenSage);
-  color: var(--white);
-  text-align: center;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover, a.button:hover {
-  background-color: var(--buttonHover);
-  transform: scale(1.05);
-}
+  line-height: 1.7;
+  margin: 1em 0 15px;
+  padding: 0;
