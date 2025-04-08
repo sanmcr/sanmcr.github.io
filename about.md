@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+<div class="page-about">
+    <h1>About Me</h1>
+    <p>Some information about you!</p>
 
-### More Information
+    <h2>More Information</h2>
+    <p>A place to include any other types of information that you'd like to include about yourself.</p>
 
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+    <h2>Contact Me</h2>
+    <p><a href="mailto:email@domain.com">email@domain.com</a></p>
+</div>
