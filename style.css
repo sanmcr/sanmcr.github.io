@@ -152,8 +152,8 @@ header {
 
 /* Estilo para la imagen de VR VISION ROBÓTICA (Avatar) */
 header .site-avatar {
-    width: 80px; /* Tamaño reducido de la imagen */
-    height: 80px;
+    width: 90px; /* Tamaño reducido de la imagen */
+    height: 90px;
     margin-right: 20px; /* Espacio entre la imagen y el texto */
     border-radius: 50%; /* Redondear la imagen */
     border: 4px solid var(--greenAccent); /* Borde suave en color verde */
