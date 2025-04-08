@@ -268,16 +268,6 @@ footer {
     width: 100%;
     height: auto;
     object-fit: cover; /* Asegura que la imagen se recorte bien si es necesario */
+    object-position: center center; /* Centra la imagen en el medio */
     border-radius: 8px; /* Bordes redondeados */
 }
-
-/* Ajustes en el texto del post para no interferir con la miniatura */
-.post {
-    padding: 20px;
-    background-color: var(--white);
-    border: 2px solid var(--greenSageLight);
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
