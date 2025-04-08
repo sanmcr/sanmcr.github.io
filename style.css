@@ -14,6 +14,10 @@
   --lightGreen: #f3f9f3; /* Fondo suave más claro */
 }
 
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap');
+
+
 /* BASE RULES */
 html {
   font-size: 100%;
@@ -252,21 +256,25 @@ nav a:hover {
 
 /* Título del post "Follow Line" */
 .post h1 {
-    font-size: 25px; /* Tamaño más grande */
+    font-family: 'Playfair Display', serif; /* Fuente elegante y estilizada */
+    font-size: 36px; /* Tamaño más grande */
     color: #000000; /* Color negro */
-    font-family: 'Helvetica', sans-serif;
+    font-weight: 700; /* Peso de la fuente en negrita */
     margin-bottom: 10px;
+    letter-spacing: 1px; /* Un poco de espaciado entre letras para elegancia */
+    text-transform: capitalize; /* Convertir la primera letra de cada palabra en mayúscula */
 }
 
 /* Subtítulo "Reporte: Implementación..." */
 .post h2 {
-    font-size: 18px; /* Tamaño más pequeño */
-    color: var(--greenSage); /* Color verde */
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 400; /* Peso de fuente más ligero */
+    font-family: 'Lora', serif; /* Fuente más suave para el subtítulo */
+    font-size: 20px; /* Tamaño más pequeño */
+    color: var(--greenSage); /* Color verde para el subtítulo */
+    font-weight: 400; /* Peso de la fuente más ligero */
+    margin-bottom: 10px;
+    line-height: 1.6; /* Mejor interlineado */
+    letter-spacing: 0.5px; /* Ligero espaciado entre letras */
 }
-
-
 
 /* Texto de la entrada (subtítulo) */
 .entry {
