@@ -168,7 +168,7 @@ header .site-avatar {
 .site-description {
     font-family: 'Helvetica', sans-serif;
     font-size: 16px; /* Tamaño pequeño */
-    color: var(--greenSage); /* Descripción en un verde suave */
+    color: #000000; /* Descripción en un verde suave */
     margin-top: 10px;
     font-weight: 300;
     letter-spacing: 0.5px; /* Ligero espaciado para un look más moderno */
