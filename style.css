@@ -220,21 +220,22 @@ nav a:hover {
   margin-bottom: 0;
 }
 
-/* Título principal del post ("Follow Line") */
+/* Título del post "Follow Line" */
 .post h1 {
-  font-size: 36px; /* Tamaño grande para el título */
-  color: #000000; /* En color negro */
-  font-family: 'Helvetica', sans-serif;
-  font-weight: 700; /* Negrita */
-  margin-bottom: 10px;
+    font-size: 40px; /* Aumentar el tamaño */
+    color: #000000; /* Color negro */
+    font-family: 'Helvetica', sans-serif; /* Fuente común para el resto de la página */
+    margin-bottom: 10px;
 }
 
-/* Subtítulo del post (descripción) */
-.post h1 a {
-  font-size: 28px; /* Reducido para que sea más pequeño que el título principal */
-  font-family: 'Helvetica', sans-serif;
-  font-weight: 600; /* Negrita moderada */
+/* Subtítulo "Reporte: Implementación..." */
+.post h2 {
+    font-size: 18px; /* Hacerlo más pequeño */
+    color: var(--greenSage); /* Color verde */
+    font-family: 'Helvetica', sans-serif; /* Usar la misma tipografía que el resto */
+    font-weight: 400; /* Peso de fuente más ligero */
 }
+
 
 /* Texto de la entrada (subtítulo) */
 .entry {
