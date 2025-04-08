@@ -264,6 +264,7 @@ footer {
     margin-bottom: 15px;
     border-radius: 15px; /* Bordes redondeados para un look más suave */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    border: none; /* Asegura que no haya borde */
 }
 
 .post-thumbnail img {
@@ -281,7 +282,8 @@ footer {
     border-radius: 15px; /* Bordes más suaves y uniformes */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
     margin-bottom: 30px;
-    border: none; /* Eliminar cualquier borde */
+    border: none; /* Asegura que no haya borde verde ni en el post */
+    background-color: var(--white); /* Fondo blanco limpio */
 }
 
 /* Título del post */
@@ -323,5 +325,8 @@ footer {
 }
 
 .read-more:hover {
+    background-color: var(--greenSageDark); /* Hover con verde más oscuro */
+}
+
     background-color: var(--greenSageDark); /* Hover con verde más oscuro */
 }
