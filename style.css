@@ -243,7 +243,7 @@ nav a:hover {
 
 /* Título del post "Follow Line" */
 .post h1 {
-    font-size: 36px; /* Tamaño más grande */
+    font-size: 25px; /* Tamaño más grande */
     color: #000000; /* Color negro */
     font-family: 'Helvetica', sans-serif;
     margin-bottom: 10px;
