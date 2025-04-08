@@ -286,7 +286,7 @@ nav a:hover {
 /* Título del post "Follow Line" */
 .post h1 {
     font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    font-size: 36px; /* Tamaño más grande */
+    font-size: 20px; /* Tamaño más grande */
     color: #000000; /* Color negro */
     font-weight: 700; /* Peso en negrita */
     margin-bottom: 10px;
@@ -297,7 +297,7 @@ nav a:hover {
 /* Subtítulo "Reporte: Implementación..." */
 .post h2 {
     font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    font-size: 20px; /* Tamaño más pequeño */
+    font-size: 10px; /* Tamaño más pequeño */
     color: var(--greenSage); /* Color verde suave */
     font-weight: 400; /* Peso de fuente normal */
     margin-bottom: 10px;
