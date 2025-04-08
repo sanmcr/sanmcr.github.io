@@ -190,14 +190,37 @@ header .site-avatar:hover {
 
 /* Enlaces de la cabecera */
 nav a {
-    color: var(--greenSageDarker); /* Enlaces en verde oscuro */
-    font-size: 18px; /* Tamaño moderado */
-    font-family: 'Helvetica', sans-serif;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-    position: relative; /* Necesario para colocar la línea */
+  color: var(--greenSageDarker); /* Enlaces en verde oscuro */
+  font-size: 18px;
+  font-family: 'Helvetica', sans-serif;
+  text-decoration: none;
+  margin: 0 10px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease; /* Transición combinada */
 }
+
+nav a:hover {
+  color: var(--greenSageDark); /* Cambio de color a un verde más oscuro */
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+  transform: scale(1.05);
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--greenAccent); /* Usar el verde como color de la línea */
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+  transform: scaleX(1); /* Aparece la línea al hacer hover */
+}
+
 
 /* Línea encima del enlace */
 nav a::before {
