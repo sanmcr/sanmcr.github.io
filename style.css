@@ -198,6 +198,65 @@ nav {
   }
 }
 
+/* Estilo para la cabecera */
+header {
+    background-color: var(--greenSage); /* Fondo suave */
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-bottom: 30px;
+}
+
+/* Estilo del avatar */
+.site-avatar {
+    width: 100px; /* Aumentar el tamaño del avatar */
+    height: 100px;
+    margin: 0 auto 15px auto; /* Centrado y margen abajo */
+    border-radius: 50%; /* Hacer el avatar redondo */
+    border: 4px solid var(--white); /* Borde blanco alrededor del avatar */
+    overflow: hidden; /* Asegura que la imagen no sobresalga del borde */
+}
+
+.site-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen no se distorsione */
+}
+
+/* Nombre del sitio */
+.site-name {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 36px; /* Tamaño grande para el nombre */
+    color: var(--white); /* Color blanco para contraste */
+    font-weight: 700; /* Negrita para destacar */
+    letter-spacing: 1px;
+}
+
+/* Descripción del sitio */
+.site-description {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 18px; /* Tamaño más pequeño para la descripción */
+    color: var(--white); /* Blanco para la descripción */
+    margin-top: 10px;
+    font-weight: 300; /* Ligero para la descripción */
+}
+
+/* Enlaces de la cabecera */
+nav a {
+    color: var(--white); /* Blanco para los enlaces */
+    font-size: 18px; /* Tamaño mediano para los enlaces */
+    font-family: 'Helvetica', sans-serif;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #FF6347; /* Un color más cálido para el hover */
+}
+
+
 /* --- Posts --- */
 .posts > .post {
   padding: 20px;
