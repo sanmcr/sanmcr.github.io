@@ -15,7 +15,7 @@
 }
 
 /* Importar fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Nunito:wght@400&display=swap');
 
 
 /* BASE RULES */
@@ -256,25 +256,26 @@ nav a:hover {
 
 /* Título del post "Follow Line" */
 .post h1 {
-    font-family: 'Playfair Display', serif; /* Fuente elegante y estilizada */
+    font-family: 'Poppins', sans-serif; /* Fuente moderna y redondeada */
     font-size: 36px; /* Tamaño más grande */
     color: #000000; /* Color negro */
-    font-weight: 700; /* Peso de la fuente en negrita */
+    font-weight: 700; /* Peso en negrita */
     margin-bottom: 10px;
-    letter-spacing: 1px; /* Un poco de espaciado entre letras para elegancia */
-    text-transform: capitalize; /* Convertir la primera letra de cada palabra en mayúscula */
+    letter-spacing: 0.5px; /* Espaciado entre letras para mayor claridad */
+    text-transform: capitalize; /* Primera letra de cada palabra en mayúscula */
 }
 
 /* Subtítulo "Reporte: Implementación..." */
 .post h2 {
-    font-family: 'Lora', serif; /* Fuente más suave para el subtítulo */
+    font-family: 'Nunito', sans-serif; /* Fuente redondeada y suave */
     font-size: 20px; /* Tamaño más pequeño */
-    color: var(--greenSage); /* Color verde para el subtítulo */
-    font-weight: 400; /* Peso de la fuente más ligero */
+    color: var(--greenSage); /* Color verde suave */
+    font-weight: 400; /* Peso de fuente normal */
     margin-bottom: 10px;
-    line-height: 1.6; /* Mejor interlineado */
-    letter-spacing: 0.5px; /* Ligero espaciado entre letras */
+    line-height: 1.6; /* Mejor interlineado para legibilidad */
+    letter-spacing: 0.3px; /* Ligero espaciado entre letras */
 }
+
 
 /* Texto de la entrada (subtítulo) */
 .entry {
