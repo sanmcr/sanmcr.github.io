@@ -268,6 +268,6 @@ footer {
     width: 100%;
     height: auto;
     object-fit: cover; /* Asegura que la imagen se recorte bien si es necesario */
-    object-position: center center; /* Centra la imagen en el medio */
+    object-position: 50% 30%; /* Ajusta para centrar la imagen donde se ve el coche */
     border-radius: 8px; /* Bordes redondeados */
 }
