@@ -23,11 +23,12 @@ html {
   font-size: 100%;
 }
 
-/* Fondo general con patrón de puntos */
+/* Fondo con textura de tela sutil */
 body {
   background: var(--lightGreen);
-  background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png'); /* Ejemplo de patrón */
-  background-repeat: repeat; /* Repite el patrón */
+  background-image: url('https://www.transparenttextures.com/patterns/linen.png'); /* Textura de lino sutil */
+  background-repeat: repeat; /* Repite el patrón suavemente */
+  background-size: 120px 120px; /* Ajusta el tamaño del patrón para que sea muy sutil */
   font: 18px/1.6 var(--helvetica);
   color: var(--greenSageDarker);
   margin: 0;
