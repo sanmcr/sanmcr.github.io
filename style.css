@@ -204,7 +204,7 @@ nav a:hover {
     transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
 }
 
-/* --- Posts --- */
+/* --- Post --- */
 .posts > .post {
   padding: 20px;
   background-color: var(--white); /* Fondo blanco para los posts */
@@ -212,6 +212,7 @@ nav a:hover {
   margin-bottom: 20px;
   border-radius: 15px; /* Bordes redondeados */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  margin-top: 20px; /* Espacio entre el post y la cabecera */
 }
 
 /* Para el último post */
