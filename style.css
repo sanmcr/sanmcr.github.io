@@ -251,17 +251,18 @@ nav a:hover {
   display: inline-block;
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: var(--greenSage);
-  color: var(--white);
+  background-color: #000000; /* Fondo negro, el mismo que el nombre */
+  color: var(--white); /* El color del texto sigue siendo blanco */
   text-align: center;
-  border-radius: 25px; /* Bordes del botón más redondeados */
+  border-radius: 25px; /* Bordes redondeados */
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
+/* Hover del botón */
 .read-more:hover {
-  background-color: var(--greenSageDark); /* Hover en verde más oscuro */
+  background-color: var(--greenSageDark); /* Hover con verde más oscuro */
 }
 
 /* --- Footer (Pie de Página) --- */
