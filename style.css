@@ -140,10 +140,13 @@ header {
 
 /* Estilo para el texto de "VR VISION ROBÓTICA" */
 header h1 {
-    font-size: 48px; /* Tamaño de fuente más pequeño */
+    font-size: 3rem; /* Tamaño más pequeño para ajustarse mejor */
     color: var(--greenSageDark); /* Color más oscuro y suave */
     font-weight: 700; /* Negrita */
     letter-spacing: 2px; /* Espaciado entre letras */
+    line-height: 1.2; /* Ajuste de altura de línea */
+    margin: 0; /* Eliminar márgenes */
+    text-transform: uppercase; /* Asegura que todo esté en mayúsculas */
 }
 
 /* Estilo del avatar */
@@ -193,7 +196,6 @@ nav a {
 nav a:hover {
     color: #FF6347; /* Un color más cálido para el hover */
 }
-
 
 /* --- Posts --- */
 .posts > .post {
