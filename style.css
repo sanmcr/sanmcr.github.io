@@ -368,3 +368,23 @@ footer {
 .read-more:hover {
   background-color: var(--greenAccent);
 }
+
+/* Estilo bonito para bloques de código */
+.highlight {
+  background-color: #f5f5f5;
+  padding: 16px;
+  margin: 20px 0;
+  overflow-x: auto;
+  border-radius: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid var(--greenAccent); /* línea lateral verde */
+}
+
+.highlight pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
