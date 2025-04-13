@@ -281,7 +281,7 @@ nav a:hover::before {
 /* Título del post */
 .post h1 {
     font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    font-size: 32px; /* Aumentar tamaño del título */
+    font-size: 25px; /* Aumentar tamaño del título */
     color: #000000; /* Color negro */
     font-weight: 700; /* Peso en negrita */
     margin-bottom: 15px;
