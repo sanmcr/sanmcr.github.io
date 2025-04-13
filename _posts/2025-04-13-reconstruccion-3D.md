@@ -120,7 +120,7 @@ Durante la ejecución del algoritmo, el sistema es capaz de detectar puntos de i
 
 En la siguiente imagen se muestra una representación 2D de los resultados obtenidos. En ella se puede ver claramente cómo se han detectado los contornos de los objetos de la escena, y cómo los puntos reconstruidos se visualizan superpuestos en azul. Esta imagen no muestra la nube de puntos 3D como tal, sino una proyección de los puntos sobre la vista de ambas cámaras, lo cual permite verificar visualmente la precisión del emparejamiento y de la reconstrucción:
 
-<img src="/images/2D.png" alt="Reconstrucción 2D con puntos azules" style="width: 80%; display: block; margin: auto;" />
+<img src="/images/2d.png" alt="Reconstrucción 2D con puntos azules" style="width: 80%; display: block; margin: auto;" />
 
 Puede observarse que los puntos en azul siguen los bordes de los objetos principales de la escena, como los personajes, los cubos de letras y el patito de goma. Esto indica que el sistema ha sido capaz de identificar correctamente las zonas con mayor información visual y realizar una reconstrucción precisa en esas regiones.
 
