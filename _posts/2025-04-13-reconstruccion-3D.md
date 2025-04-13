@@ -32,10 +32,10 @@ El objetivo de esta práctica es desarrollar un sistema capaz de generar una rec
 
 El primer paso en el proceso de reconstrucción 3D es la captura de las imágenes que se tomarán desde las dos cámaras del robot. Se utilizan las siguientes funciones de la API para acceder a las imágenes:
 
-{% highlight python %}
+```python
 l_img = HAL.getImage('left')  # Obtener imagen de la cámara izquierda
 r_img = HAL.getImage('right')  # Obtener imagen de la cámara derecha
-{% endhighlight %}
+```
 
 Estas imágenes se usan como entrada para la siguiente fase del proceso.
 
@@ -52,15 +52,15 @@ El siguiente paso es identificar los puntos de interés en las imágenes. Para e
 
 El código utilizado para realizar la detección de bordes es el siguiente:
 
-{% highlight python %}
+``` python
 img = cv2.Canny(l_img, 100, 200)  # Detección de bordes en la imagen izquierda
 {% endhighlight %}
-
+```
 
 Esto genera una nueva imagen binaria donde los bordes de la escena están representados por píxeles blancos (valor 255) y el resto de la imagen está en negro (valor 0). A partir de esta imagen, se extraen los puntos de interés (píxeles blancos) y se guardan en la lista white_pixels.
 
 
-{% highlight python %}
+``` python
 white_pixels = []
 height = img.shape[0]
 width = img.shape[1]
@@ -68,7 +68,7 @@ for x in range(width):
     for y in range(height):
         if img[y][x] == 255:  # Si el píxel es blanco (borde detectado)
             white_pixels.append([x, y])  # Añadir el punto a la lista
-{% endhighlight %}
+```
 
 ### 3. Cálculo de la línea epipolar
 
@@ -76,14 +76,14 @@ La geometría epipolar nos permite reducir la búsqueda de correspondencias de p
 
 Para calcular la línea epipolar, primero necesitamos obtener el vector de proyección 3D de un punto en la imagen izquierda. Este vector se calcula mediante la función `getProjectionLine()`, que toma el centro de la cámara y el punto en la imagen y lo convierte en un vector en el espacio 3D:
 
-{% highlight python %}
+``` python
 def getProjectionLine(camera_optical_center, pxl, side):
     new_pxl = [pxl[1], pxl[0], 1]  # Convertir el punto a coordenadas de imagen
     cam_2d_point = HAL.graficToOptical(side, new_pxl)  # Transformar a coordenadas ópticas
     pt_3d = HAL.backproject(side, cam_2d_point)  # Proyectar el punto 2D a 3D
     projection_vector = pt_3d[:3] - camera_optical_center  # Calcular el vector de proyección
     return projection_vector
-{% endhighlight %}
+```
 
 Luego, utilizando la proyección 3D, calculamos la línea epipolar en la imagen derecha.
 
@@ -92,9 +92,9 @@ Luego, utilizando la proyección 3D, calculamos la línea epipolar en la imagen 
 
 Una vez calculadas las líneas epipolares, el siguiente paso es buscar la correspondencia de los puntos entre las imágenes izquierda y derecha. Se utiliza la función `cv2.matchTemplate()` para realizar la correlación entre un bloque de la imagen izquierda (que corresponde a un punto de interés) y una región de la imagen derecha:
 
-{% highlight python %}
+``` python
 match = cv2.matchTemplate(croped, template, cv2.TM_CCOEFF_NORMED)
-{% endhighlight %}
+```
 
 El resultado de esta operación es una matriz de correlación que nos indica qué tan bien coincide la región de la imagen izquierda con la región de la imagen derecha. El punto con la mayor correlación será considerado como el punto correspondiente.
 
@@ -102,18 +102,18 @@ El resultado de esta operación es una matriz de correlación que nos indica qu�
 
 Con los puntos correspondientes en ambas imágenes, podemos proceder a calcular las coordenadas 3D de los puntos utilizando la técnica de triangulación. En la triangulación, se utilizan las proyecciones de los puntos en ambas cámaras para determinar su ubicación en el espacio 3D.
 
-{% highlight python %}
+``` python
 m, c, _ = np.linalg.lstsq(A.T, b, rcond=None)[0]  # Resolver el sistema de ecuaciones para la triangulación
 pt_3d = (m * l_projection_vector) + ((c / 2) * n)
-{% endhighlight %}
+```
 
 ### 6. Visualización en el visor 3D
 Finalmente, los puntos reconstruidos se visualizan en un visor 3D. Esto se realiza mediante la función GUI.ShowNewPoints(), que acepta un conjunto de puntos en formato [x, y, z, R, G, B]:
 
-{% highlight python %}
+``` python
 point = drawPoint(pxl, match, l_cam_pos, r_cam_pos, l_img, r_img, l_projection_vector)
 GUI.ShowNewPoints([point])
-{% endhighlight %}
+```
 
 Esto permite ver la reconstrucción 3D de la escena en tiempo real.
 
@@ -158,7 +158,7 @@ En general, la práctica me permitió comprender mejor cómo se combinan concept
 
 Para visualizar el proceso de la reconstrucción en tiempo real, se ha subido un video a YouTube. En él, se muestra cómo se reconstruyen los puntos y cómo se visualizan en el visor 3D.
 
-> En el siguiente video se aprecia cómo se visualiza progresivamente la reconstrucción de la escena en el visor 3D.
+En el siguiente video se aprecia cómo se visualiza progresivamente la reconstrucción de la escena en el visor 3D.
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EQguswWDk90" frameborder="0" allowfullscreen></iframe>
