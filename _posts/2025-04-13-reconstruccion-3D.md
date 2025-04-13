@@ -100,3 +100,37 @@ pt_3d = (m * l_projection_vector) + ((c / 2) * n)
 ### 6. Visualización en el visor 3D
 Finalmente, los puntos reconstruidos se visualizan en un visor 3D. Esto se realiza mediante la función GUI.ShowNewPoints(), que acepta un conjunto de puntos en formato [x, y, z, R, G, B]:
 
+```
+point = drawPoint(pxl, match, l_cam_pos, r_cam_pos, l_img, r_img, l_projection_vector)
+GUI.ShowNewPoints([point])
+```
+
+Esto permite ver la reconstrucción 3D de la escena en tiempo real.
+
+## Resultados
+
+Durante la ejecución del código, el sistema es capaz de reconstruir varios puntos 3D a partir de los puntos de interés detectados en las imágenes. Los puntos reconstruidos se visualizan en el visor 3D, donde se pueden observar las diferentes proyecciones y cómo se alinean con la escena real.
+
+### Estadísticas
+
+- **Número de puntos detectados**: [incluir número de puntos detectados]
+- **Puntos reconstruidos con éxito**: [incluir número de puntos reconstruidos con éxito]
+
+**Precisión**: La precisión depende de la calidad de las imágenes y de la exactitud del emparejamiento de los puntos. El sistema es capaz de reconstruir puntos en áreas de alta textura, pero puede tener dificultades en áreas homogéneas o con poca información visual.
+
+## Desafíos y Consideraciones
+
+Algunos de los principales desafíos que se enfrentaron durante el desarrollo de este ejercicio fueron:
+
+- **Correspondencia de puntos**: El algoritmo de `cv2.matchTemplate()` es sensible a las condiciones de iluminación y a las variaciones de los puntos entre las imágenes izquierda y derecha. Las condiciones ideales son aquellas en las que las imágenes están bien alineadas y con buena iluminación.
+  
+- **Precisión de la triangulación**: Los errores en la correspondencia de los puntos pueden llevar a una triangulación incorrecta, lo que afecta la precisión de la reconstrucción.
+
+- **Tiempo de procesamiento**: A medida que aumenta el número de puntos a reconstruir, el tiempo de procesamiento también aumenta. Esto puede ser un factor limitante si se desea procesar grandes cantidades de puntos en tiempo real.
+
+## Conclusiones
+
+La reconstrucción 3D utilizando visión estereoscópica es un proceso complejo que involucra varios pasos, como la detección de puntos, el emparejamiento de correspondencias y la triangulación. El algoritmo desarrollado fue capaz de reconstruir puntos 3D de la escena con una precisión razonable, aunque se pueden mejorar algunos aspectos, como la precisión del emparejamiento de puntos y la optimización del tiempo de procesamiento.
+
+Para futuras mejoras, se recomienda implementar métodos más avanzados de detección de características y correspondencias, así como técnicas de calibración para corregir posibles distorsiones en las imágenes.
+
