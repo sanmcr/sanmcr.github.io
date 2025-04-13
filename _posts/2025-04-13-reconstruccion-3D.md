@@ -32,10 +32,10 @@ El objetivo de esta práctica es desarrollar un sistema capaz de generar una rec
 
 El primer paso en el proceso de reconstrucción 3D es la captura de las imágenes que se tomarán desde las dos cámaras del robot. Se utilizan las siguientes funciones de la API para acceder a las imágenes:
 
-```python
+{% highlight python %}
 l_img = HAL.getImage('left')  # Obtener imagen de la cámara izquierda
 r_img = HAL.getImage('right')  # Obtener imagen de la cámara derecha
-```
+{% endhighlight %}
 
 Estas imágenes se usan como entrada para la siguiente fase del proceso.
 
