@@ -73,7 +73,7 @@ def getProjectionLine(camera_optical_center, pxl, side):
     pt_3d = HAL.backproject(side, cam_2d_point)  # Proyectar el punto 2D a 3D
     projection_vector = pt_3d[:3] - camera_optical_center  # Calcular el vector de proyección
     return projection_vector
-``
+```
 
 Luego, utilizando la proyección 3D, calculamos la línea epipolar en la imagen derecha.
 
