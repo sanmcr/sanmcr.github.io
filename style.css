@@ -41,10 +41,17 @@ body {
   width: 100%;
 }
 
-/* Títulos principales y secundarios */
+/* Estilo para los subtítulos de "Circuito Simple" y "Ackerman" */
+h2.circuito-titulo {
+  color: #000000; /* Negro */
+  text-decoration: underline; /* Subrayado */
+  text-decoration-skip-ink: none; /* Evitar que la primera letra se subraye */
+}
+
+/* --- Otros estilos --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--helveticaNeue);
-  color: var(--greenSageDark); /* Encabezados en verde más oscuro */
+  color: var(--greenSageDark); /* Color para los títulos generales */
   font-weight: bold;
   line-height: 1.7;
   margin: 1em 0 15px;
@@ -71,6 +78,7 @@ h4 {
 p {
   margin: 15px 0;
 }
+
 
 a {
   color: var(--greenAccent); /* Enlaces en verde suave */
