@@ -78,3 +78,16 @@ def getProjectionLine(camera_optical_center, pxl, side):
 Luego, utilizando la proyección 3D, calculamos la línea epipolar en la imagen derecha.
 
 
+## 4. Emparejamiento de puntos entre las imágenes
+
+Una vez calculadas las líneas epipolares, el siguiente paso es buscar la correspondencia de los puntos entre las imágenes izquierda y derecha. Se utiliza la función `cv2.matchTemplate()` para realizar la correlación entre un bloque de la imagen izquierda (que corresponde a un punto de interés) y una región de la imagen derecha:
+
+```python
+match = cv2.matchTemplate(croped, template, cv2.TM_CCOEFF_NORMED)
+```
+
+El resultado de esta operación es una matriz de correlación que nos indica qué tan bien coincide la región de la imagen izquierda con la región de la imagen derecha. El punto con la mayor correlación será considerado como el punto correspondiente.
+
+## 5. Triangulación 3D
+
+
