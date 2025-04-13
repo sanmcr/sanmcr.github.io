@@ -134,3 +134,7 @@ La reconstrucción 3D utilizando visión estereoscópica es un proceso complejo 
 
 Para futuras mejoras, se recomienda implementar métodos más avanzados de detección de características y correspondencias, así como técnicas de calibración para corregir posibles distorsiones en las imágenes.
 
+## Video de la reconstrucción 3D
+
+Para visualizar el proceso de la reconstrucción en tiempo real, se ha subido un video a YouTube. En él, se muestra cómo se reconstruyen los puntos y cómo se visualizan en el visor 3D.
+
