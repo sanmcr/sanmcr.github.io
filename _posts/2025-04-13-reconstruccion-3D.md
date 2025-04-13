@@ -41,7 +41,7 @@ Estas imágenes se usan como entrada para la siguiente fase del proceso.
 
 Estas son las imágenes capturadas por las cámaras del robot Kobuki, que se usan para la reconstrucción 3D:
 
-![Captura de la cámara izquierda y derecha](images/camaras.png)
+![Captura de la cámara izquierda y derecha](/images/camaras.png)
 
 
 ### 2. Detección de puntos de características
