@@ -198,7 +198,7 @@ Aunque los resultados fueron satisfactorios, se identificaron áreas de mejora, 
 
 
 
-## **Ackerman**
+<h2 class="circuito-titulo">Ackerman</h2>
 
 ## Reporte de Modificaciones en el Seguimiento de Línea para el Circuito Ackerman
 
