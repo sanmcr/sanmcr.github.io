@@ -21,9 +21,6 @@ Circuito Ackerman: Modificaciones específicas para mejorar el rendimiento en un
 
 El objetivo principal fue optimizar la precisión de seguimiento de la línea roja en diferentes condiciones, minimizando oscilaciones y mejorando la estabilidad en curvas*
 
-## **<h2 class="circuito-titulo">Circuito Simple</h2>**
-## **<h2 class="circuito-titulo">Ackerman</h2>**
-
 ## Circuito Simple
 
 ## 2. Descripción del Proceso y Soluciones Técnicas Implementadas
