@@ -342,3 +342,71 @@ footer {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
 }
 
+/* Cambiar la disposición de los posts con Flexbox o Grid */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adapta el número de columnas automáticamente */
+  gap: 20px;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Estilo de cada post */
+.post {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;  /* Para evitar que los bordes de la imagen sobresalgan */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de hover para los posts */
+.post:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra para dar un efecto de profundidad */
+}
+
+/* Imagen de miniatura dentro de los posts */
+.post-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+}
+
+/* Estilo del título */
+.post h1 {
+  font-size: 24px;
+  font-family: var(--helveticaNeue);
+  color: var(--greenSageDark);
+  padding: 15px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Estilo del resumen (excerpt) */
+.entry {
+  font-size: 16px;
+  color: var(--darkGray);
+  padding: 0 15px 15px;
+}
+
+/* Estilo del botón de "Read More" */
+.read-more {
+  display: inline-block;
+  margin: 15px;
+  padding: 10px 20px;
+  background-color: var(--greenSageDark);
+  color: var(--white);
+  text-align: center;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover del botón */
+.read-more:hover {
+  background-color: var(--greenAccent);
+}
+
