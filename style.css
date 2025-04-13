@@ -221,10 +221,10 @@ nav a:hover::before {
   transform: scaleX(1); /* Aparece la línea al hacer hover */
 }
 
-/* Estilo para la imagen de miniatura de los posts */
+/* Estilo para la imagen de miniatura de los posts (en la portada) */
 .post-thumbnail {
   width: 100%;
-  height: 200px; /* Definir una altura más razonable */
+  height: 200px; /* Definir altura de las miniaturas de los posts */
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 10px; /* Bordes redondeados para las miniaturas */
@@ -234,10 +234,11 @@ nav a:hover::before {
 .post-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+  object-fit: cover; /* Recorta la imagen para llenar el contenedor */
   object-position: center; /* Centra la imagen */
-  border-radius: 10px; /* Bordes redondeados para un look más suave */
+  border-radius: 10px; /* Bordes redondeados */
 }
+
 
 /* --- Post --- */
 .posts > .post {
