@@ -60,7 +60,7 @@ for x in range(width):
             white_pixels.append([x, y])  # Añadir el punto a la lista
 ```
 
-## 3. Cálculo de la línea epipolar
+### 3. Cálculo de la línea epipolar
 
 La geometría epipolar nos permite reducir la búsqueda de correspondencias de puntos entre las dos imágenes. Dado un punto en la imagen izquierda, la línea epipolar en la imagen derecha es la única línea donde podemos encontrar el punto correspondiente.
 
@@ -78,7 +78,7 @@ def getProjectionLine(camera_optical_center, pxl, side):
 Luego, utilizando la proyección 3D, calculamos la línea epipolar en la imagen derecha.
 
 
-## 4. Emparejamiento de puntos entre las imágenes
+### 4. Emparejamiento de puntos entre las imágenes
 
 Una vez calculadas las líneas epipolares, el siguiente paso es buscar la correspondencia de los puntos entre las imágenes izquierda y derecha. Se utiliza la función `cv2.matchTemplate()` para realizar la correlación entre un bloque de la imagen izquierda (que corresponde a un punto de interés) y una región de la imagen derecha:
 
