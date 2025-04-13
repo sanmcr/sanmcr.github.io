@@ -9,7 +9,7 @@ excerpt: "Reconstrucción tridimensional de escenas."
 
 Este proyecto implementa una reconstrucción 3D utilizando visión estereoscópica, donde se calcula la profundidad de una escena a partir del emparejamiento de puntos detectados en imágenes captadas desde dos cámaras.
 
-# Informe: title: "Reconstrucción 3D con visión estereoscópica en Python"
+# title:  Informe:  "Reconstrucción 3D con visión estereoscópica en Python"
 
 
 ## Introducción
