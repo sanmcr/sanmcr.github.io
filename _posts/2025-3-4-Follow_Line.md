@@ -23,19 +23,19 @@ El objetivo principal fue optimizar la precisión de seguimiento de la línea ro
 
 ## Circuito Simple
 
-## 2. Descripción del Proceso y Soluciones Técnicas Implementadas
+## 2. Descripción del proceso y soluciones técnicas implementadas
 
-### 2.1. Adquisición y Preprocesamiento de Imágenes
+### 2.1. Adquisición y preprocesamiento de imágenes
 
 
-#### Adquisición de la Imagen
+#### Adquisición de la imagen
 
 El sistema utiliza una cámara incorporada en el robot para capturar imágenes del entorno en tiempo real. Estas imágenes sirven como la entrada al sistema de visión por computadora y son procesadas a una alta frecuencia para permitir el seguimiento continuo de la línea.
 
 
 ![Raw Image](../images/raw.jpeg)
 
-#### Conversión al Espacio de Color HSV
+#### Conversión al Espacio de color HSV
 Uno de los primeros pasos en el procesamiento de las imágenes es la conversión de la imagen del espacio de color BGR (azul, verde, rojo) a HSV (matiz, saturación, valor). El espacio HSV es particularmente útil en visión por computadora porque separa el componente de color (matiz) de los componentes de brillo (saturación y valor), lo que facilita la detección de colores específicos en condiciones de iluminación cambiantes.
 
 
@@ -44,7 +44,7 @@ Uno de los primeros pasos en el procesamiento de las imágenes es la conversión
 hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 ```
 
-#### Definición de los Rangos de Color Rojo
+#### Definición de los rangos de color rojo
 Para detectar la línea roja, se definieron dos rangos en el espacio de color HSV. Esto se debe a que el color rojo tiene dos tonalidades: una cerca del valor 0 (rojo claro) y otra cerca del valor 180 (rojo oscuro) en el espectro HSV.
 
     • Rango inferior del rojo claro: lower_red1 = np.array([0, 120, 70])
@@ -64,7 +64,7 @@ mask = cv2.bitwise_or(mask1, mask2)
 ![Mask Image](../images/mask.jpeg)
 
 
-#### Filtrado Morfológico
+#### Filtrado morfológico
 
 Una vez que se ha generado la máscara de la línea roja, se aplica un filtro morfológico para reducir el ruido. Los filtros morfológicos como la operación de apertura y cierre se utilizan para limpiar la máscara y eliminar pequeñas manchas que no forman parte de la línea.
 
@@ -75,7 +75,7 @@ mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
 mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 ```
 
-### 2.2 Detección de Contornos
+### 2.2 Detección de contornos
 
 Una vez que se ha limpiado la máscara de la línea roja, el siguiente paso es detectar los contornos de la línea utilizando la función cv2.findContours. Este paso es crucial porque nos permite identificar la forma de la línea y su ubicación en la imagen.
 
@@ -89,7 +89,7 @@ Aquí se utiliza `cv2.RETR_EXTERNAL` para detectar solo los contornos externos, 
 
 ![Countor Image](../images/countors.jpeg)
 
-### 2.3. Cálculo del Centro de la Línea
+### 2.3. Cálculo del centro de la línea
 
 Una vez que se han detectado los contornos, el siguiente paso es encontrar el centro de la línea en la imagen. Esto se hace calculando el centroide del contorno de la línea utilizando los momentos de la imagen. Los momentos proporcionan la información necesaria para calcular el centro de masa del contorno.
 
@@ -136,7 +136,7 @@ El control PID se usa para calcular el valor de la dirección (steering):
 raw_steering = p_control + i_control + d_control
 ```
 
-#### Suavizado de la Dirección
+#### Suavizado de la dirección
 
 Una de las soluciones implementadas para evitar las oscilaciones excesivas fue el uso de un filtro exponencial para suavizar los cambios en la dirección del robot. Este filtro suaviza las transiciones de la dirección, haciendo que el robot no reaccione de forma demasiado brusca a los pequeños errores.
 
@@ -148,7 +148,7 @@ prev_steering = steering
 
 El valor de alpha se ajustó para obtener una respuesta más suave. Un valor de alpha = 0.3 proporcionó un buen equilibrio entre velocidad de respuesta y suavidad.
 
-#### Ajuste Dinámico de Velocidad
+#### Ajuste dinámico de velocidad
 
 Se implementó un ajuste dinámico de la velocidad en función de la curvatura de la línea. En curvas cerradas, la velocidad se reduce para evitar que el robot se desestabilice.
 
@@ -162,13 +162,13 @@ else:
 ```
 
 
-## 3. Resultados y Evaluación
+## 3. Resultados y evaluación
 
-### 3.1. Mejor Tiempo Obtenido
+### 3.1. Mejor tiempo obtenido
 
 El mejor tiempo registrado para completar el circuito fue de 139.98 segundos. Este tiempo representa una mejora con respecto a las primeras versiones del código, donde el robot sufría de inestabilidad al tomar las curvas y no lograba un seguimiento fluido de la línea.
 
-### 3.2. Visualization
+### 3.2. Visualización
 
 A continuación se muestra un vídeo del funcionamiento del código en el circuito simple:
 
@@ -176,7 +176,7 @@ A continuación se muestra un vídeo del funcionamiento del código en el circui
 <iframe width="740" height="473" src="https://www.youtube.com/embed/GcyK_XPTnEQ" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-### 3.3. Posibles Razones para el Tiempo Obtenido
+### 3.3. Posibles razones para el tiempo obtenido
 
 El tiempo obtenido, aunque satisfactorio, puede verse influenciado por varios factores, que incluyen:
 
@@ -185,7 +185,7 @@ El tiempo obtenido, aunque satisfactorio, puede verse influenciado por varios fa
 - Condiciones del Circuito: El circuito de pruebas también tiene un impacto importante en el tiempo final. Las características del trazado, como las curvas cerradas, el tiempo de recuperación cuando el robot pierde la línea, y la calidad de la visión computacional (ruido en la imagen o condiciones de luz) juegan un papel crucial en el rendimiento. Las condiciones ambientales y la precisión de la detección de la línea afectaron directamente la capacidad del robot para mantener el ritmo en el circuito.
 - Algoritmos de Recuperación: Cuando el robot no podía seguir la línea de forma continua, el sistema de recuperación entraba en acción. Este modo de recuperación permitía que el robot buscara la línea nuevamente de manera eficiente, pero con cierta penalización en el tiempo. Sin embargo, este ajuste es necesario para garantizar que el robot no se quede atascado, lo que afecta los tiempos globales.
 
-### 3.3. Consideraciones para Mejorar el Tiempo
+### 3.3. Consideraciones para mejorar el tiempo
 
 Aunque el tiempo de 136.56 segundos es un buen resultado, aún existen áreas de mejora:
 - Optimización del Control PID: Ajustar más finamente las ganancias del PID podría mejorar aún más la respuesta del robot en curvas cerradas, permitiéndole mantener una velocidad más alta sin perder estabilidad.
