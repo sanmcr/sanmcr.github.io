@@ -369,21 +369,26 @@ footer {
   background-color: var(--greenAccent);
 }
 
-/* Estilo para bloques de código con borde verde y fondo blanco */
+/* Contenedor del bloque de código */
 .highlight {
   background-color: var(--white); /* Fondo blanco */
-  border-left: 5px solid var(--greenAccent);  /* Borde verde lateral */
+  border-left: 5px solid var(--greenAccent); /* Borde verde lateral */
   border-radius: 10px;
-  padding: 1em;
   margin: 1.5em 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
   overflow-x: auto;
+  padding: 1em;
 }
 
 /* Código dentro del bloque */
+.highlight pre,
 .highlight code {
+  background: none !important; /* Elimina fondo heredado del tema */
+  border: none !important;     /* Elimina borde interior */
+  box-shadow: none !important; /* Elimina sombra interior */
+  margin: 0;
+  padding: 0;
   font-family: 'Courier New', monospace;
   font-size: 16px;
   color: var(--darkGray);
 }
-
