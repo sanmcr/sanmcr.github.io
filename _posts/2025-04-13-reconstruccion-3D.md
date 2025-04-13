@@ -88,6 +88,15 @@ match = cv2.matchTemplate(croped, template, cv2.TM_CCOEFF_NORMED)
 
 El resultado de esta operación es una matriz de correlación que nos indica qué tan bien coincide la región de la imagen izquierda con la región de la imagen derecha. El punto con la mayor correlación será considerado como el punto correspondiente.
 
-## 5. Triangulación 3D
+### 5. Triangulación 3D
 
+Con los puntos correspondientes en ambas imágenes, podemos proceder a calcular las coordenadas 3D de los puntos utilizando la técnica de triangulación. En la triangulación, se utilizan las proyecciones de los puntos en ambas cámaras para determinar su ubicación en el espacio 3D.
+
+```python
+m, c, _ = np.linalg.lstsq(A.T, b, rcond=None)[0]  # Resolver el sistema de ecuaciones para la triangulación
+pt_3d = (m * l_projection_vector) + ((c / 2) * n)
+```
+
+### 6. Visualización en el visor 3D
+Finalmente, los puntos reconstruidos se visualizan en un visor 3D. Esto se realiza mediante la función GUI.ShowNewPoints(), que acepta un conjunto de puntos en formato [x, y, z, R, G, B]:
 
