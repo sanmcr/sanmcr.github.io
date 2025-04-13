@@ -3,12 +3,13 @@ layout: post
 title: Follow Line
 date: 2025-03-04
 thumbnail: images/cochecito.png
+excerpt: "Seguimieto en línea en diferentes circuitos"
 ---
+
 
 ![Imagen de seguimiento de línea](/images/cochecito.png)  <!-- Imagen dentro del post -->
 
-# Reporte: Implementación y modificaciones del seguimiento de línea en diferentes circuitos
-
+# Reporte: Implementación del seguimiento en línea en diferentes circuitos
 
 ## 1. Introducción
 
