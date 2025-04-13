@@ -3,7 +3,7 @@ layout: post
 title: Follow Line
 date: 2025-03-04
 thumbnail: images/cochecito.png
-excerpt: "Seguimieto en línea en diferentes circuitos"
+excerpt: "Seguimiento en línea en diferentes circuitos"
 ---
 
 
