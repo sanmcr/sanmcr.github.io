@@ -54,7 +54,6 @@ El código utilizado para realizar la detección de bordes es el siguiente:
 
 ``` python
 img = cv2.Canny(l_img, 100, 200)  # Detección de bordes en la imagen izquierda
-{% endhighlight %}
 ```
 
 Esto genera una nueva imagen binaria donde los bordes de la escena están representados por píxeles blancos (valor 255) y el resto de la imagen está en negro (valor 0). A partir de esta imagen, se extraen los puntos de interés (píxeles blancos) y se guardan en la lista white_pixels.
@@ -160,5 +159,10 @@ Para visualizar el proceso de la reconstrucción en tiempo real, se ha subido un
 
 En el siguiente video se aprecia cómo se visualiza progresivamente la reconstrucción de la escena en el visor 3D.
 
+<div style="text-align: center;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/EQguswWDk90" 
+          frameborder="0" allowfullscreen></iframe>
+</div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EQguswWDk90" frameborder="0" allowfullscreen></iframe>
+
+
