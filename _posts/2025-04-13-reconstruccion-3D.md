@@ -116,9 +116,18 @@ Esto permite ver la reconstrucción 3D de la escena en tiempo real.
 
 ## Resultados
 
-Durante la ejecución del código, el sistema es capaz de reconstruir varios puntos 3D a partir de los puntos de interés detectados en las imágenes. Los puntos reconstruidos se visualizan en el visor 3D, donde se pueden observar las diferentes proyecciones y cómo se alinean con la escena real.
+Durante la ejecución del algoritmo, el sistema es capaz de detectar puntos de interés en la imagen izquierda y encontrar sus correspondencias en la imagen derecha utilizando las líneas epipolares. A partir de estas correspondencias válidas (con una correlación mayor a 0.80), se realiza una triangulación para estimar la posición de cada punto en el espacio 3D.
 
-<img src="/images/2d.png" alt="Reconstrucción 3D con puntos azules" style="width: 80%; display: block; margin: auto;" />
+En la siguiente imagen se muestra una representación 2D de los resultados obtenidos. En ella se puede ver claramente cómo se han detectado los contornos de los objetos de la escena, y cómo los puntos reconstruidos se visualizan superpuestos en azul. Esta imagen no muestra la nube de puntos 3D como tal, sino una proyección de los puntos sobre la vista de ambas cámaras, lo cual permite verificar visualmente la precisión del emparejamiento y de la reconstrucción:
+
+<img src="/images/2D.png" alt="Reconstrucción 2D con puntos azules" style="width: 80%; display: block; margin: auto;" />
+
+Puede observarse que los puntos en azul siguen los bordes de los objetos principales de la escena, como los personajes, los cubos de letras y el patito de goma. Esto indica que el sistema ha sido capaz de identificar correctamente las zonas con mayor información visual y realizar una reconstrucción precisa en esas regiones.
+
+Este resultado visual es especialmente útil para validar de forma cualitativa el comportamiento del algoritmo: una buena alineación de los puntos azules sobre los objetos originales confirma que el sistema ha encontrado correspondencias correctas y que la triangulación ha sido coherente. Por el contrario, si los puntos azules estuvieran dispersos o mal alineados, indicaría posibles errores en el emparejamiento o ruido en los datos.
+
+Además, esta representación previa a la nube de puntos 3D final también permite comparar cómo se distribuyen los puntos reconstruidos desde la cámara izquierda y la derecha cuando se realiza una reconstrucción bidireccional.
+
 
 ### Estadísticas
 
