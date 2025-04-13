@@ -258,7 +258,6 @@ nav a:hover::before {
   font-weight: 700; /* Peso en negrita */
   margin-bottom: 15px;
   letter-spacing: 0.5px; /* Espaciado entre letras para mayor claridad */
-  text-transform: capitalize; /* Primera letra de cada palabra en mayúscula */
 }
 
 .read-more {
