@@ -33,10 +33,11 @@ El primer paso en el proceso de reconstrucción 3D es la captura de las imágene
 ```python
 l_img = HAL.getImage('left')  # Obtener imagen de la cámara izquierda
 r_img = HAL.getImage('right')  # Obtener imagen de la cámara derecha
+``
 
 Estas imágenes se usan como entrada para la siguiente fase del proceso.
 
-## 2. Detección de puntos de características
+### 2. Detección de puntos de características
 
 El siguiente paso es identificar los puntos de interés en las imágenes. Para este ejercicio, se usa el algoritmo de detección de bordes **Canny** (una técnica común para detectar contornos en imágenes) para detectar las características que se utilizarán en la reconstrucción. Los puntos detectados en la imagen izquierda se considerarán los puntos de interés.
 
@@ -58,5 +59,20 @@ for x in range(width):
         if img[y][x] == 255:  # Si el píxel es blanco (borde detectado)
             white_pixels.append([x, y])  # Añadir el punto a la lista
 ```
+
+## 3. Cálculo de la línea epipolar
+
+La geometría epipolar nos permite reducir la búsqueda de correspondencias de puntos entre las dos imágenes. Dado un punto en la imagen izquierda, la línea epipolar en la imagen derecha es la única línea donde podemos encontrar el punto correspondiente.
+
+Para calcular la línea epipolar, primero necesitamos obtener el vector de proyección 3D de un punto en la imagen izquierda. Este vector se calcula mediante la función `getProjectionLine()`, que toma el centro de la cámara y el punto en la imagen y lo convierte en un vector en el espacio 3D:
+
+```python
+def getProjectionLine(camera_optical_center, pxl, side):
+    new_pxl = [pxl[1], pxl[0], 1]  # Convertir el punto a coordenadas de imagen
+    cam_2d_point = HAL.graficToOptical(side, new_pxl)  # Transformar a coordenadas ópticas
+    pt_3d = HAL.backproject(side, cam_2d_point)  # Proyectar el punto 2D a 3D
+    projection_vector = pt_3d[:3] - camera_optical_center  # Calcular el vector de proyección
+    return projection_vector
+``
 
 
