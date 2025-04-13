@@ -29,7 +29,7 @@ body {
   background-repeat: repeat; /* Repite el patrón suavemente */
   background-size: 120px 120px; /* Ajusta el tamaño del patrón para que sea muy sutil */
   font: 18px/1.6 var(--helvetica);
-  color: var(--greenSageDarker);
+  color: var(--darkGray); /* Texto oscuro para mejor contraste */
   margin: 0;
   padding: 0;
 }
@@ -51,11 +51,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 30px; /* Aumentar tamaño de h1 */
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 22px; /* Aumentar tamaño de h2 */
 }
 
 h3 {
@@ -240,10 +240,10 @@ nav a:hover::before {
 /* Título del post "Follow Line" */
 .post h1 {
     font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    font-size: 20px; /* Tamaño más grande */
+    font-size: 32px; /* Aumentar tamaño del título */
     color: #000000; /* Color negro */
     font-weight: 700; /* Peso en negrita */
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     letter-spacing: 0.5px; /* Espaciado entre letras para mayor claridad */
     text-transform: capitalize; /* Primera letra de cada palabra en mayúscula */
 }
@@ -251,31 +251,31 @@ nav a:hover::before {
 /* Subtítulo "Reporte: Implementación..." */
 .post h2 {
     font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    font-size: 10px; /* Tamaño más pequeño */
-    color: var(--greenSage); /* Color verde suave */
-    font-weight: 400; /* Peso de fuente normal */
-    margin-bottom: 10px;
+    font-size: 18px; /* Aumentar tamaño del subtítulo */
+    color: var(--greenSageDark); /* Color verde suave */
+    font-weight: 500;
+    margin-bottom: 15px;
     line-height: 1.6; /* Mejor interlineado para legibilidad */
     letter-spacing: 0.3px; /* Ligero espaciado entre letras */
 }
 
 /* Texto de la entrada (subtítulo) */
 .entry {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--greenSage);
+  font-size: 18px; /* Aumentar tamaño del texto */
+  line-height: 1.8;
+  color: var(--darkGray); /* Usar color oscuro para mejor contraste */
   margin-bottom: 20px;
 }
 
 /* Botón "Read More" */
 .read-more {
   display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: var(--greenSage); /* Corregido para usar la variable de color */
-  color: var(--white); /* El color del texto sigue siendo blanco */
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: var(--greenSageDark); /* Darker green for better contrast */
+  color: var(--white);
   text-align: center;
-  border-radius: 25px; /* Bordes redondeados */
+  border-radius: 25px;
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -283,7 +283,7 @@ nav a:hover::before {
 
 /* Hover del botón */
 .read-more:hover {
-  background-color: var(--greenSageDark); /* Hover con verde más oscuro */
+  background-color: var(--greenAccent); /* Hover con verde más oscuro */
 }
 
 /* --- Footer (Pie de Página) --- */
@@ -293,23 +293,7 @@ footer {
   text-align: center;
 }
 
-/* --- Estilo para los botones --- */
-.button, a.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: var(--greenSage);
-  color: var(--white);
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: var(--greenSageLight);  /* Hover con verde más oscuro */
-  }
-}
-
-/* Estilo para las miniaturas de los posts */
+/* Estilos para la imagen en miniatura de los posts */
 .post-thumbnail {
     width: 100%;
     height: 250px; /* Ajusta la altura según lo necesites */
@@ -326,33 +310,4 @@ footer {
     object-fit: cover;
     object-position: center; /* Centra la imagen */
     border-radius: 15px; /* Bordes redondeados */
-
-/* Página About: Fuente Open Sans y fondo */
-.page-about {
-    font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    background-image: url('https://www.example.com/your-image.jpg'); /* URL de tu imagen */
-    background-size: cover; /* La imagen cubre todo el fondo */
-    background-position: center center; /* Centra la imagen */
-    background-attachment: fixed; /* Fija el fondo mientras se hace scroll */
-    padding: 40px 20px; /* Espaciado alrededor del contenido */
-    color: var(--greenSageDarker); /* Color de texto */
-}
-
-/* Estilos para la imagen en la página About */
-.page-about .about-image {
-    width: 30%; /* La imagen ocupa el 50% del ancho del contenedor */
-    height: auto; /* Mantiene las proporciones */
-    border-radius: 10px; /* Bordes ligeramente redondeados */
-    border: 2px solid var(--greenAccent); /* Borde más fino con color verde */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
-    float: left; /* Alinear la imagen a la izquierda */
-    margin-right: 20px; /* Espacio a la derecha de la imagen para separar el texto */
-    margin-bottom: 20px; /* Espacio debajo de la imagen para separarla del contenido */
-}
-
-/* Estilo para la página About: Alinear el texto a la derecha de la imagen */
-.page-about h1, 
-.page-about p, 
-.page-about h2 {
-    overflow: hidden; /* Asegura que el texto fluya bien a la derecha de la imagen */
 }
