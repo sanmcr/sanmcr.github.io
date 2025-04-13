@@ -128,14 +128,6 @@ Este resultado visual es especialmente útil para validar de forma cualitativa e
 
 Además, esta representación previa a la nube de puntos 3D final también permite comparar cómo se distribuyen los puntos reconstruidos desde la cámara izquierda y la derecha cuando se realiza una reconstrucción bidireccional.
 
-
-### Estadísticas
-
-- **Número de puntos detectados**: [incluir número de puntos detectados]
-- **Puntos reconstruidos con éxito**: [incluir número de puntos reconstruidos con éxito]
-
-**Precisión**: La precisión depende de la calidad de las imágenes y de la exactitud del emparejamiento de los puntos. El sistema es capaz de reconstruir puntos en áreas de alta textura, pero puede tener dificultades en áreas homogéneas o con poca información visual.
-
 ## Desafíos y Consideraciones
 
 Algunos de los principales desafíos que se enfrentaron durante el desarrollo de este ejercicio fueron:
