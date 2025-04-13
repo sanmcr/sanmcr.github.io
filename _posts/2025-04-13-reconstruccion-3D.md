@@ -7,8 +7,10 @@ excerpt: "Reconstrucción tridimensional de escenas."
 ---
 ![Imagen de seguimiento de línea](/images/muñequin.png)  <!-- Imagen dentro del post -->
 
+Este proyecto implementa una reconstrucción 3D utilizando visión estereoscópica, donde se calcula la profundidad de una escena a partir del emparejamiento de puntos detectados en imágenes captadas desde dos cámaras.
 
-# Informe: Reconstrucción 3D utilizando visión estereoscópica
+# Informe: title: "Reconstrucción 3D con visión estereoscópica en Python"
+
 
 ## Introducción
 
@@ -114,6 +116,11 @@ GUI.ShowNewPoints([point])
 
 Esto permite ver la reconstrucción 3D de la escena en tiempo real.
 
+## Implementación y ejecución
+
+El código fue desarrollado en Python y ejecutado en el entorno de simulación Unibotics, utilizando funciones proporcionadas por las interfaces HAL (Hardware Abstraction Layer) y GUI para la captura, procesamiento y visualización de datos. La reconstrucción se basa en emparejamientos válidos con umbral de correlación > 0.80 y utiliza triangulación para calcular posiciones 3D de los puntos detectados.
+
+
 ## Resultados
 
 Durante la ejecución del algoritmo, el sistema es capaz de detectar puntos de interés en la imagen izquierda y encontrar sus correspondencias en la imagen derecha utilizando las líneas epipolares. A partir de estas correspondencias válidas (con una correlación mayor a 0.80), se realiza una triangulación para estimar la posición de cada punto en el espacio 3D.
@@ -144,8 +151,13 @@ La reconstrucción 3D utilizando visión estereoscópica es un proceso complejo 
 
 Para futuras mejoras, se recomienda implementar métodos más avanzados de detección de características y correspondencias, así como técnicas de calibración para corregir posibles distorsiones en las imágenes.
 
+En general, la práctica me permitió comprender mejor cómo se combinan conceptos geométricos, visión por computadora y estructuras 3D, y cómo influyen parámetros como la confianza en la calidad de la reconstrucción.
+
 ## Video de la reconstrucción 3D
 
 Para visualizar el proceso de la reconstrucción en tiempo real, se ha subido un video a YouTube. En él, se muestra cómo se reconstruyen los puntos y cómo se visualizan en el visor 3D.
+
+> En el siguiente video se aprecia cómo se visualiza progresivamente la reconstrucción de la escena en el visor 3D.
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EQguswWDk90" frameborder="0" allowfullscreen></iframe>
