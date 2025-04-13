@@ -75,4 +75,6 @@ def getProjectionLine(camera_optical_center, pxl, side):
     return projection_vector
 ``
 
+Luego, utilizando la proyección 3D, calculamos la línea epipolar en la imagen derecha.
+
 
