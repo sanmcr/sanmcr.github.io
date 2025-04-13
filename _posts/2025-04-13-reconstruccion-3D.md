@@ -145,3 +145,4 @@ Para futuras mejoras, se recomienda implementar métodos más avanzados de detec
 
 Para visualizar el proceso de la reconstrucción en tiempo real, se ha subido un video a YouTube. En él, se muestra cómo se reconstruyen los puntos y cómo se visualizan en el visor 3D.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EQguswWDk90" frameborder="0" allowfullscreen></iframe>
