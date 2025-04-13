@@ -221,22 +221,22 @@ nav a:hover::before {
   transform: scaleX(1); /* Aparece la línea al hacer hover */
 }
 
-/* Estilo para la imagen principal del post */
-.post-image {
+/* Estilo para la imagen de miniatura de los posts */
+.post-thumbnail {
   width: 100%;
-  height: auto;
-  margin-bottom: 20px; /* Espacio entre la imagen y el contenido */
-  border-radius: 15px; /* Bordes redondeados */
+  height: 200px; /* Definir una altura más razonable */
   overflow: hidden;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+  margin-bottom: 20px;
+  border-radius: 10px; /* Bordes redondeados para las miniaturas */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.post-image img {
+.post-thumbnail img {
   width: 100%;
-  height: auto;
-  object-fit: cover; /* Asegura que la imagen cubra el espacio */
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
   object-position: center; /* Centra la imagen */
-  border-radius: 15px; /* Bordes redondeados */
+  border-radius: 10px; /* Bordes redondeados para un look más suave */
 }
 
 /* --- Post --- */
@@ -249,6 +249,34 @@ nav a:hover::before {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   margin-top: 20px; /* Espacio entre el post y la cabecera */
 }
+
+.post h1 {
+  font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
+  font-size: 32px; /* Aumentar tamaño del título */
+  color: #000000; /* Color negro */
+  font-weight: 700; /* Peso en negrita */
+  margin-bottom: 15px;
+  letter-spacing: 0.5px; /* Espaciado entre letras para mayor claridad */
+  text-transform: capitalize; /* Primera letra de cada palabra en mayúscula */
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: var(--greenSageDark);
+  color: var(--white);
+  text-align: center;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: var(--greenAccent); /* Hover con verde más oscuro */
+}
+
 
 /* Título del post */
 .post h1 {
