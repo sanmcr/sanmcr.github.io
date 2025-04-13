@@ -6,13 +6,6 @@ layout: default
   {% for post in site.posts %}
     <article class="post">
       
-      <!-- Agregar la imagen de miniatura al principio del post -->
-      {% if post.thumbnail %}
-        <div class="post-thumbnail">
-          <img src="{{ site.baseurl }}{{ post.thumbnail }}" alt="{{ post.title }}">
-        </div>
-      {% endif %}
-
       <!-- Título del post -->
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
