@@ -41,6 +41,7 @@ body {
   width: 100%;
 }
 
+/* Títulos principales y secundarios */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--helveticaNeue);
   color: var(--greenSageDark); /* Encabezados en verde más oscuro */
@@ -55,7 +56,7 @@ h1 {
 }
 
 h2 {
-  font-size: 22px; /* Aumentar tamaño de h2 */
+  font-size: 24px; /* Aumentar tamaño de h2 */
 }
 
 h3 {
@@ -137,55 +138,55 @@ img {
 
 /* --- Cabecera --- */
 header {
-    background-color: #d8e7dc; /* Fondo suave y claro */
-    padding: 15px 20px; /* Reducir el padding para hacerla más estrecha */
-    text-align: left; /* Alineación a la izquierda */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-bottom: 30px; /* Deja un espacio entre la cabecera y el post */
-    background-image: url('https://www.transparenttextures.com/patterns/abstract-squares.png'); /* Añadir patrón de fondo */
-    background-size: cover; /* Asegura que el patrón cubra todo el fondo */
+  background-color: #d8e7dc; /* Fondo suave y claro */
+  padding: 15px 20px; /* Reducir el padding para hacerla más estrecha */
+  text-align: left; /* Alineación a la izquierda */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 30px; /* Deja un espacio entre la cabecera y el post */
+  background-image: url('https://www.transparenttextures.com/patterns/abstract-squares.png'); /* Añadir patrón de fondo */
+  background-size: cover; /* Asegura que el patrón cubra todo el fondo */
 }
 
 /* Estilo para la imagen de VR VISION ROBÓTICA (Avatar) */
 header .site-avatar {
-    width: 90px; /* Tamaño reducido de la imagen */
-    height: 90px;
-    margin-right: 20px; /* Espacio entre la imagen y el texto */
-    border-radius: 50%; /* Redondear la imagen */
-    border: 4px solid var(--greenAccent); /* Borde suave en color verde */
-    overflow: hidden; /* Asegura que la imagen no sobresalga */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-    float: left; /* Alineación a la izquierda */
-    transition: all 0.3s ease; /* Transición suave para efectos de hover */
+  width: 90px; /* Tamaño reducido de la imagen */
+  height: 90px;
+  margin-right: 20px; /* Espacio entre la imagen y el texto */
+  border-radius: 50%; /* Redondear la imagen */
+  border: 4px solid var(--greenAccent); /* Borde suave en color verde */
+  overflow: hidden; /* Asegura que la imagen no sobresalga */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  float: left; /* Alineación a la izquierda */
+  transition: all 0.3s ease; /* Transición suave para efectos de hover */
 }
 
 /* Efecto cuando el ratón pasa por encima */
 header .site-avatar:hover {
-    border: 4px solid var(--greenSageDark); /* Cambio de color del borde a un verde más oscuro */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Aumentar la sombra para dar profundidad */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al hacer hover */
+  border: 4px solid var(--greenSageDark); /* Cambio de color del borde a un verde más oscuro */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Aumentar la sombra para dar profundidad */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al hacer hover */
 }
 
 /* Título y nombre */
 .site-name {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 28px; /* Tamaño adecuado */
-    color: #000000; /* Nombre en color negro */
-    font-weight: 700;
-    letter-spacing: 1px; /* Más espaciado entre las letras para dar elegancia */
-    margin-bottom: 10px;
-    text-transform: uppercase; /* Convertir en mayúsculas para un toque moderno */
+  font-family: 'Helvetica', sans-serif;
+  font-size: 28px; /* Tamaño adecuado */
+  color: #000000; /* Nombre en color negro */
+  font-weight: 700;
+  letter-spacing: 1px; /* Más espaciado entre las letras para dar elegancia */
+  margin-bottom: 10px;
+  text-transform: uppercase; /* Convertir en mayúsculas para un toque moderno */
 }
 
 /* Descripción */
 .site-description {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 16px; /* Tamaño pequeño */
-    color: #000000; /* Descripción en un verde suave */
-    margin-top: 10px;
-    font-weight: 300;
-    letter-spacing: 0.5px; /* Ligero espaciado para un look más moderno */
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px; /* Tamaño pequeño */
+  color: #000000; /* Descripción en un verde suave */
+  margin-top: 10px;
+  font-weight: 300;
+  letter-spacing: 0.5px; /* Ligero espaciado para un look más moderno */
 }
 
 /* Enlaces de la cabecera */
@@ -220,25 +221,6 @@ nav a::before {
 nav a:hover::before {
   transform: scaleX(1); /* Aparece la línea al hacer hover */
 }
-
-/* Estilo para la imagen de miniatura de los posts (en la portada) */
-.post-thumbnail {
-  width: 100%;
-  height: 200px; /* Definir altura de las miniaturas de los posts */
-  overflow: hidden;
-  margin-bottom: 20px;
-  border-radius: 10px; /* Bordes redondeados para las miniaturas */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-.post-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Recorta la imagen para llenar el contenedor */
-  object-position: center; /* Centra la imagen */
-  border-radius: 10px; /* Bordes redondeados */
-}
-
 
 /* --- Post --- */
 .posts > .post {
@@ -277,53 +259,22 @@ nav a:hover::before {
   background-color: var(--greenAccent); /* Hover con verde más oscuro */
 }
 
-
-/* Título del post */
-.post h1 {
-    font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    font-size: 25px; /* Aumentar tamaño del título */
-    color: #000000; /* Color negro */
-    font-weight: 700; /* Peso en negrita */
-    margin-bottom: 15px;
-    letter-spacing: 0.5px; /* Espaciado entre letras para mayor claridad */
-}
-
-/* Subtítulo "Reporte: Implementación..." */
-.post h2 {
-    font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-    font-size: 18px; /* Aumentar tamaño del subtítulo */
-    color: var(--greenSageDark); /* Color verde suave */
-    font-weight: 500;
-    margin-bottom: 15px;
-    line-height: 1.6; /* Mejor interlineado para legibilidad */
-    letter-spacing: 0.3px; /* Ligero espaciado entre letras */
-}
-
-/* Texto de la entrada (subtítulo) */
-.entry {
-  font-size: 18px; /* Aumentar tamaño del texto */
-  line-height: 1.8;
-  color: var(--darkGray); /* Usar color oscuro para mejor contraste */
+/* Estilo para la imagen de miniatura de los posts (en la portada) */
+.post-thumbnail {
+  width: 100%;
+  height: 200px; /* Definir altura de las miniaturas de los posts */
+  overflow: hidden;
   margin-bottom: 20px;
+  border-radius: 10px; /* Bordes redondeados para las miniaturas */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-/* Botón "Read More" */
-.read-more {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: var(--greenSageDark); /* Darker green for better contrast */
-  color: var(--white);
-  text-align: center;
-  border-radius: 25px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-/* Hover del botón */
-.read-more:hover {
-  background-color: var(--greenAccent); /* Hover con verde más oscuro */
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para llenar el contenedor */
+  object-position: center; /* Centra la imagen */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 /* --- Footer (Pie de Página) --- */
@@ -409,4 +360,3 @@ footer {
 .read-more:hover {
   background-color: var(--greenAccent);
 }
-
