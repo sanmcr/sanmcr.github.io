@@ -37,6 +37,13 @@ r_img = HAL.getImage('right')  # Obtener imagen de la cámara derecha
 
 Estas imágenes se usan como entrada para la siguiente fase del proceso.
 
+## Capturas de las cámaras
+
+Estas son las imágenes capturadas por las cámaras del robot Kobuki, que se usan para la reconstrucción 3D:
+
+![Captura de la cámara izquierda y derecha](images/camaras.png)
+
+
 ### 2. Detección de puntos de características
 
 El siguiente paso es identificar los puntos de interés en las imágenes. Para este ejercicio, se usa el algoritmo de detección de bordes **Canny** (una técnica común para detectar contornos en imágenes) para detectar las características que se utilizarán en la reconstrucción. Los puntos detectados en la imagen izquierda se considerarán los puntos de interés.
