@@ -18,7 +18,7 @@ permalink: /about/
     <p>Me interesa especialmente la aplicación de tecnologías de visión por computadora en los campos de medicina y robótica, con el objetivo de desarrollar soluciones que mejoren los procesos de diagnóstico y que automatice diversas tareas en entornos industriales. Mi meta es contribuir al desarrollo de sistemas inteligentes que mejoren las capacidades humanas.</p>
 
     <h2>Información de contacto</h2>
-    <p>Si desea conectar o aprender más sobre mi trabajo, no dude en contactarme por correo electrónico a <a href="mailto:email@domain.com">email@domain.com</a>.</p>
+    <p>Si desea conectar o aprender más sobre mi trabajo, no dude en contactarme por correo electrónico a <a href="mailto:nsand77.sm@gmail.com">email@domain.com</a>.</p>
 
     <h2>Enlaces profesionales</h2>
     <p>Puede explorar mis proyectos y trabajo a través de los siguientes enlaces:</p>
