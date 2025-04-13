@@ -118,6 +118,8 @@ Esto permite ver la reconstrucción 3D de la escena en tiempo real.
 
 Durante la ejecución del código, el sistema es capaz de reconstruir varios puntos 3D a partir de los puntos de interés detectados en las imágenes. Los puntos reconstruidos se visualizan en el visor 3D, donde se pueden observar las diferentes proyecciones y cómo se alinean con la escena real.
 
+<img src="/images/2d.png" alt="Reconstrucción 3D con puntos azules" style="width: 80%; display: block; margin: auto;" />
+
 ### Estadísticas
 
 - **Número de puntos detectados**: [incluir número de puntos detectados]
