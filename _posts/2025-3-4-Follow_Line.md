@@ -5,6 +5,7 @@ date: 2025-03-04
 thumbnail: images/cochecito.png
 ---
 
+![Imagen de seguimiento de línea](/assets/images/your-image.png)  <!-- Imagen dentro del post -->
 
 # Reporte: Implementación y modificaciones del seguimiento de línea en diferentes circuitos
 
