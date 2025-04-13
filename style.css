@@ -333,3 +333,13 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
+
+/* Estilo para las imágenes dentro del post */
+.post img {
+  max-width: 100%; /* Asegura que la imagen no se desborde fuera del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 10px; /* Bordes redondeados para las imágenes */
+  margin: 20px 0; /* Añade espacio superior e inferior para mejorar la legibilidad */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+}
+
