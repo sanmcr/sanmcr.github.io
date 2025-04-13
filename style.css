@@ -369,10 +369,10 @@ footer {
   background-color: var(--greenAccent);
 }
 
-/* Estilo para bloques de código con borde verde sage bonito */
+/* Estilo para bloques de código con borde verde y fondo blanco */
 .highlight {
-  background-color: var(--greenSageLight);
-  border-left: 5px solid var(--greenAccent);  /* Borde verde suave a la izquierda */
+  background-color: var(--white); /* Fondo blanco */
+  border-left: 5px solid var(--greenAccent);  /* Borde verde lateral */
   border-radius: 10px;
   padding: 1em;
   margin: 1.5em 0;
@@ -380,9 +380,10 @@ footer {
   overflow-x: auto;
 }
 
-/* Mejora el contenido del código */
+/* Código dentro del bloque */
 .highlight code {
   font-family: 'Courier New', monospace;
   font-size: 16px;
   color: var(--darkGray);
 }
+
