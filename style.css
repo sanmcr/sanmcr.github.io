@@ -221,6 +221,24 @@ nav a:hover::before {
   transform: scaleX(1); /* Aparece la línea al hacer hover */
 }
 
+/* Estilo para la imagen principal del post */
+.post-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px; /* Espacio entre la imagen y el contenido */
+  border-radius: 15px; /* Bordes redondeados */
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio */
+  object-position: center; /* Centra la imagen */
+  border-radius: 15px; /* Bordes redondeados */
+}
+
 /* --- Post --- */
 .posts > .post {
   padding: 20px;
@@ -232,12 +250,7 @@ nav a:hover::before {
   margin-top: 20px; /* Espacio entre el post y la cabecera */
 }
 
-/* Para el último post */
-.posts > .post:last-child {
-  margin-bottom: 0;
-}
-
-/* Título del post "Follow Line" */
+/* Título del post */
 .post h1 {
     font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
     font-size: 32px; /* Aumentar tamaño del título */
@@ -291,23 +304,4 @@ footer {
   background-color: var(--greenSageLight);
   padding: 20px 0;
   text-align: center;
-}
-
-/* Estilos para la imagen en miniatura de los posts */
-.post-thumbnail {
-    width: 100%;
-    height: 250px; /* Ajusta la altura según lo necesites */
-    overflow: hidden;
-    margin-bottom: 15px;
-    border-radius: 15px; /* Bordes redondeados para un look más suave */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
-    border: none; /* Asegura que no haya borde */
-}
-
-.post-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center; /* Centra la imagen */
-    border-radius: 15px; /* Bordes redondeados */
 }
