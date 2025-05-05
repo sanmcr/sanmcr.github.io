@@ -3,7 +3,7 @@ layout: post
 title: Follow Line
 date: 2025-03-04
 thumbnail: images/p3.jpg
-excerpt: "Marked"
+excerpt: "Marker Based Visual Loc"
 ---
 
 
