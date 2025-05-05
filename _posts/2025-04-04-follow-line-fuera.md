@@ -1,71 +1,104 @@
 ---
 layout: post  
-title: Control visual de un robot de Fórmula 1 (fuera de plazo)  
-date: 2025-04-04  
-thumbnail: images/chetin.png  
-excerpt: "Versión mejorada de Follow Line"  
+title: seguimiento de línea con visión artificial en fórmula 1  
+date: 2025-05-04  
+thumbnail: images/p3.jpg  
+excerpt: "Optimización del algoritmo Follow Line con visión y control reactivo"  
 ---
 
-# Seguimiento de línea en un coche de Fórmula 1 simulado
+# seguimiento de línea con visión artificial en fórmula 1
 
-En el marco de la asignatura Visión en Robótica del Máster en Visión Artificial, se ha desarrollado una práctica cuyo objetivo es permitir que un coche de Fórmula 1 simulado sea capaz de seguir de forma autónoma una línea roja trazada sobre el asfalto de un circuito virtual. La tarea consiste en aplicar técnicas de visión por computador y control reactivo para que el vehículo complete una vuelta al circuito en el menor tiempo posible, sin salirse de la pista ni colisionar con los bordes del trazado.
+Este informe documenta el desarrollo y optimización de un sistema de control visual para un coche simulado de Fórmula 1. El objetivo de la práctica era permitir que el vehículo siguiera una línea roja trazada sobre el asfalto del circuito, completando una vuelta en el menor tiempo posible sin perder estabilidad ni salirse del recorrido.
 
-El sistema se ha desarrollado de forma incremental, comenzando con un enfoque sencillo y funcional, que fue posteriormente mejorado y optimizado para alcanzar un comportamiento mucho más eficiente, estable y competitivo. En este informe se describen en detalle ambas versiones del sistema, las mejoras introducidas, los fundamentos técnicos y los resultados obtenidos.
+Se parte de una versión inicial completamente funcional, pero poco eficiente, y se llega a una versión final que mejora el rendimiento significativamente, logrando reducir el tiempo por vuelta a 63.86 segundos mediante mejoras visuales, de control y de estrategia.
 
-## Versión inicial: implementación básica
+---
 
-En una primera etapa, se implementó un sistema de seguimiento de línea basado en la detección de contornos y el cálculo del centroide del contorno más grande detectado en la imagen binaria resultante de segmentar el color rojo. Esta imagen se obtenía tras convertir la imagen RGB de la cámara frontal del coche al espacio de color HSV, que es más robusto frente a cambios de iluminación.
+## enfoque inicial: versión funcional pero lenta
 
-Una vez detectada la línea roja, se encontraba su centroide (coordenada `cX`) y se calculaba el error como la diferencia entre `cX` y el centro horizontal de la imagen. Este error alimentaba un controlador PID que generaba el comando de giro. Para evitar oscilaciones, se implementó un suavizado exponencial con un factor `alpha` de 0.7. La velocidad del coche se regulaba en función de la curvatura estimada, que se aproximaba como la diferencia entre los últimos dos valores de `cX` almacenados.
+La primera versión utilizaba una estrategia clásica basada en visión por computador y control PID. El procesamiento visual consistía en convertir la imagen capturada por la cámara del coche a HSV, segmentar la línea roja mediante un doble rango de máscaras y aplicar morfología para eliminar ruido. A continuación, se extraía el contorno más grande y se calculaba su centroide como punto de referencia.
 
-El comportamiento resultante era funcional, permitiendo que el coche siguiera la línea y completara una vuelta al circuito. Sin embargo, el sistema presentaba diversas limitaciones. En particular, la anticipación de curvas era deficiente, la velocidad máxima alcanzada era baja (7.5 unidades en tramos rectos), y el control de dirección era excesivamente lento, lo que resultaba en un tiempo de vuelta elevado, superior a 80 segundos.
+El error se calculaba como la diferencia entre el centro horizontal de la imagen y el valor de `cX`. Este error alimentaba un PID con ganancia proporcional, integral y derivativa, y se aplicaba un suavizado exponencial para evitar oscilaciones. Además, se introdujo una zona muerta para pequeños errores (menos de 3 píxeles).
 
-## Optimizaciones introducidas: versión mejorada
+En cuanto a la velocidad, se regulaba de forma sencilla en función de una estimación de curvatura basada en la diferencia entre los últimos dos valores de `cX`. Se definieron tres rangos: uno para rectas (velocidad alta), uno para curvas suaves y otro para curvas cerradas. El valor máximo alcanzado era de 7.5 unidades.
 
-A partir del análisis de las carencias observadas, se introdujeron diversas mejoras que transformaron significativamente el rendimiento del sistema. Estas mejoras se centraron en los aspectos de detección visual, cálculo del error, estimación de curvatura, ajuste de la velocidad y refinamiento del control PID.
+Aunque el sistema era estable y terminaba el circuito, el tiempo por vuelta rondaba los 85 segundos y mostraba poca capacidad de adaptación a curvas prolongadas o cambios suaves en la trayectoria.
 
-### Cambio del punto de referencia visual
+---
 
-En lugar de usar el centroide del contorno, se pasó a utilizar el vértice superior del contorno rojo, es decir, el punto más elevado en la imagen correspondiente a la línea roja. Este punto proporciona una estimación más adelantada de la trayectoria, permitiendo anticipar cambios de dirección antes de que el vehículo llegue a ellos. Gracias a este cambio, el sistema adquirió una capacidad predictiva más efectiva, especialmente útil en curvas suaves y prolongadas.
+## análisis de problemas
 
-### Cálculo real del PID con delta temporal
+Al evaluar el rendimiento, se identificaron varios cuellos de botella:
 
-Se incorporó el cálculo del tiempo entre iteraciones (`dt`), lo que permitió aplicar un PID realista y más eficaz. El término derivativo pudo así calcularse como la derivada del error respecto al tiempo, lo que resultó en un control de giro más suave y menos propenso a oscilaciones, especialmente en transiciones rápidas.
+- La detección del centroide no anticipaba curvas con suficiente antelación.
+- El control PID no usaba el tiempo entre iteraciones (`dt`), lo que afectaba a la consistencia.
+- La estimación de curvatura era poco robusta.
+- El suavizado de dirección era excesivo (`alpha = 0.7`), dificultando maniobras rápidas.
+- Las velocidades eran conservadoras, lo que limitaba el rendimiento incluso en tramos rectos.
 
-### Estimación de curvatura basada en historial
+Estas debilidades motivaron un rediseño más profundo del enfoque.
 
-La curvatura de la trayectoria se pasó a estimar mediante un historial de posiciones del punto de referencia (`cX`), permitiendo obtener una media de las diferencias acumuladas. Esta curvatura suavizada proporcionó una estimación mucho más estable y representativa de la trayectoria real, lo cual mejoró la adaptación de la velocidad en función de la geometría de la pista.
+---
 
-### Mjora del suavizado de giro
+## mejoras aplicadas en la versión final
 
-El valor del coeficiente de suavizado exponencial se redujo de 0.7 a 0.35, lo cual hizo que el sistema fuera más reactivo a cambios en la trayectoria. Este cambio permitió una mejor respuesta en curvas cerradas, reduciendo la tendencia a sobrecorregir y facilitando transiciones más precisas.
+Tras un proceso iterativo de ajustes y pruebas, se incorporaron mejoras clave en distintas áreas del sistema.
 
-### Control dinámico de la velocidad
+### uso del vértice superior como punto de referencia
 
-En lugar de utilizar tres velocidades fijas, se estableció una relación más detallada entre la curvatura estimada y la velocidad máxima permitida. Así, en tramos rectos el coche podía alcanzar hasta 11.7 unidades, mientras que en curvas suaves se reducía a 9.6 y en curvas cerradas hasta 4.0. Esta adaptación progresiva permitió aumentar considerablemente la velocidad media sin comprometer la estabilidad.
+En lugar de usar el centroide del contorno, se pasó a utilizar el vértice superior del contorno más grande, es decir, el punto más alto (con menor coordenada Y). Este cambio permitió anticipar mejor las curvas, ya que ese punto representa con mayor fidelidad la dirección futura de la línea. Al utilizar este punto y suavizar su evolución, se logró una respuesta más ágil y coherente del vehículo.
 
-### Límite dinámico del ángulo de giro
+### reducción del suavizado de dirección
 
-Se implementó un sistema de limitación del ángulo de giro máximo, dependiente de la velocidad. A velocidades altas, el giro se limitaba a 20 grados para evitar movimientos bruscos, mientras que en curvas lentas se permitía un giro de hasta 45 grados. Esto evitó el zigzagueo en rectas y mejoró la estabilidad general.
+El suavizado exponencial aplicado al comando de dirección (`alpha`) se redujo de 0.7 a 0.35. Este cambio permitió al coche reaccionar más rápidamente a cambios en la trayectoria de la línea sin llegar a producir oscilaciones bruscas. Se encontró un equilibrio entre estabilidad y agilidad, crucial en tramos técnicos.
 
-## Resultados y comparativa
+### ajuste más preciso de la curvatura
 
-Con todas las mejoras introducidas, el sistema consiguió completar una vuelta al circuito en aproximadamente 63.8 segundos, reduciendo en más de 20 segundos el tiempo obtenido con la versión inicial. Además, la estabilidad del vehículo aumentó notablemente, tanto en tramos rectos como en curvas cerradas, y la respuesta ante cambios de dirección fue mucho más natural.
+La curvatura dejó de calcularse como la diferencia entre solo dos puntos de `cX`, y pasó a estimarse a partir de un historial de cinco valores, cuya variación media se usa como referencia. Este enfoque proporciona una medida más estable de cómo evoluciona la línea a lo largo del tiempo, permitiendo decisiones de velocidad más acertadas.
 
-| métrica                  | versión inicial     | versión optimizada     |
-|--------------------------|----------------------|--------------------------|
-| Tiempo de vuelta         | ~80–85 segundos      | ~63.8 segundos           |
-| Estabilidad en curvas    | Regular              | Alta                     |
-| Velocidad máxima         | 7.5                  | 11.7                     |
-| Punto de referencia      | Centroide            | Vértice superior         |
-| Cálculo de PID con dt    | No                   | Sí                       |
+### redefinición de los rangos de velocidad
 
-## Conclusión
+La lógica de velocidades fue modificada para adaptarse mejor a las características del circuito. Se elevaron los umbrales de curvatura, y se incrementó la velocidad máxima en recta. En concreto, la velocidad se definió en tres niveles:
 
-La práctica de seguimiento de línea mediante visión ha permitido implementar y afinar un sistema de control reactivo eficiente. Gracias a la mejora en la selección del punto de referencia, el uso de un PID realista, la adaptación de la velocidad a la curvatura y el refinamiento del control de giro, el vehículo ha demostrado ser capaz de seguir la línea roja con una gran precisión y velocidad.
+- En tramos amplios (curvatura < 25), se alcanzan los 11.7.
+- En curvas suaves (curvatura < 44), se reduce a 9.6.
+- En curvas cerradas, se mantiene en 4.2.
 
-Este trabajo evidencia que, con un tratamiento cuidadoso de la información visual y un diseño adecuado del sistema de control, es posible alcanzar un comportamiento muy competitivo sin necesidad de estrategias complejas de planificación o aprendizaje.
+Gracias a esta configuración, el coche es capaz de acelerar intensamente en tramos rectos sin comprometer la estabilidad en las zonas técnicas.
+
+### limitación adaptativa del ángulo de giro
+
+Se añadió una restricción dinámica al ángulo máximo de giro permitido. Cuando la velocidad supera 8 unidades, el ángulo máximo se reduce a 20 grados para evitar zigzags en rectas. En caso contrario, se permite hasta 45 grados, facilitando giros más agresivos. Esto contribuye a mantener la estabilidad a alta velocidad sin perjudicar la maniobrabilidad en curvas lentas.
+
+### limpieza del término integral en errores grandes
+
+Se añadió una condición que reinicia el término integral del PID si el error absoluto supera los 100 píxeles. Esto evita acumulaciones que puedan desestabilizar el sistema en caso de errores momentáneos o reinicios forzados.
+
+---
+
+## resultados comparativos
+
+Las mejoras introducidas han permitido reducir el tiempo por vuelta desde aproximadamente 85 segundos a 63.86 segundos. Además de la mejora en velocidad, se ha mantenido una gran estabilidad, incluso en curvas prolongadas o tras transiciones rápidas. El comportamiento general del coche resulta ahora mucho más competitivo.
+
+| métrica                  | versión inicial     | versión final (opt.)     |
+|--------------------------|----------------------|----------------------------|
+| Tiempo por vuelta        | ~85 s                | **63.86 s**                |
+| Estabilidad general      | Media                | Alta                       |
+| Punto de seguimiento     | Centroide            | Vértice superior del contorno |
+| Suavizado dirección      | Alpha = 0.7          | Alpha = 0.35               |
+| Curvatura                | Δ(cX último - anterior) | Media sobre historial de cX |
+| Velocidad máxima         | 7.5                  | 11.7                       |
+
+---
+
+## conclusiones
+
+La evolución del sistema demuestra cómo un control visual reactivo puede mejorar enormemente con ajustes bien enfocados. No ha sido necesario recurrir a técnicas de predicción ni planificación complejas; el rendimiento se ha optimizado únicamente mediante una mejor interpretación visual y un control más preciso y adaptativo.
+
+Este trabajo pone en valor el impacto de detalles como la elección del punto de referencia, la forma de medir la curvatura o la parametrización del suavizado, que son aspectos a menudo subestimados pero con gran efecto sobre el comportamiento final.
+
+---
 
 ## vídeo demostrativo
 
-[Ver vídeo del resultado en YouTube](https://www.youtube.com/watch?v=AQUI_TU_VIDEO)
+[ver vídeo del resultado en YouTube](https://www.youtube.com/watch?v=AQUI_TU_VIDEO)
