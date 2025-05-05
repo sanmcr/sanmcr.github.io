@@ -15,7 +15,7 @@ Se parte de una versión inicial completamente funcional, pero poco eficiente, y
 
 ---
 
-## enfoque inicial: versión funcional pero lenta
+## Enfoque inicial: versión funcional pero lenta
 
 La primera versión utilizaba una estrategia clásica basada en visión por computador y control PID. El procesamiento visual consistía en convertir la imagen capturada por la cámara del coche a HSV, segmentar la línea roja mediante un doble rango de máscaras y aplicar morfología para eliminar ruido. A continuación, se extraía el contorno más grande y se calculaba su centroide como punto de referencia.
 
@@ -24,6 +24,9 @@ El error se calculaba como la diferencia entre el centro horizontal de la imagen
 En cuanto a la velocidad, se regulaba de forma sencilla en función de una estimación de curvatura basada en la diferencia entre los últimos dos valores de `cX`. Se definieron tres rangos: uno para rectas (velocidad alta), uno para curvas suaves y otro para curvas cerradas. El valor máximo alcanzado era de 7.5 unidades.
 
 Aunque el sistema era estable y terminaba el circuito, el tiempo por vuelta rondaba los 85 segundos y mostraba poca capacidad de adaptación a curvas prolongadas o cambios suaves en la trayectoria.
+
+El siguiente bloque muestra el cálculo del error y la aplicación del control PID utilizado en la versión inicial:
+
 
 ---
 
