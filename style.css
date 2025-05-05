@@ -290,7 +290,7 @@ nav a:hover::before {
 .posts {
   display: flex;  /* Usamos flex para que se coloquen en una sola columna */
   flex-direction: column;  /* Asegura que se apilen uno encima del otro */
-  gap: 10px;  /* Añade espacio entre los posts */
+  gap: 5px;  /* Añade espacio entre los posts */
   margin: 0;
   padding: 20px;
 }
