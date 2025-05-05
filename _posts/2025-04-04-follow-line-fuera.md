@@ -5,6 +5,7 @@ date: 2025-05-04
 thumbnail: images/p3.jpg  
 excerpt: "Optimización del algoritmo Follow Line con visión y control reactivo"  
 ---
+![Imagen de seguimiento de línea](/images/chetin.png)  <!-- Imagen dentro del post -->
 
 # seguimiento de línea con visión artificial en fórmula 1
 
