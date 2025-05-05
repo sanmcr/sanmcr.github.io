@@ -1,8 +1,9 @@
 ---
 layout: post
-title: Marker Based Visual Loc
-image: {{ site.baseurl }}/images/p3.jpg # Asegúrate de agregar una imagen adecuada si la tienes
+title: "Marker Based Visual Loc"
+image: "/images/p3.jpg"  # O usa site.baseurl si es necesario
 ---
+
 
 # Marker Based Visual Loc
 
