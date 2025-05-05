@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "Marker Based Visual Loc"
-image: "/images/p3.jpg"  # O usa site.baseurl si es necesario
+title: "Mi Tercer Post"
+thumbnail: "/images/p3.jpg"  # Asegúrate de que la ruta sea correcta
+excerpt: "Este es un resumen de mi tercer post"
 ---
 
 
