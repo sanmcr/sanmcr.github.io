@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "Mi Tercer Post"
-thumbnail: "/images/p3.jpg"  # Asegúrate de que la ruta sea correcta
-excerpt: "Este es un resumen de mi tercer post"
+title: Follow Line
+date: 2025-03-04
+thumbnail: images/p3.jpg
+excerpt: "Marked"
 ---
+
 
 # Marker Based Visual Loc
 
