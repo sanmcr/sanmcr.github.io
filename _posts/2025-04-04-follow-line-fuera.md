@@ -63,19 +63,17 @@ Para anticipar mejor las curvas, se utiliza el punto más alto del contorno dete
 ```python
 topmost = tuple(largest[largest[:, :, 1].argmin()][0])
 cX = topmost[0]
-
-
 ```
 
-### reducción del suavizado de dirección
+### Reducción del suavizado de dirección
 
 El suavizado exponencial aplicado al comando de dirección (`alpha`) se redujo de 0.7 a 0.35. Este cambio permitió al coche reaccionar más rápidamente a cambios en la trayectoria de la línea sin llegar a producir oscilaciones bruscas. Se encontró un equilibrio entre estabilidad y agilidad, crucial en tramos técnicos.
 
-### ajuste más preciso de la curvatura
+### Ajuste más preciso de la curvatura
 
 La curvatura dejó de calcularse como la diferencia entre solo dos puntos de `cX`, y pasó a estimarse a partir de un historial de cinco valores, cuya variación media se usa como referencia. Este enfoque proporciona una medida más estable de cómo evoluciona la línea a lo largo del tiempo, permitiendo decisiones de velocidad más acertadas.
 
-### redefinición de los rangos de velocidad
+### Redefinición de los rangos de velocidad
 
 La lógica de velocidades fue modificada para adaptarse mejor a las características del circuito. Se elevaron los umbrales de curvatura, y se incrementó la velocidad máxima en recta. En concreto, la velocidad se definió en tres niveles:
 
