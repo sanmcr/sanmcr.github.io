@@ -61,3 +61,36 @@ Diseñar un sistema reactivo para un coche simulado tipo Fórmula 1 que siga una
   elif curv < 25:   v = 9.6
   else:             v = 4.0
  ```
+
+## Limitación adaptativa del ángulo de giro
+Reducción de giro máximo en curvas suaves para evitar zigzag.
+
+- Lógica:
+  ```python
+  max_angle = 20 if v > 8 else 45
+
+ ```
+
+Gracias a un enfoque basado en **visión por computador**, **control PID con `dt`** y **análisis de tendencia de la línea**, se ha logrado mejorar el rendimiento del vehículo en **más de 20 segundos** sin perder estabilidad.
+
+Las mejoras permiten que el sistema sea:
+
+- Totalmente reactivo  
+-  Preciso en curvas  
+- Capaz de alcanzar altas velocidades en rectas sin descontrolarse
+
+Este diseño se ajusta a los objetivos de la práctica y demuestra un **control robusto basado únicamente en visión**.
+
+---
+
+## 🎥 Vídeo demostrativo
+
+[🔗 Ver vídeo del resultado en YouTube](https://www.youtube.com/watch?v=AQUI_TU_VIDEO)
+
+<!-- También puedes usar este formato para una miniatura clicable en HTML si lo usas en una web o GitHub Pages:
+
+<a href="https://www.youtube.com/watch?v=AQUI_TU_VIDEO" target="_blank">
+  <img src="https://img.youtube.com/vi/AQUI_TU_VIDEO/0.jpg" alt="Ver vídeo" width="480"/>
+</a>
+
+-->
