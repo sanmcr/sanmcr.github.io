@@ -6,7 +6,7 @@ thumbnail: images/p3.jpg
 excerpt: "Versión mejorada de Follow Line"  
 ---
 
-# Seguimiento de línea en un coche Fórmula 1 simulado
+# Seguimiento de línea en un coche de Fórmula 1 simulado
 
 En el marco de la asignatura Visión en Robótica del Máster en Visión Artificial, se ha desarrollado una práctica cuyo objetivo es permitir que un coche de Fórmula 1 simulado sea capaz de seguir de forma autónoma una línea roja trazada sobre el asfalto de un circuito virtual. La tarea consiste en aplicar técnicas de visión por computador y control reactivo para que el vehículo complete una vuelta al circuito en el menor tiempo posible, sin salirse de la pista ni colisionar con los bordes del trazado.
 
