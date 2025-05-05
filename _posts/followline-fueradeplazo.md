@@ -62,7 +62,7 @@ Diseñar un sistema reactivo para un coche simulado tipo Fórmula 1 que siga una
   else:             v = 4.0
  ```
 
-## Limitación adaptativa del ángulo de giro
+### Limitación adaptativa del ángulo de giro
 Reducción de giro máximo en curvas suaves para evitar zigzag.
 
 - Lógica:
