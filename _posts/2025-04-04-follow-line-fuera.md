@@ -27,7 +27,14 @@ Aunque el sistema era estable y terminaba el circuito, el tiempo por vuelta rond
 
 El siguiente bloque muestra el cálculo del error y la aplicación del control PID utilizado en la versión inicial:
 
+```python
+error = frame_center - cX
+integral += error
+derivative = error - prev_error
+prev_error = error
+steering = Kp * error + Ki * integral + Kd * derivative
 
+```
 ---
 
 ## análisis de problemas
