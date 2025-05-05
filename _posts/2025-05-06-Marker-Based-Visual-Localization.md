@@ -5,7 +5,6 @@ thumbnail: "/images/p3.jpg"  # Asegúrate de que la ruta sea correcta
 excerpt: "Este es un resumen de mi tercer post"
 ---
 
-
 # Marker Based Visual Loc
 
 ## 1. Introducción
