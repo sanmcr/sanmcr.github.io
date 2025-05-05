@@ -83,7 +83,7 @@ Este diseño se ajusta a los objetivos de la práctica y demuestra un **control 
 
 ---
 
-## 🎥 Vídeo demostrativo
+##  Vídeo demostrativo
 
 [🔗 Ver vídeo del resultado en YouTube](https://www.youtube.com/watch?v=AQUI_TU_VIDEO)
 
