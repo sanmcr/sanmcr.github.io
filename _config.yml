@@ -55,8 +55,12 @@ paginate: 3  # Display 3 posts per page
 paginate_path: "/page:num"
 
 #
-# !! You don't need to change any of the configuration flags below !!
+# !! You don't need to change any of the configuration flags below !! 
 #
+# Ensure posts are ordered by date
+collections:
+  posts:
+    order: desc  # Order posts by descending date
 
 permalink: /:title/
 
