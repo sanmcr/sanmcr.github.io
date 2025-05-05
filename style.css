@@ -214,12 +214,9 @@ nav a:hover::before {
 .post-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Recorta la imagen para que ocupe todo el contenedor */
-  object-position: center; /* Centra la imagen */
-  border-radius: 10px; /* Bordes redondeados */
-}
+  object-fit: cover; /* Recorta la imagen para que ocupe todo el contenedor
 
-/* Estilo del título */
+  /* Estilo del título */
 .post h1 {
   font-size: 24px;
   font-family: var(--helveticaNeue);
