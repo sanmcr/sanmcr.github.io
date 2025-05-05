@@ -7,7 +7,7 @@ excerpt: "Optimización del algoritmo Follow Line con visión y control reactivo
 ---
 ![Imagen de seguimiento de línea](/images/chetin.png)  <!-- Imagen dentro del post -->
 
-# seguimiento de línea con visión artificial en fórmula 1
+# Seguimiento de línea con visión artificial en fórmula 1
 
 Este informe documenta el desarrollo y optimización de un sistema de control visual para un coche simulado de Fórmula 1. El objetivo de la práctica era permitir que el vehículo siguiera una línea roja trazada sobre el asfalto del circuito, completando una vuelta en el menor tiempo posible sin perder estabilidad ni salirse del recorrido.
 
