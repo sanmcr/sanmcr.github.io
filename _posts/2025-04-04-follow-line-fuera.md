@@ -1,7 +1,7 @@
 ---
 layout: post  
 title: Control visual de un robot de Fórmula 1 (fuera de plazo)  
-date: 2025-45-04  
+date: 2025-04-04  
 thumbnail: images/chetin.png  
 excerpt: "Versión mejorada de Follow Line"  
 ---
