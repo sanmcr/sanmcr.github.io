@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Marker Based Visual Loc
-image: /images/p3.jpg # Asegúrate de agregar una imagen adecuada si la tienes
+image: {{ site.baseurl }}/images/p3.jpg # Asegúrate de agregar una imagen adecuada si la tienes
 ---
 
 # Marker Based Visual Loc
@@ -24,7 +24,7 @@ Para implementar una localización basada en marcadores, se utilizan tecnología
 
 El algoritmo de localización basado en marcadores utiliza las coordenadas de los marcadores detectados para calcular la posición y orientación del sistema con respecto al entorno. Este proceso generalmente implica técnicas de triangulación y análisis de perspectiva, y se puede combinar con otros sensores, como LiDAR, para obtener resultados más precisos.
 
-![Ejemplo de Marcador Visual](/images/marker_example.png)  # Inserta una imagen si es relevante
+![Ejemplo de Marcador Visual]({{ site.baseurl }}/images/marker_example.png)  # Inserta una imagen si es relevante
 
 ### 2.3. Implementación en Hardware
 
@@ -43,5 +43,3 @@ Aunque la localización basada en marcadores ofrece muchas ventajas, también en
 La localización visual basada en marcadores sigue siendo una técnica importante para aplicaciones de navegación y posicionamiento en entornos controlados. Aunque enfrenta algunos desafíos, su simplicidad y bajo costo lo convierten en una opción atractiva para muchos proyectos de robótica y sistemas autónomos.
 
 ---
-
-
