@@ -270,7 +270,7 @@ nav a:hover::before {
 /* Estilo para la imagen de miniatura de los posts (en la portada) */
 .post-thumbnail {
   width: 100%;
-  height: 250px; /* Ajustamos la altura para que sea más uniforme */
+  height: 250px;  /* Ajustamos la altura para que sea más uniforme */
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 10px; /* Bordes redondeados para las miniaturas */
@@ -285,14 +285,16 @@ nav a:hover::before {
   border-radius: 10px;
 }
 
+
 /* --- Cambios en el diseño de las publicaciones --- */
-/* Estilo de los posts */
 .posts {
   display: flex;  /* Usamos flex para que se coloquen en una sola columna */
   flex-direction: column;  /* Asegura que se apilen uno encima del otro */
   gap: 20px;  /* Añade espacio entre los posts */
   margin: 0;
   padding: 20px;
+}
+ding: 20px;
 }
 
 .post {
@@ -327,14 +329,6 @@ footer {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
 }
 
-/* Cambiar la disposición de los posts con Flexbox o Grid */
-.posts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* Tres columnas */
-  gap: 20px;  /* Reducir la separación entre los posts */
-  margin-top: 20px;
-  padding: 0 20px;  /* Espacio a los lados */
-}
 
 /* Ajustar las imágenes para que ocupen más parte del cuadro */
 .post-thumbnail {
