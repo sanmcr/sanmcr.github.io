@@ -4,7 +4,9 @@ title: Marker Based Visual Loc
 date: 2025-03-04
 thumbnail: images/p3.jpg
 excerpt: "Marker Based Visual Loc"
+date: 2025-05-06 12:00:00  # Aquí va la fecha correcta
 ---
+
 
 
 # Marker Based Visual Loc
