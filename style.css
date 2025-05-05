@@ -304,11 +304,12 @@ footer {
 /* Cambiar la disposición de los posts con Flexbox o Grid */
 .posts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adapta el número de columnas automáticamente */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Esto ajusta el número de columnas automáticamente */
   gap: 20px;
   margin: 0;
   padding: 20px;
 }
+
 
 /* Estilo de cada post */
 .post {
