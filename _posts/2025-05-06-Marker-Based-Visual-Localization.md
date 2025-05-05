@@ -5,6 +5,7 @@ date: 2025-05-03
 thumbnail: images/p3.jpg
 excerpt: "Marker Based Visual Loc"
 ---
+![Imagen de seguimiento de línea](/images/p3.jpg)  <!-- Imagen dentro del post -->
 
 # Marker Based Visual Loc
 
