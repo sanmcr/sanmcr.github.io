@@ -33,11 +33,10 @@ integral += error
 derivative = error - prev_error
 prev_error = error
 steering = Kp * error + Ki * integral + Kd * derivative
-
 ```
 ---
 
-## análisis de problemas
+## Análisis de problemas
 
 Al evaluar el rendimiento, se identificaron varios cuellos de botella:
 
@@ -51,13 +50,22 @@ Estas debilidades motivaron un rediseño más profundo del enfoque.
 
 ---
 
-## mejoras aplicadas en la versión final
+## Mejoras aplicadas en la versión final
 
 Tras un proceso iterativo de ajustes y pruebas, se incorporaron mejoras clave en distintas áreas del sistema.
 
-### uso del vértice superior como punto de referencia
+### Uso del vértice superior como punto de referencia
 
 En lugar de usar el centroide del contorno, se pasó a utilizar el vértice superior del contorno más grande, es decir, el punto más alto (con menor coordenada Y). Este cambio permitió anticipar mejor las curvas, ya que ese punto representa con mayor fidelidad la dirección futura de la línea. Al utilizar este punto y suavizar su evolución, se logró una respuesta más ágil y coherente del vehículo.
+
+Para anticipar mejor las curvas, se utiliza el punto más alto del contorno detectado:
+
+```python
+topmost = tuple(largest[largest[:, :, 1].argmin()][0])
+cX = topmost[0]
+
+
+```
 
 ### reducción del suavizado de dirección
 
