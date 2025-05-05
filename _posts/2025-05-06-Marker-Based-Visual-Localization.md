@@ -1,12 +1,10 @@
 ---
 layout: post
 title: Marker Based Visual Loc
-date: 2025-05-13
+date: 2025-05-04
 thumbnail: images/p3.jpg
 excerpt: "Marker Based Visual Loc"
 ---
-
-
 
 # Marker Based Visual Loc
 
