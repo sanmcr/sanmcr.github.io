@@ -79,7 +79,6 @@ p {
   margin: 15px 0;
 }
 
-
 a {
   color: var(--greenAccent); /* Enlaces en verde suave */
   text-decoration: none;
@@ -90,58 +89,6 @@ a {
 a:hover, a:active {
   color: var(--greenSageDark); /* Enlaces en verde más oscuro al hacer hover */
   transform: scale(1.05); /* Efecto de ampliación suave */
-}
-
-ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
-}
-
-ul ul, ol ul {
-  list-style-type: circle;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
-}
-
-img {
-  max-width: 100%;
-}
-
-.gmnoprint img {
-  max-width: none;
-}
-
-.date {
-  font-style: italic;
-  color: var(--greenSage); /* Fecha en verde suave */
-}
-
-::-moz-selection {
-  color: var(--greenSageDark);
-  background: var(--greenSageLight);
-}
-
-::selection {
-  color: var(--greenSageDark);
-  background: var(--greenSageLight);
 }
 
 /* --- Cabecera --- */
@@ -231,126 +178,13 @@ nav a:hover::before {
 }
 
 /* --- Post --- */
-.posts > .post {
-  padding: 20px;
-  background-color: var(--white); /* Fondo blanco para los posts */
-  border: 2px solid #d8e7dc; /* Usar el mismo color de la cabecera para el borde */
-  margin-bottom: 20px;
-  border-radius: 15px; /* Bordes redondeados */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  margin-top: 20px; /* Espacio entre el post y la cabecera */
-}
-
-.post h1 {
-  font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
-  font-size: 32px; /* Aumentar tamaño del título */
-  color: #000000; /* Color negro */
-  font-weight: 700; /* Peso en negrita */
-  margin-bottom: 15px;
-  letter-spacing: 0.5px; /* Espaciado entre letras para mayor claridad */
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: var(--greenSageDark);
-  color: var(--white);
-  text-align: center;
-  border-radius: 25px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.read-more:hover {
-  background-color: var(--greenAccent); /* Hover con verde más oscuro */
-}
-
-/* Estilo para la imagen de miniatura de los posts (en la portada) */
-.post-thumbnail {
-  width: 100%;
-  height: 250px; /* Ajustamos la altura para que sea más uniforme */
-  overflow: hidden;
-  margin-bottom: 20px;
-  border-radius: 10px; /* Bordes redondeados para las miniaturas */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-.post-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Recorta la imagen para que ocupe todo el contenedor */
-  object-position: center; /* Centra la imagen */
-  border-radius: 10px;
-}
-
-/* --- Cambios en el diseño de las publicaciones --- */
+/* Cambiar la disposición de los posts con Flexbox */
 .posts {
-  display: grid;  /* Usamos grid para organizar las publicaciones */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 3 columnas, adaptadas al tamaño */
-  gap: 30px;  /* Espacio entre las publicaciones */
-  margin-top: 20px;
-  padding: 0 20px;  /* Añadir algo de espacio a los lados */
-}
-
-.post {
-  background-color: var(--white);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Organiza contenido dentro del post */
-}
-
-.post:hover {
-  transform: scale(1.05); /* Aumenta el tamaño del post al pasar el ratón */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* --- Footer (Pie de Página) --- */
-footer {
-  background-color: var(--greenSageLight);
-  padding: 20px 0;
-  text-align: center;
-}
-
-/* Estilo para las imágenes dentro del post */
-.post img {
-  max-width: 100%; /* Asegura que la imagen no se desborde fuera del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  border-radius: 10px; /* Bordes redondeados para las imágenes */
-  margin: 20px 0; /* Añade espacio superior e inferior para mejorar la legibilidad */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
-}
-
-/* Cambiar la disposición de los posts con Flexbox o Grid */
-.posts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* Tres columnas */
-  gap: 20px;  /* Reducir la separación entre los posts */
-  margin-top: 20px;
-  padding: 0 20px;  /* Espacio a los lados */
-}
-
-/* Ajustar las imágenes para que ocupen más parte del cuadro */
-.post-thumbnail {
-  width: 100%;
-  height: 250px; /* Aumentamos la altura para que la imagen sea más grande */
-  overflow: hidden;
-  margin-bottom: 15px; /* Reducimos el margen inferior */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-.post-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Recorta la imagen para que ocupe todo el contenedor */
-  object-position: center; /* Centra la imagen */
-  border-radius: 10px;
+  flex-direction: column;  /* Apilar los posts verticalmente */
+  gap: 20px;  /* Añadir espacio entre los posts */
+  margin: 0;
+  padding: 20px;
 }
 
 /* Estilo de cada post */
@@ -360,24 +194,29 @@ footer {
   padding: 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Organiza contenido dentro del post */
 }
 
-/* Efecto de hover para los posts */
 .post:hover {
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  transform: scale(1.05); /* Aumenta el tamaño del post al pasar el ratón */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-
-/* Imagen de miniatura dentro de los posts */
+/* Estilo para las imágenes dentro de los posts */
 .post-thumbnail {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+  height: 250px;  /* Ajusta la altura de la imagen */
+  overflow: hidden;
+  margin-bottom: 20px;  /* Añadir margen debajo de la imagen */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para que ocupe todo el contenedor */
+  object-position: center; /* Centra la imagen */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 /* Estilo del título */
@@ -385,7 +224,7 @@ footer {
   font-size: 24px;
   font-family: var(--helveticaNeue);
   color: var(--greenSageDark);
-  padding: 15px;
+  padding: 15px 0;
   margin: 0;
   font-weight: bold;
 }
