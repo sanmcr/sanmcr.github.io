@@ -240,6 +240,6 @@ El objetivo fue mantener la estabilidad de navegación y reducir el tiempo de re
 
 Las optimizaciones aplicadas tanto en el circuito simple como en el tipo Ackermann han permitido una reducción significativa de los tiempos de recorrido y una mejora cualitativa en la estabilidad del movimiento. Cada entorno requería ajustes particulares en cuanto a anticipación, suavizado y respuesta del controlador, los cuales fueron abordados en ambas versiones con un enfoque adaptativo y eficiente.
 
-> Este informe continuará actualizándose con nuevas pruebas y ajustes conforme se implementen mejoras adicionales.
+> Personalmente esta práctica me ha servido para aprender sobre el comportamiento reactivo de los robots
 
 
