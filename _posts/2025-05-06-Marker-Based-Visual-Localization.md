@@ -21,7 +21,7 @@ El robot inicia capturando imágenes de la cámara frontal y usando la librería
 
 ```python
 config = yaml.safe_load(Path("/resources/exercises/marker_visual_loc/apriltags_poses.yaml").read_text())
-tags_info = config["tags"]
+tags_info = config["tags"]Ç
 ```
 
 A partir de esta información, se realiza el pipeline completo de transformaciones para pasar de coordenadas de la imagen al sistema global del robot.
