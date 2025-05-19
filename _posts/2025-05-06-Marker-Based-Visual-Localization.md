@@ -28,3 +28,28 @@ A partir de esta información, se realiza el pipeline completo de transformacion
 
 ## Estimación de la pose
 
+## Estimación de la Pose
+
+La posición del robot respecto al mundo se obtiene aplicando una serie de transformaciones:
+
+### `world2tag`
+Matriz de transformación del mundo al tag, obtenida del archivo YAML. Contiene la posición y orientación conocidas de cada AprilTag.
+
+### `tag2tag_optical`
+Rotaciones necesarias para pasar del sistema de coordenadas del AprilTag al sistema de coordenadas ópticas de la cámara.
+
+### `solvePnP()` (OpenCV)
+A partir de los puntos 3D (coordenadas del tag) y sus proyecciones 2D en la imagen, se obtiene la transformación `cam_optical2tag_optical`, que se invierte para obtener la posición de la cámara con respecto al tag.
+
+### `cam_optical2cam`
+Matriz inversa de `tag2tag_optical` que permite transformar del sistema óptico al sistema físico de la cámara.
+
+### `cam2robot`
+Transformación fija entre el sistema de coordenadas de la cámara y el centro del robot, obtenida a partir del modelo del robot (archivo SDF).
+
+### `world2robot`
+Composición de todas las transformaciones anteriores. A partir de esta matriz se extraen las coordenadas `x`, `y` y el ángulo `yaw` que representan la pose del robot en el mundo.
+
+```python
+yaw = math.atan2(world2robot[1, 0], world2robot[0, 0])
+```
