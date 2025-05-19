@@ -22,77 +22,76 @@ Este documento presenta una comparación detallada entre dos versiones de un con
 
 [![Ver en YouTube](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)](https://youtu.be/df5QsGYy5y0)
 ---
+<h2>Comparación Técnica</h2>
 
-## Comparación Técnica
-
-<table>
+<table style="width:100%; border-collapse: collapse;">
   <thead>
     <tr>
-      <th>Categoría</th>
-      <th>Versión Inicial</th>
-      <th>Versión Optimizada</th>
+      <th style="text-align:left; border-bottom: 2px solid #ccc; padding: 6px;">Categoría</th>
+      <th style="text-align:left; border-bottom: 2px solid #ccc; padding: 6px;">Versión Inicial</th>
+      <th style="text-align:left; border-bottom: 2px solid #ccc; padding: 6px;">Versión Optimizada</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Tiempo de ejecución</td>
-      <td>145 s</td>
-      <td>56.54 s</td>
+      <td style="padding: 6px;">Tiempo de ejecución</td>
+      <td style="padding: 6px;">145 s</td>
+      <td style="padding: 6px;">56.54 s</td>
     </tr>
     <tr>
-      <td>Preprocesamiento de imagen</td>
-      <td>HSV, median blur, morfología</td>
-      <td>Gaussian blur, HSV, ROI inferior</td>
+      <td style="padding: 6px;">Preprocesamiento de imagen</td>
+      <td style="padding: 6px;">HSV, median blur, morfología</td>
+      <td style="padding: 6px;">Gaussian blur, HSV, ROI inferior</td>
     </tr>
     <tr>
-      <td>Área de análisis</td>
-      <td>Imagen completa</td>
-      <td>Solo mitad inferior (ROI)</td>
+      <td style="padding: 6px;">Área de análisis</td>
+      <td style="padding: 6px;">Imagen completa</td>
+      <td style="padding: 6px;">Solo mitad inferior (ROI)</td>
     </tr>
     <tr>
-      <td>Cálculo de cX</td>
-      <td>Centroide del contorno más grande</td>
-      <td>Punto más alto del contorno (topmost)</td>
+      <td style="padding: 6px;">Cálculo de cX</td>
+      <td style="padding: 6px;">Centroide del contorno más grande</td>
+      <td style="padding: 6px;">Punto más alto del contorno (topmost)</td>
     </tr>
     <tr>
-      <td>Estrategia PID</td>
-      <td>Parámetros adaptativos según curvatura</td>
-      <td>PID con dt real y reinicio de integral</td>
+      <td style="padding: 6px;">Estrategia PID</td>
+      <td style="padding: 6px;">Parámetros adaptativos según curvatura</td>
+      <td style="padding: 6px;">PID con dt real y reinicio de integral</td>
     </tr>
     <tr>
-      <td>Control anti-windup</td>
-      <td>Límite fijo de la integral</td>
-      <td>Reinicio de integral si error &gt; 100</td>
+      <td style="padding: 6px;">Control anti-windup</td>
+      <td style="padding: 6px;">Límite fijo de la integral</td>
+      <td style="padding: 6px;">Reinicio de integral si error &gt; 100</td>
     </tr>
     <tr>
-      <td>Suavizado de dirección</td>
-      <td>Exponencial (alpha = 0.6)</td>
-      <td>Exponencial más responsivo (alpha = 0.15)</td>
+      <td style="padding: 6px;">Suavizado de dirección</td>
+      <td style="padding: 6px;">Exponencial (alpha = 0.6)</td>
+      <td style="padding: 6px;">Exponencial más responsivo (alpha = 0.15)</td>
     </tr>
     <tr>
-      <td>Evaluación de curvatura</td>
-      <td>Diferencia entre cX actuales</td>
-      <td>Media móvil del historial</td>
+      <td style="padding: 6px;">Evaluación de curvatura</td>
+      <td style="padding: 6px;">Diferencia entre cX actuales</td>
+      <td style="padding: 6px;">Media móvil del historial</td>
     </tr>
     <tr>
-      <td>Anticipación a curvas</td>
-      <td>No implementada</td>
-      <td>Desviación de cX hacia vértice interior</td>
+      <td style="padding: 6px;">Anticipación a curvas</td>
+      <td style="padding: 6px;">No implementada</td>
+      <td style="padding: 6px;">Desviación de cX hacia vértice interior</td>
     </tr>
     <tr>
-      <td>Control de velocidad</td>
-      <td>3 niveles básicos</td>
-      <td>Niveles adaptativos según curvatura</td>
+      <td style="padding: 6px;">Control de velocidad</td>
+      <td style="padding: 6px;">3 niveles básicos</td>
+      <td style="padding: 6px;">Niveles adaptativos según curvatura</td>
     </tr>
     <tr>
-      <td>Límite de dirección (W)</td>
-      <td>Constante (±35°)</td>
-      <td>Dinámico (20°, 35°, 45°)</td>
+      <td style="padding: 6px;">Límite de dirección (W)</td>
+      <td style="padding: 6px;">Constante (±35°)</td>
+      <td style="padding: 6px;">Dinámico (20°, 35°, 45°)</td>
     </tr>
     <tr>
-      <td>Visualización</td>
-      <td>Contorno, línea y centroide</td>
-      <td>Error, giro, velocidad y centroide ajustado</td>
+      <td style="padding: 6px;">Visualización</td>
+      <td style="padding: 6px;">Contorno, línea y centroide</td>
+      <td style="padding: 6px;">Error, giro, velocidad y centroide ajustado</td>
     </tr>
   </tbody>
 </table>
