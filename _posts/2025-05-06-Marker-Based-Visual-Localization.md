@@ -133,8 +133,4 @@ El sistema desarrollado permite:
 
 En el siguiente vídeo se puede observar el comportamiento final del sistema en el entorno simulado de Unibotics:
 
-## Demostración en Vídeo
-
-En el siguiente vídeo se puede observar el comportamiento final del sistema en el entorno simulado de Unibotics:
-
-[Ver vídeo en YouTube](https://www.youtube.com/watch?v=0MP5zJXQh24&t=3s&ab_channel=SandraMontejanoC%C3%A1novas)
+[![Ver vídeo en YouTube](https://www.youtube.com/watch?v=0MP5zJXQh24&t=3s&ab_channel=SandraMontejanoC%C3%A1novas)
