@@ -61,14 +61,41 @@ La estimación de la pose del robot se basa en una serie de transformaciones enc
 
 ### Tabla resumen
 
-| Transformación               | Descripción                                                      |
-|-----------------------------|------------------------------------------------------------------|
-| `world2tag`                 | Pose conocida del tag en el mundo (extraída del archivo YAML)   |
-| `tag2tag_optical`           | Rotación del marco del tag al marco óptico de la cámara          |
-| `tag_optical2cam_optical`   | Inversa de la pose obtenida con `solvePnP()`                     |
-| `cam_optical2cam`           | Conversión del sistema óptico al sistema físico de la cámara     |
-| `cam2robot`                 | Desplazamiento entre la cámara y el centro del robot             |
-| `world2robot`               | Resultado final: estimación de posición y orientación del robot  |
+<h3>Tabla resumen</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="text-align: left;">Transformación</th>
+      <th style="text-align: left;">Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>world2tag</code></td>
+      <td>Pose conocida del tag en el mundo (extraída del archivo YAML)</td>
+    </tr>
+    <tr>
+      <td><code>tag2tag_optical</code></td>
+      <td>Rotación del marco del tag al marco óptico de la cámara</td>
+    </tr>
+    <tr>
+      <td><code>tag_optical2cam_optical</code></td>
+      <td>Inversa de la pose obtenida con <code>solvePnP()</code></td>
+    </tr>
+    <tr>
+      <td><code>cam_optical2cam</code></td>
+      <td>Conversión del sistema óptico al sistema físico de la cámara</td>
+    </tr>
+    <tr>
+      <td><code>cam2robot</code></td>
+      <td>Desplazamiento entre la cámara y el centro del robot</td>
+    </tr>
+    <tr>
+      <td><code>world2robot</code></td>
+      <td>Resultado final: estimación de posición y orientación del robot</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Composición completa
 
