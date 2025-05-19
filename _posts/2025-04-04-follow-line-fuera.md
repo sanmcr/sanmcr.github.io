@@ -18,8 +18,9 @@ Este documento presenta una comparación detallada entre dos versiones de un con
 - **Versión inicial**: 145.00 segundos
 - **Versión optimizada**: 56.54 segundos
 
-> [Enlace al video demostrativo](https://www.youtube.com/insertar_enlace_aqui)
+### Video demostrativo
 
+[![Ver en YouTube](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)](https://youtu.be/df5QsGYy5y0)
 ---
 
 ## Comparación Técnica
@@ -99,8 +100,6 @@ Este documento presenta una comparación detallada entre dos versiones de un con
 ---
 
 
----
-
 ## Principales Mejoras Aplicadas
 
 1. **Reducción del área procesada**  
@@ -129,5 +128,3 @@ Este documento presenta una comparación detallada entre dos versiones de un con
 La versión optimizada del sistema ha logrado mejorar de forma notable el desempeño general del seguimiento de línea. Las mejoras no solo reducen significativamente el tiempo total de recorrido, sino que también aportan mayor estabilidad, precisión y adaptabilidad del controlador PID ante escenarios variables.
 
 El conjunto de optimizaciones implementadas permiten considerar esta versión como una solución más robusta y eficiente para entornos de navegación autónoma mediante visión artificial.
-
-[Enlace al video demostrativo](https://youtu.be/df5QsGYy5y0)
