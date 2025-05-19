@@ -82,7 +82,7 @@ A partir de esta matriz, se obtiene:
 
 ```python
 yaw = math.atan2(world2robot[1, 0], world2robot[0, 0])
-
+```
 
 ## Selección del AprilTag
 
