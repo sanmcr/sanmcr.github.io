@@ -24,20 +24,80 @@ Este documento presenta una comparación detallada entre dos versiones de un con
 
 ## Comparación Técnica
 
-| Categoría                      | Versión Inicial                                   | Versión Optimizada                                    |
-|-------------------------------|----------------------------------------------------|--------------------------------------------------------|
-| Tiempo de ejecución           | 145 s                                              | 56.54 s                                                |
-| Preprocesamiento de imagen    | Conversión HSV, median blur, morfología            | Gaussian blur, conversión HSV, ROI en zona inferior    |
-| Área de análisis              | Imagen completa                                    | Solo mitad inferior (ROI)                             |
-| Cálculo de cX                 | Centroide del contorno más grande                  | Punto más alto del contorno más grande (topmost)       |
-| Estrategia PID                | Parámetros adaptativos según curvatura             | PID con cálculo de derivada e integral por tiempo real |
-| Control anti-windup           | Límite fijo de acumulación de error                | Reinicio de integral si error > 100                    |
-| Suavizado de dirección        | Suavizado exponencial (alpha = 0.6)                | Suavizado más responsivo (alpha = 0.15)               |
-| Evaluación de curvatura       | Diferencia entre valores extremos de cX            | Media móvil con historial de curvatura                |
-| Anticipación a curvas         | No implementada                                    | Desviación de cX hacia vértice interior en curvas     |
-| Control de velocidad          | 3 niveles simples                                  | Niveles agresivos y adaptativos según curvatura       |
-| Límite de dirección (W)       | Constante (±35°)                                   | Dinámico (20°, 35°, 45°) según curvatura               |
-| Visualización en pantalla     | Contorno, centroide, línea de error                | Contorno, cX ajustado, error, giro y velocidad         |
+<table>
+  <thead>
+    <tr>
+      <th>Categoría</th>
+      <th>Versión Inicial</th>
+      <th>Versión Optimizada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tiempo de ejecución</td>
+      <td>145 s</td>
+      <td>56.54 s</td>
+    </tr>
+    <tr>
+      <td>Preprocesamiento de imagen</td>
+      <td>HSV, median blur, morfología</td>
+      <td>Gaussian blur, HSV, ROI inferior</td>
+    </tr>
+    <tr>
+      <td>Área de análisis</td>
+      <td>Imagen completa</td>
+      <td>Solo mitad inferior (ROI)</td>
+    </tr>
+    <tr>
+      <td>Cálculo de cX</td>
+      <td>Centroide del contorno más grande</td>
+      <td>Punto más alto del contorno (topmost)</td>
+    </tr>
+    <tr>
+      <td>Estrategia PID</td>
+      <td>Parámetros adaptativos según curvatura</td>
+      <td>PID con dt real y reinicio de integral</td>
+    </tr>
+    <tr>
+      <td>Control anti-windup</td>
+      <td>Límite fijo de la integral</td>
+      <td>Reinicio de integral si error &gt; 100</td>
+    </tr>
+    <tr>
+      <td>Suavizado de dirección</td>
+      <td>Exponencial (alpha = 0.6)</td>
+      <td>Exponencial más responsivo (alpha = 0.15)</td>
+    </tr>
+    <tr>
+      <td>Evaluación de curvatura</td>
+      <td>Diferencia entre cX actuales</td>
+      <td>Media móvil del historial</td>
+    </tr>
+    <tr>
+      <td>Anticipación a curvas</td>
+      <td>No implementada</td>
+      <td>Desviación de cX hacia vértice interior</td>
+    </tr>
+    <tr>
+      <td>Control de velocidad</td>
+      <td>3 niveles básicos</td>
+      <td>Niveles adaptativos según curvatura</td>
+    </tr>
+    <tr>
+      <td>Límite de dirección (W)</td>
+      <td>Constante (±35°)</td>
+      <td>Dinámico (20°, 35°, 45°)</td>
+    </tr>
+    <tr>
+      <td>Visualización</td>
+      <td>Contorno, línea y centroide</td>
+      <td>Error, giro, velocidad y centroide ajustado</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
 
 ---
 
