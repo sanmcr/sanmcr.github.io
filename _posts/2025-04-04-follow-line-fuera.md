@@ -1,13 +1,13 @@
 ---
 layout: post  
-title: Seguimiento de línea con visión artificial en fórmula 1  
+title: Mejora de Follow Line (fuera de plazo)
 date: 2025-04-04  
 thumbnail: images/cheting.png
 excerpt: "Optimización del algoritmo Follow Line con visión y control reactivo"  
 ---
 ![Imagen de seguimiento de línea](/images/cheting.png)  <!-- Imagen dentro del post -->
 
-# Informe Técnico de Optimización de Controlador PID para Seguimiento de Línea
+# Informe Técnico de optimización de controlador PID para seguimiento de línea
 
 ## Resumen
 
