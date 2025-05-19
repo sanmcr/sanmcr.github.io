@@ -9,6 +9,9 @@ excerpt: "Optimización del algoritmo Follow Line con visión y control reactivo
 
 # Informe Técnico de optimización de controlador PID para seguimiento de línea
 
+---
+
+# Circuito Simple
 ## Resumen
 
 Este documento presenta una comparación detallada entre dos versiones de un controlador PID implementado para la tarea de seguimiento de línea mediante visión por computador. La versión inicial tenía un tiempo de ejecución promedio de 145 segundos, mientras que la versión optimizada ha logrado reducir dicho tiempo a 56.54 segundos, representando una mejora significativa en eficiencia y desempeño.
