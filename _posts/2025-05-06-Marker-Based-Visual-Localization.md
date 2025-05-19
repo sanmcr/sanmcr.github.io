@@ -20,8 +20,10 @@ El objetivo del proyecto es realizar la autolocalización de un robot en un ento
 El robot inicia capturando imágenes de la cámara frontal y usando la librería `pyapriltags` para detectar los AprilTags presentes en la escena. La información de posición real de los tags se carga desde un archivo YAML proporcionado por el simulador:
 
 ```python
-config = yaml.safe_load(Path("/resources/exercises/marker_visual_loc/apriltags_poses.yaml").read_text())
-tags_info = config["tags"]Ç
+config = yaml.safe_load(
+    Path("/resources/exercises/marker_visual_loc/apriltags_poses.yaml").read_text()
+)
+tags_info = config["tags"]
 ```
 
 A partir de esta información, se realiza el pipeline completo de transformaciones para pasar de coordenadas de la imagen al sistema global del robot.
