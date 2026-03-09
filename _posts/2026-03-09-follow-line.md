@@ -9,4 +9,6 @@ published: true
 
 ![Follow Line](/images/coxe.png)
 
-Aquí empieza el contenido del post.
+## Introducción
+
+Este post describe la implementación de un algoritmo de seguimiento de línea utilizando visión por computador.
