@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Marker Based Visual Loc
+published: false
 date: 2025-05-17
 thumbnail: images/p3.jpg
 excerpt: "Marker Based Visual Loc"
