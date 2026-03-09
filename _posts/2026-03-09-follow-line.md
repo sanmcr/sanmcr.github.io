@@ -43,18 +43,25 @@ Primero se aplica un pequeño suavizado para reducir ruido y después se convier
 
 A continuación se segmenta el color rojo utilizando dos rangos de HSV, ya que el rojo se encuentra dividido en dos zonas del espacio de color.
 
-# mask1 = cv2.inRange(hsv, lower_red1, upper_red1)  
-# mask2 = cv2.inRange(hsv, lower_red2, upper_red2)  
-# mask = cv2.bitwise_or(mask1, mask2)
+
+```python
+mask1 = cv2.inRange(hsv, lower_red1, upper_red1)  
+mask2 = cv2.inRange(hsv, lower_red2, upper_red2)  
+mask = cv2.bitwise_or(mask1, mask2)
+```
 
 Después se aplican operaciones morfológicas para eliminar ruido y cerrar pequeños huecos en la detección.
 
-# mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel, iterations=1)  
-# mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=1)
+```python
+mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel, iterations=1)  
+mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=1)
+```
 
 Para reducir el coste computacional, el análisis se realiza únicamente en la **parte inferior de la imagen (ROI)**, ya que es donde se encuentra la información relevante para el control del vehículo.
 
-# roi = mask[h - roi_h : h, :]
+```python
+roi = mask[h - roi_h : h, :]
+```
 
 ---
 
@@ -62,12 +69,16 @@ Para reducir el coste computacional, el análisis se realiza únicamente en la *
 
 En lugar de calcular un único centroide de la línea, el algoritmo analiza varias filas horizontales de la imagen.
 
-# scan_rows = [30, 60, 90, 130, 165]
+
+```python
+scan_rows = [30, 60, 90, 130, 165]
+```
 
 En cada fila se detectan los píxeles de la línea y se calcula su centro. Posteriormente se calcula una media ponderada utilizando diferentes pesos.
 
-# weights = [1.0, 1.2, 1.5, 2.0, 2.2]
-
+```python
+weights = [1.0, 1.2, 1.5, 2.0, 2.2]
+```
 Las filas más cercanas al vehículo tienen mayor peso, ya que influyen más directamente en el control inmediato de la dirección.
 
 ---
@@ -79,12 +90,16 @@ Para anticipar curvas se utilizan dos puntos característicos de la línea:
 - un punto lejano
 - un punto cercano
 
-# c_far = row_center(roi, 60)  
-# c_near = row_center(roi, 165)
+```python
+c_far = row_center(roi, 60)
+c_near = row_center(roi, 165)
+```
 
 La diferencia entre ambos permite estimar la curvatura del tramo.
 
-# curve_px = abs(c_near - c_far)
+```python
+curve_px = abs(c_near - c_far)
+```
 
 Si esta diferencia aumenta significa que el vehículo se aproxima a una curva pronunciada.
 
@@ -96,7 +111,9 @@ En función de este valor, el algoritmo desplaza ligeramente el punto de control
 
 El error lateral se calcula como la diferencia entre el centro de la imagen y la posición estimada de la línea.
 
-# error = center - cX
+```python
+error = center - cX
+```
 
 Este error indica cuánto debe girar el vehículo para volver a situarse sobre la línea.
 
@@ -106,7 +123,9 @@ Este error indica cuánto debe girar el vehículo para volver a situarse sobre l
 
 El error calculado se introduce en un controlador PID que genera la velocidad angular del robot.
 
-# w_cmd = Kp * err_f + Ki * integral + Kd * derivative
+```python
+w_cmd = Kp * err_f + Ki * integral + Kd * derivative
+```
 
 Cada término del controlador tiene un papel diferente:
 
@@ -122,7 +141,9 @@ El cálculo del término derivativo utiliza el tiempo real entre iteraciones (`d
 
 Para evitar oscilaciones provocadas por pequeñas variaciones en la detección de la línea, el error se filtra mediante un suavizado exponencial.
 
-# err_f = err_alpha * error + (1 - err_alpha) * err_f
+```python
+err_f = err_alpha * error + (1 - err_alpha) * err_f
+```
 
 Esto permite que el control sea más estable y menos sensible al ruido.
 
@@ -134,10 +155,12 @@ La velocidad del vehículo se adapta dinámicamente según la magnitud del error
 
 Cuando el error es pequeño el robot puede avanzar más rápido, mientras que en curvas o desviaciones grandes se reduce la velocidad.
 
-# if e < 18:  
-#     v = 12.5  
-# elif e < 45:  
-#     v = 9.0  
+```python
+ if e < 18:  
+     v = 12.5  
+ elif e < 45:  
+     v = 9.0  
+```
 
 De esta forma se consigue un comportamiento más eficiente en rectas y más estable en curvas.
 
