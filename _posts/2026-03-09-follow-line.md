@@ -39,3 +39,22 @@ mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
 mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
 mask = cv2.bitwise_or(mask1, mask2)
 ```
+
+## Posteriormente: estimación de trayectoria y control del vehículo
+
+Una vez obtenida la máscara binaria de la línea roja, el siguiente paso consiste en estimar la trayectoria de la línea y generar el control del vehículo.
+
+Para ello, en lugar de calcular únicamente un centroide del contorno, el sistema analiza varias **filas horizontales de la imagen**:
+
+```python
+scan_rows = [30, 60, 90, 130, 165]
+```
+
+En cada una de estas filas se detectan los píxeles pertenecientes a la línea y se calcula su centro. Esto permite obtener una representación más robusta de la posición de la línea incluso si existen pequeñas discontinuidades.
+
+Cada fila tiene además un peso diferente, dando mayor importancia a las filas más cercanas al vehículo:
+```python
+weights = [1.0, 1.2, 1.5, 2.0, 2.2]
+```
+
+Con estos valores se calcula un centro ponderado que representa la posición estimada de la línea en la imagen.
