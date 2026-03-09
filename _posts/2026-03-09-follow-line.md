@@ -65,4 +65,102 @@ un punto lejano (c_far)
 
 un punto cercano (c_near)
 
+La diferencia entre ambos permite estimar la curvatura del tramo:
+```python
+curve_px = abs(c_near - c_far)
+```
+Si la diferencia es grande, significa que el vehículo se aproxima a una curva pronunciada.
 
+En función de este valor, el punto de control se ajusta mezclando el centro ponderado con el punto lejano. De esta forma el vehículo comienza a girar antes de llegar a la curva.
+
+Cálculo del error
+
+El error lateral se calcula como la diferencia entre el centro de la imagen y el punto estimado de la línea:
+```python
+error = center - cX
+```
+Este valor representa cuánto debe corregir el vehículo su dirección para volver a situarse sobre la línea.
+
+Control PID
+
+El error calculado se introduce en un controlador PID, encargado de generar la velocidad angular del robot:
+```python
+w_cmd = Kp * err_f + Ki * integral + Kd * derivative
+```
+Cada término del PID tiene una función diferente:
+
+Proporcional (Kp) → corrige el error actual
+
+Integral (Ki) → compensa errores acumulados
+
+Derivativo (Kd) → suaviza cambios bruscos
+
+El cálculo de la derivada utiliza el tiempo real entre iteraciones (dt), lo que mejora la estabilidad del controlador.
+
+Suavizado del error
+
+Para evitar oscilaciones provocadas por pequeñas variaciones en la detección de la línea, el error se filtra mediante un suavizado exponencial:
+```python
+err_f = err_alpha * error + (1 - err_alpha) * err_f
+```
+Esto reduce el ruido y hace que el sistema sea más estable.
+
+Control adaptativo de velocidad
+
+La velocidad del vehículo se adapta en función de la magnitud del error:
+
+errores pequeños → mayor velocidad
+
+errores grandes → reducción de velocidad
+```python
+if e < 18:
+    v = 12.5
+elif e < 45:
+    v = 9.0
+```
+Esto permite circular rápidamente en rectas y disminuir la velocidad en curvas.
+
+Limitador de giro
+
+Para evitar cambios bruscos de dirección, se limita el valor máximo del giro permitido:
+```python
+w_cmd = clamp(w_cmd, -max_w, max_w)
+```
+Además, se introduce un limitador de variación por ciclo que evita cambios demasiado rápidos en la dirección.
+
+Recuperación cuando se pierde la línea
+
+Si el sistema detecta menos de dos filas válidas, significa que la línea se ha perdido. En ese caso el robot entra en un modo de búsqueda:
+```python
+if valid < 2:
+```
+El vehículo gira hacia el último lado donde se detectó la línea:
+```python
+w_cmd = 6.0 * last_seen_side
+```
+Esto permite recuperar la trayectoria sin detener completamente el movimiento.
+
+## Resultados
+
+Con esta versión del algoritmo, el sistema ha logrado completar el **circuito simple en aproximadamente 58 segundos**.
+
+Este resultado supone una mejora significativa respecto a versiones anteriores del controlador, manteniendo además un comportamiento estable en curvas.
+
+Actualmente se están realizando pruebas adicionales en circuitos más complejos para evaluar la robustez del sistema.
+
+---
+
+## Conclusión
+
+El sistema final combina:
+
+- detección robusta de la línea mediante HSV  
+- análisis de múltiples filas de la imagen  
+- estimación de curvatura de la trayectoria  
+- control PID con suavizado  
+- control adaptativo de velocidad  
+- recuperación automática de la línea  
+
+Todo ello permite obtener un comportamiento **rápido y estable en el seguimiento de línea**.
+
+Esta práctica ha permitido profundizar en la integración entre **visión por computador y control reactivo en robots móviles**.
