@@ -4,6 +4,7 @@ title: Follow Line
 date: 2025-03-04
 thumbnail: images/cochecito.png
 excerpt: "Seguimiento en línea en diferentes circuitos"
+published: false
 ---
 
 
