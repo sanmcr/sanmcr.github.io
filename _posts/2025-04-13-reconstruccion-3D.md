@@ -1,21 +1,19 @@
 ---
 layout: post
-title: "3D Reconstruction"
-date: 2025-04-13
-thumbnail: "/images/muñequin.png"
-excerpt: "Reconstrucción tridimensional de escenas"
-published: false
+title: "Follow Line – Control reactivo con estimación de curvatura"
+date: 2026-03-09
+thumbnail: "/images/coxe.png"
+excerpt: "Seguimiento de línea basado en visión artificial, estimación de curvatura y control PID adaptativo."
+published: true
 ---
-![Imagen de seguimiento de línea](/images/muñequin.png)  <!-- Imagen dentro del post -->
 
-Este proyecto implementa una reconstrucción 3D utilizando visión estereoscópica, donde se calcula la profundidad de una escena a partir del emparejamiento de puntos detectados en imágenes captadas desde dos cámaras.
+![Imagen de seguimiento de línea](/images/coxe.png)
 
-# Informe: Reconstrucción 3D con visión estereoscópica en Python
+En esta práctica se desarrolla un sistema de seguimiento de línea basado en visión artificial, utilizando un controlador PID combinado con varias heurísticas que permiten anticipar curvas, mejorar la estabilidad y recuperar la trayectoria cuando la línea se pierde.
 
+Tras varias iteraciones de mejora, el sistema actual ha conseguido completar el circuito simple en aproximadamente 58 segundos, manteniendo estabilidad incluso en tramos con curvatura pronunciada.
 
-## Introducción
-
-La reconstrucción 3D es una de las áreas más fundamentales en visión por computadora y robótica, pues permite obtener la representación tridimensional de una escena a partir de dos o más imágenes tomadas desde diferentes puntos de vista. En este informe, se detalla el proceso de implementación de un algoritmo para realizar una reconstrucción 3D utilizando dos cámaras (izquierda y derecha) montadas en un robot Kobuki. El objetivo principal es usar la geometría epipolar para detectar puntos correspondientes en las imágenes y luego calcular sus coordenadas en el espacio 3D.
+<!--more-->
 
 ## Objetivos
 
