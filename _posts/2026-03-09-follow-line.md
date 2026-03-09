@@ -207,4 +207,4 @@ El sistema final combina:
 
 Todo ello permite obtener un comportamiento **rápido y estable en el seguimiento de línea**.
 
-Esta práctica ha permitido profundizar en la integración entre **visión por computador y control reactivo en robots móviles**.
+Esta práctica me ha permitido profundizar en la integración entre **visión por computador y control reactivo en robots móviles**.
