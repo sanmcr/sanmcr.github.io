@@ -4,7 +4,7 @@ title: "Follow Line – Control reactivo con estimación de curvatura"
 date: 2026-03-09
 thumbnail: "/images/coxe.png"
 excerpt: "Seguimiento de línea basado en visión artificial, estimación de curvatura y control PID adaptativo."
-published: true
+published: false
 ---
 
 ![Imagen de seguimiento de línea](/images/coxe.png)
