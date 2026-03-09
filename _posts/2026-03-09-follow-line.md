@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "Follow Line"
@@ -7,3 +6,7 @@ thumbnail: "/images/coxe.png"
 excerpt: "Seguimiento de línea con un coche tipo Formula 1."
 published: true
 ---
+
+![Follow Line](/images/coxe.png)
+
+Aquí empieza el contenido del post.
