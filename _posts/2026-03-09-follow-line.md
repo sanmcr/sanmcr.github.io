@@ -3,7 +3,7 @@ layout: post
 title: "Follow Line – Control reactivo con estimación de curvatura"
 date: 2026-03-09
 thumbnail: "/images/coxe.png"
-excerpt: "Seguimiento de línea mediante visión por computador y control PID adaptativo"
+excerpt: "Seguimiento de línea basado en visión artificial y control PID con anticipación de curvas."
 published: true
 ---
 
