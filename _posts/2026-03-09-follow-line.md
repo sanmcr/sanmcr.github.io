@@ -170,11 +170,15 @@ De esta forma se consigue un comportamiento más eficiente en rectas y más esta
 
 Si el sistema detecta menos de dos filas válidas, significa que la línea se ha perdido.
 
-# if valid < 2:
+```python
+if valid < 2:
+```
 
 En ese caso el robot entra en un modo de búsqueda y gira hacia el último lado donde se detectó la línea.
 
-# w_cmd = 6.0 * last_seen_side
+```python
+w_cmd = 6.0 * last_seen_side
+```
 
 Esto permite recuperar la línea rápidamente sin detener completamente el movimiento.
 
