@@ -4,7 +4,8 @@ title: Mejora de Follow Line (fuera de plazo)
 date: 2025-04-04  
 thumbnail: images/cheting.png
 excerpt: "Optimización del algoritmo Follow Line con visión y control reactivo
-published: false"  
+published: false
+"  
 ---
 ![Imagen de seguimiento de línea](/images/cheting.png)  <!-- Imagen dentro del post -->
 
