@@ -58,3 +58,13 @@ weights = [1.0, 1.2, 1.5, 2.0, 2.2]
 ```
 
 Con estos valores se calcula un centro ponderado que representa la posición estimada de la línea en la imagen.
+
+Estimación de curvatura
+
+Para anticipar las curvas se utilizan dos puntos característicos:
+
+un punto lejano (c_far)
+
+un punto cercano (c_near)
+
+
