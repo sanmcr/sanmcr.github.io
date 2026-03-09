@@ -2,9 +2,9 @@
 layout: post
 title: "3D Reconstruction"
 date: 2025-04-13
-thumbnail: "images/muñequin.png"
-excerpt: "Reconstrucción tridimensional de escenas
-published: false"
+thumbnail: "/images/muñequin.png"
+excerpt: "Reconstrucción tridimensional de escenas"
+published: false
 ---
 ![Imagen de seguimiento de línea](/images/muñequin.png)  <!-- Imagen dentro del post -->
 
