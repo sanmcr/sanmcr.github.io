@@ -3,19 +3,17 @@ layout: post
 title: "Follow Line – Control reactivo con estimación de curvatura"
 date: 2026-03-09
 thumbnail: "/images/coxe.png"
-excerpt: "Seguimiento de línea basado en visión artificial y control PID con anticipación de curvas."
+excerpt: "Seguimiento de línea basado en visión artificial, estimación de curvatura y control PID adaptativo."
 published: true
 ---
 
 ![Imagen de seguimiento de línea](/images/coxe.png)
 
-# Follow Line – Control reactivo con estimación de curvatura
+En esta práctica se desarrolla un sistema de seguimiento de línea basado en visión artificial, utilizando un controlador PID combinado con varias heurísticas que permiten anticipar curvas, mejorar la estabilidad y recuperar la trayectoria cuando la línea se pierde.
 
-En esta práctica se desarrolla un sistema de **seguimiento de línea basado en visión artificial**, utilizando un controlador PID combinado con varias heurísticas que permiten anticipar curvas, mejorar la estabilidad y recuperar la trayectoria cuando la línea se pierde.
+Tras varias iteraciones de mejora, el sistema actual ha conseguido completar el circuito simple en aproximadamente 58 segundos, manteniendo estabilidad incluso en tramos con curvatura pronunciada.
 
-Tras varias iteraciones de mejora, el sistema actual ha conseguido completar el **circuito simple en aproximadamente 58 segundos**, manteniendo estabilidad incluso en tramos con curvatura pronunciada.
-
----
+<!--more-->
 
 # Arquitectura del algoritmo
 
