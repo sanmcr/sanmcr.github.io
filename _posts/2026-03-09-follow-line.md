@@ -111,7 +111,7 @@ El circuito simple se completa aproximadamente en:
 ### Vídeo
 
 <!-- insertar vídeo -->
-<iframe width="560" height="315" src="VIDEO_YOUTUBE_AQUI" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtu.be/stXZXhcyrKI" frameborder="0" allowfullscreen></iframe>
 
 ---
 
