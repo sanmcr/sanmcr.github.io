@@ -26,7 +26,7 @@ El resultado final es un controlador reactivo que funciona bien en el circuito s
 
 ---
 
-# Arquitectura general del sistema
+## Arquitectura general del sistema
 
 El sistema se basa en tres bloques principales:
 
