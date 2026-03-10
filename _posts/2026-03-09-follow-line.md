@@ -211,10 +211,10 @@ Un controlador más agresivo permite completar el circuito más rápido, pero ge
 
 El seguimiento de línea mediante visión artificial es un problema aparentemente sencillo, pero que en la práctica requiere equilibrar múltiples factores:
 
-- percepción visual robusta  
-- estimación de trayectoria  
-- control dinámico del vehículo  
-- ajuste fino de parámetros  
+- Percepción visual robusta  
+- Estimación de trayectoria  
+- Control dinámico del vehículo  
+- Ajuste fino de parámetros  
 
 El sistema desarrollado demuestra cómo pequeños cambios en el controlador pueden producir diferencias significativas en el comportamiento del robot.
 
