@@ -88,7 +88,7 @@ Aun así, el circuito simple se completa en aproximadamente:
 ### Vídeo
 
 <!-- insertar vídeo -->
-<iframe width="560" height="315" src="VIDEO_YOUTUBE_AQUI" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtu.be/6KSY_JKuLIg" frameborder="0" allowfullscreen></iframe>
 
 ---
 
