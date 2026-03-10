@@ -42,8 +42,8 @@ Las filas más cercanas al robot tienen mayor peso, ya que influyen más directa
 
 Para anticipar curvas se utilizan dos puntos de la línea:
 
-- un punto cercano al robot
-- un punto más lejano en la imagen
+- Un punto cercano al robot
+- Un punto más lejano en la imagen
 
 La diferencia entre ambos permite estimar la curvatura del tramo.
 
@@ -100,9 +100,9 @@ allowfullscreen>
 
 Posteriormente se desarrolló una versión más refinada del controlador introduciendo:
 
-- mayor filtrado del error
-- limitación de cambios bruscos en la dirección
-- ajuste fino de la velocidad según el error lateral
+- Mayor filtrado del error
+- Limitación de cambios bruscos en la dirección
+- Ajuste fino de la velocidad según el error lateral
 
 Esta versión reduce considerablemente las oscilaciones, produciendo un movimiento más suave y estable.
 
