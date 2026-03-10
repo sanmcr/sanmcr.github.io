@@ -114,8 +114,14 @@ El circuito simple se completa aproximadamente en:
 
 ### Vídeo
 
-<!-- insertar vídeo -->
-<iframe width="560" height="315" src="https://youtu.be/stXZXhcyrKI" frameborder="0" allowfullscreen></iframe>
+<div style="text-align:center;">
+<iframe width="700" height="394"
+src="https://www.youtube.com/embed/stXZXhcyrKI"
+title="Control estable"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
 
 ---
 
@@ -134,9 +140,14 @@ En este caso el tiempo total del circuito aumenta hasta aproximadamente:
 
 ### Vídeo
 
-<!-- insertar vídeo -->
-<iframe width="560" height="315" src="https://youtu.be/tnBgYsc1wCk" frameborder="0" allowfullscreen></iframe>
-
+<div style="text-align:center;">
+<iframe width="700" height="394"
+src="https://www.youtube.com/embed/tnBgYsc1wCk"
+title="Circuito inverso"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
 ---
 
 # Prueba en circuito Montmeló
@@ -148,8 +159,14 @@ En este circuito el robot comienza siguiendo la línea correctamente, pero termi
 
 ### Vídeo
 
-<!-- insertar vídeo -->
-<iframe width="560" height="315" src="[VIDEO_YOUTUBE_AQUI](https://youtu.be/7oBNXKtt-oE)" frameborder="0" allowfullscreen></iframe>
+<div style="text-align:center;">
+<iframe width="700" height="394"
+src="https://www.youtube.com/embed/7oBNXKtt-oE"
+title="Montmeló"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
 
 Este comportamiento se debe principalmente a dos factores:
 
