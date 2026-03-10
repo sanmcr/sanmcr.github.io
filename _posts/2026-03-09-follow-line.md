@@ -42,7 +42,7 @@ Esta región se denomina **ROI (Region of Interest)**.
 
 ---
 
-# Procesamiento de imagen
+## Procesamiento de imagen
 
 La detección de la línea comienza aplicando un pequeño suavizado a la imagen para reducir ruido.
 
@@ -59,7 +59,7 @@ Esto permite obtener una máscara más limpia de la línea.
 
 ---
 
-# Estimación de trayectoria
+## Estimación de trayectoria
 
 En lugar de calcular un único punto de la línea, el algoritmo analiza varias filas horizontales de la imagen.
 
@@ -74,7 +74,7 @@ Esto tiene sentido porque:
 
 ---
 
-# Estimación de curvatura
+## Estimación de curvatura
 
 Para anticipar curvas utilizo dos puntos característicos de la línea:
 
@@ -91,7 +91,7 @@ Esto ayuda a reducir correcciones bruscas.
 
 ---
 
-# Control PID
+## Control PID
 
 El error lateral se calcula como la diferencia entre el centro de la imagen y la posición estimada de la línea.
 
@@ -107,7 +107,7 @@ Además, el error se filtra mediante un suavizado exponencial, lo que ayuda a re
 
 ---
 
-# Evolución del controlador
+## Evolución del controlador
 
 Durante el desarrollo fui probando distintas configuraciones del controlador.
 
@@ -120,7 +120,7 @@ Esto dio lugar a dos versiones principales.
 
 ---
 
-# Versión rápida (control nervioso)
+## Versión más rápida (control nervioso)
 
 La primera versión del controlador estaba optimizada principalmente para velocidad.
 
@@ -147,7 +147,7 @@ allowfullscreen>
 
 ---
 
-# Versión final ajustada
+## Versión final ajustada
 
 Posteriormente ajusté el controlador introduciendo varios cambios:
 
@@ -182,7 +182,7 @@ allowfullscreen>
 
 ---
 
-# Circuito recorrido en sentido inverso
+## Circuito recorrido en sentido inverso
 
 También probé ejecutar el mismo circuito **en sentido contrario**.
 
@@ -209,7 +209,7 @@ allowfullscreen>
 
 ---
 
-# Prueba en circuito Montmeló
+## Prueba en circuito Montmeló
 
 Además del circuito simple, probé el algoritmo en un circuito más complejo inspirado en **Montmeló**.
 
@@ -237,7 +237,7 @@ Esto muestra una limitación típica de los controladores reactivos basados úni
 
 ---
 
-# Modelo Ackermann
+## Modelo Ackermann
 
 El modelo de vehículo utilizado en el simulador sigue una cinemática de tipo **Ackermann**, típica de vehículos con dirección en las ruedas delanteras.
 
@@ -253,7 +253,7 @@ Aun así, el comportamiento dinámico del robot sugiere que la cinemática se es
 
 ---
 
-# Resultados
+## Resultados
 
 Los tiempos aproximados obtenidos fueron:
 
@@ -269,7 +269,7 @@ Un controlador más agresivo permite completar el circuito más rápido, pero in
 
 ---
 
-# Conclusión
+## Conclusión
 
 El seguimiento de línea mediante visión artificial es un problema aparentemente sencillo, pero en la práctica requiere equilibrar varios aspectos:
 
