@@ -139,14 +139,13 @@ En este caso el tiempo total del circuito aumenta hasta aproximadamente:
 
 Además del circuito simple se probó el algoritmo en un circuito más complejo inspirado en **Montmeló**.
 
-![Circuito Montmeló](/images/montmelo.png)
 
 En este circuito el robot comienza siguiendo la línea correctamente, pero termina saliéndose en un punto concreto.
 
 ### Vídeo
 
 <!-- insertar vídeo -->
-<iframe width="560" height="315" src="VIDEO_YOUTUBE_AQUI" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="[VIDEO_YOUTUBE_AQUI](https://youtu.be/7oBNXKtt-oE)" frameborder="0" allowfullscreen></iframe>
 
 Este comportamiento se debe principalmente a dos factores:
 
@@ -166,6 +165,8 @@ El modelo del vehículo utilizado en el simulador sigue una geometría **Ackerma
 En el simulador utilizado la visualización del modelo Ackermann no funciona correctamente, por lo que no es posible observar la geometría de giro en pantalla.
 
 Sin embargo, el comportamiento del robot indica que la cinemática sigue aplicándose correctamente, ya que el vehículo responde a los comandos de velocidad lineal y angular como se espera.
+
+![Circuito Ackerman](/images/ackermandos.png)
 
 ---
 
