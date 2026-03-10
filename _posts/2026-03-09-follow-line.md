@@ -83,7 +83,7 @@ Esto provocaba un movimiento lateral continuo intentando corregir el error.
 
 Aun así, el circuito simple se completa en aproximadamente:
 
-**58 segundos**
+**≈58 segundos**
 
 ### Vídeo
 
@@ -106,7 +106,7 @@ Sin embargo, esta mejora en estabilidad implica una ligera pérdida de velocidad
 
 El circuito simple se completa aproximadamente en:
 
-**63 segundos**
+**≈63 segundos**
 
 ### Vídeo
 
@@ -126,7 +126,7 @@ Aunque el algoritmo es exactamente el mismo, el comportamiento cambia debido a q
 
 En este caso el tiempo total del circuito aumenta hasta aproximadamente:
 
-**78 segundos**
+**≈78 segundos**
 
 ### Vídeo
 
