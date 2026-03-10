@@ -87,10 +87,14 @@ Aun así, el circuito simple se completa en aproximadamente:
 
 ### Vídeo
 
-<!-- insertar vídeo -->
-<iframe width="560" height="315" src="https://youtu.be/6KSY_JKuLIg" frameborder="0" allowfullscreen></iframe>
-
----
+<div style="text-align:center;">
+<iframe width="700" height="394"
+src="https://www.youtube.com/embed/6KSY_JKuLIg"
+title="Control nervioso"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
 
 # Versión estable
 
