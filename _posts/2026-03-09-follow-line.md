@@ -13,12 +13,12 @@ En esta práctica he desarrollado un sistema de **seguimiento de línea mediante
 
 Aunque el problema puede parecer sencillo, en la práctica el comportamiento del robot depende de varios factores:
 
-- la detección visual de la línea
-- el controlador de dirección
-- la velocidad del vehículo
-- la geometría de las curvas del circuito
+- La detección visual de la línea
+- El controlador de dirección
+- La velocidad del vehículo
+- La geometría de las curvas del circuito
 
-A lo largo del desarrollo fui probando **distintas configuraciones del controlador**, buscando un equilibrio entre **velocidad y estabilidad**.
+A lo largo del desarrollo fui probando distintas configuraciones del controlador, buscando un equilibrio entre velocidad y estabilidad.
 
 El resultado final es un controlador reactivo que funciona bien en el circuito simple, aunque presenta limitaciones en circuitos más complejos.
 
@@ -34,9 +34,9 @@ El sistema se basa en tres bloques principales:
 - **Estimación de trayectoria**
 - **Control del robot**
 
-La línea se detecta mediante segmentación de color en el espacio **HSV**, lo que permite aislar de forma robusta el color rojo incluso cuando hay pequeñas variaciones de iluminación.
+La línea se detecta mediante segmentación de color en el espacio HSV, lo que permite aislar de forma robusta el color rojo incluso cuando hay pequeñas variaciones de iluminación.
 
-Para reducir el coste computacional, el análisis se realiza únicamente en la **parte inferior de la imagen**, donde se encuentra la información relevante para el control inmediato del vehículo.
+Para reducir el coste computacional, el análisis se realiza únicamente en la parte inferior de la imagen, donde se encuentra la información relevante para el control inmediato del vehículo.
 
 Esta región se denomina **ROI (Region of Interest)**.
 
@@ -48,7 +48,7 @@ La detección de la línea comienza aplicando un pequeño suavizado a la imagen 
 
 Después se convierte la imagen al espacio de color **HSV**.
 
-El rojo se detecta utilizando **dos rangos de color**, ya que este color aparece en dos zonas distintas dentro del espacio HSV.
+El rojo se detecta utilizando dos rangos de color, ya que este color aparece en dos zonas distintas dentro del espacio HSV.
 
 Posteriormente se aplican operaciones morfológicas para:
 
@@ -61,16 +61,16 @@ Esto permite obtener una máscara más limpia de la línea.
 
 # Estimación de trayectoria
 
-En lugar de calcular un único punto de la línea, el algoritmo analiza **varias filas horizontales de la imagen**.
+En lugar de calcular un único punto de la línea, el algoritmo analiza varias filas horizontales de la imagen.
 
 En cada una de ellas se detectan los píxeles correspondientes a la línea y se calcula su centro.
 
-Estos centros se combinan mediante una **media ponderada**, donde las filas más cercanas al robot tienen mayor peso.
+Estos centros se combinan mediante una media ponderada, donde las filas más cercanas al robot tienen mayor peso.
 
 Esto tiene sentido porque:
 
-- las filas cercanas influyen directamente en el movimiento inmediato
-- las filas lejanas ayudan a anticipar la trayectoria
+- Las filas cercanas influyen directamente en el movimiento inmediato
+- Las filas lejanas ayudan a anticipar la trayectoria
 
 ---
 
@@ -78,8 +78,8 @@ Esto tiene sentido porque:
 
 Para anticipar curvas utilizo dos puntos característicos de la línea:
 
-- un punto **lejano**
-- un punto **cercano**
+- Un punto lejano
+- Un punto cercano
 
 La diferencia horizontal entre ambos permite estimar si la trayectoria comienza a girar.
 
@@ -103,7 +103,7 @@ Cada término del controlador tiene un papel diferente:
 - **Integral (Ki)** compensa errores acumulados  
 - **Derivativo (Kd)** suaviza cambios bruscos  
 
-Además, el error se filtra mediante un **suavizado exponencial**, lo que ayuda a reducir el efecto del ruido en la detección de la línea.
+Además, el error se filtra mediante un suavizado exponencial, lo que ayuda a reducir el efecto del ruido en la detección de la línea.
 
 ---
 
@@ -113,8 +113,8 @@ Durante el desarrollo fui probando distintas configuraciones del controlador.
 
 El principal objetivo era encontrar un equilibrio entre:
 
-- **recorrer el circuito lo más rápido posible**
-- **mantener un movimiento estable sin oscilaciones excesivas**
+- Recorrer el circuito lo más rápido posible
+- Mantener un movimiento estable sin oscilaciones excesivas
 
 Esto dio lugar a dos versiones principales.
 
@@ -122,11 +122,11 @@ Esto dio lugar a dos versiones principales.
 
 # Versión rápida (control nervioso)
 
-La primera versión del controlador estaba optimizada principalmente para **velocidad**.
+La primera versión del controlador estaba optimizada principalmente para velocidad.
 
 El robot reaccionaba de forma muy agresiva a los cambios de error, lo que permitía mantener velocidades altas en rectas.
 
-Sin embargo, esto generaba **oscilaciones constantes en curvas**, ya que el robot intentaba corregir continuamente su posición respecto a la línea.
+Sin embargo, esto generaba oscilaciones constantes en curvas, ya que el robot intentaba corregir continuamente su posición respecto a la línea.
 
 El resultado era un movimiento lateral continuo intentando volver al centro de la trayectoria.
 
@@ -151,19 +151,19 @@ allowfullscreen>
 
 Posteriormente ajusté el controlador introduciendo varios cambios:
 
-- modificación de los **umbrales que separan rectas y curvas**
-- redistribución de la **velocidad según el error lateral**
-- limitación de cambios bruscos en la velocidad angular
+- Modificación de los umbrales que separan rectas y curvas
+- Redistribución de la velocidad según el error lateral
+- Limitación de cambios bruscos en la velocidad angular
 
 En la versión final el robot:
 
-- es **más rápido en rectas**
-- reduce la velocidad antes en curvas
-- mantiene un movimiento más controlado
+- Es más rápido en rectas
+- Reduce la velocidad antes en curvas
+- Mantiene un movimiento más controlado
 
 Esto reduce las oscilaciones respecto a la versión anterior.
 
-Sin embargo, **siguen apareciendo pequeñas oscilaciones en curvas abiertas largas**, ya que el controlador sigue siendo puramente reactivo.
+Sin embargo, siguen apareciendo pequeñas oscilaciones, sobretodo en curvas abiertas largas, ya que el controlador sigue siendo puramente reactivo.
 
 El circuito simple se completa aproximadamente en:
 
@@ -228,8 +228,8 @@ allowfullscreen>
 
 Este comportamiento se debe principalmente a dos factores:
 
-- la presencia de **curvas abiertas muy largas**
-- la dificultad de anticipar cambios de trayectoria utilizando únicamente un controlador reactivo
+- La presencia de curvas abiertas muy largas
+- La dificultad de anticipar cambios de trayectoria utilizando únicamente un controlador reactivo
 
 En estas curvas el error lateral crece lentamente y el controlador tarda más en reaccionar, lo que provoca oscilaciones hasta que la corrección se vuelve demasiado grande.
 
@@ -261,7 +261,7 @@ Los tiempos aproximados obtenidos fueron:
 |-------|------|
 | Control nervioso | ~58 s |
 | Control final ajustado | ~63 s |
-| Circuito en sentido inverso | ~78 s |
+| Circuito sentido inverso | ~78 s |
 
 Estos resultados muestran el compromiso clásico entre **velocidad y estabilidad** en sistemas de control.
 
@@ -278,6 +278,6 @@ El seguimiento de línea mediante visión artificial es un problema aparentement
 - control dinámico del vehículo  
 - ajuste fino de parámetros  
 
-A lo largo de esta práctica pude comprobar cómo **pequeños cambios en el controlador producen diferencias significativas en el comportamiento del robot**.
+A lo largo de esta práctica pude comprobar cómo pequeños cambios en el controlador producen diferencias significativas en el comportamiento del robot.
 
-Este proyecto me ha permitido explorar la interacción entre **visión por computador y control reactivo**, dos elementos importantes en visiónn robótica.
+Este proyecto me ha permitido explorar la interacción entre visión por computador y control reactivo, dos elementos importantes en visiónn robótica.
