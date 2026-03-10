@@ -1,131 +1,61 @@
 ---
 layout: post
-title: "Follow Line – Control reactivo con estimación de curvatura"
+title: "Follow Line – Evolución de un controlador visual"
 date: 2026-03-09
 thumbnail: "/images/coxe.png"
-excerpt: "Seguimiento de línea basado en visión artificial, estimación de curvatura y control PID adaptativo."
+excerpt: "Seguimiento de línea mediante visión artificial y control PID, analizando estabilidad, velocidad y comportamiento en distintos circuitos."
 published: true
 ---
 
-
 ![Imagen de seguimiento de línea](/images/coxe.png)
 
-En esta práctica se desarrolla un sistema de **seguimiento de línea basado en visión artificial**, utilizando un controlador PID combinado con varias heurísticas que permiten **anticipar curvas, mejorar la estabilidad y recuperar la trayectoria** cuando la línea se pierde.
+En esta práctica se desarrolla un sistema de **seguimiento de línea mediante visión artificial** cuyo objetivo es completar distintos circuitos de forma autónoma.
 
-Tras varias iteraciones de mejora, el sistema actual ha conseguido completar el **circuito simple en aproximadamente 58 segundos**, manteniendo un comportamiento estable incluso en tramos con curvatura pronunciada.
+Aunque el problema puede parecer sencillo, el comportamiento del robot depende de muchos factores:  
+la detección visual, el controlador de dirección, la velocidad y el tipo de curva del circuito.
+
+A lo largo de la práctica se han desarrollado **varias versiones del controlador**, cada una con comportamientos distintos en términos de estabilidad y velocidad.
 
 <!--more-->
 
 ---
 
-## Arquitectura del algoritmo
+# Arquitectura general del sistema
 
-El sistema se divide en tres bloques principales:
+El algoritmo se basa en tres bloques principales:
 
-1. **Procesamiento de imagen**
-2. **Estimación de trayectoria**
-3. **Control dinámico del vehículo**
+- **Procesamiento de imagen**
+- **Estimación de trayectoria**
+- **Control del robot**
 
-Esta estructura permite separar claramente la parte de percepción visual de la parte de decisión y control.
+La línea se detecta mediante segmentación de color en el espacio **HSV**, lo que permite aislar de forma robusta el color rojo.
 
----
+Para reducir el coste computacional, el análisis se realiza únicamente sobre la **parte inferior de la imagen (ROI)**, ya que es donde aparece la información relevante para el control inmediato.
 
-## Procesamiento de imagen
+La posición de la línea se estima utilizando **varias filas horizontales**, calculando el centro de la línea en cada una de ellas y combinándolos mediante una media ponderada.
 
-La detección de la línea se realiza en el espacio de color **HSV**, ya que resulta más robusto que trabajar directamente sobre la imagen en RGB cuando se quiere segmentar un color concreto.
-
-Primero se aplica un pequeño suavizado para reducir ruido y después se convierte la imagen al espacio HSV.
-
-```python
- blurred = cv2.GaussianBlur(frame, (5, 5), 0)  
- hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
-```
-
-A continuación se segmenta el color rojo utilizando dos rangos de HSV, ya que el rojo se encuentra dividido en dos zonas del espacio de color.
-
-
-```python
-mask1 = cv2.inRange(hsv, lower_red1, upper_red1)  
-mask2 = cv2.inRange(hsv, lower_red2, upper_red2)  
-mask = cv2.bitwise_or(mask1, mask2)
-```
-
-Después se aplican operaciones morfológicas para eliminar ruido y cerrar pequeños huecos en la detección.
-
-```python
-mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel, iterations=1)  
-mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=1)
-```
-
-Para reducir el coste computacional, el análisis se realiza únicamente en la **parte inferior de la imagen (ROI)**, ya que es donde se encuentra la información relevante para el control del vehículo.
-
-```python
-roi = mask[h - roi_h : h, :]
-```
+Las filas más cercanas al robot tienen mayor peso, ya que influyen más directamente en la dirección del movimiento.
 
 ---
 
-## Estimación de trayectoria
+# Estimación de curvatura
 
-En lugar de calcular un único centroide de la línea, el algoritmo analiza varias filas horizontales de la imagen.
+Para anticipar curvas se utilizan dos puntos de la línea:
 
-
-```python
-scan_rows = [30, 60, 90, 130, 165]
-```
-
-En cada fila se detectan los píxeles de la línea y se calcula su centro. Posteriormente se calcula una media ponderada utilizando diferentes pesos.
-
-```python
-weights = [1.0, 1.2, 1.5, 2.0, 2.2]
-```
-Las filas más cercanas al vehículo tienen mayor peso, ya que influyen más directamente en el control inmediato de la dirección.
-
----
-
-## Estimación de curvatura
-
-Para anticipar curvas se utilizan dos puntos característicos de la línea:
-
-- un punto lejano
-- un punto cercano
-
-```python
-c_far = row_center(roi, 60)
-c_near = row_center(roi, 165)
-```
+- un punto cercano al robot
+- un punto más lejano en la imagen
 
 La diferencia entre ambos permite estimar la curvatura del tramo.
 
-```python
-curve_px = abs(c_near - c_far)
-```
-
-Si esta diferencia aumenta significa que el vehículo se aproxima a una curva pronunciada.
-
-En función de este valor, el algoritmo desplaza ligeramente el punto de control hacia el punto lejano para **anticipar el giro**.
+Cuando esta diferencia aumenta, el algoritmo utiliza mayor información del punto lejano para **anticipar el giro antes de que la curva llegue al robot**, lo que mejora significativamente el comportamiento en curvas pronunciadas.
 
 ---
 
-## Cálculo del error
+# Control PID
 
 El error lateral se calcula como la diferencia entre el centro de la imagen y la posición estimada de la línea.
 
-```python
-error = center - cX
-```
-
-Este error indica cuánto debe girar el vehículo para volver a situarse sobre la línea.
-
----
-
-## Control PID
-
-El error calculado se introduce en un controlador PID que genera la velocidad angular del robot.
-
-```python
-w_cmd = Kp * err_f + Ki * integral + Kd * derivative
-```
+Este error se introduce en un **controlador PID**, que genera la velocidad angular del robot.
 
 Cada término del controlador tiene un papel diferente:
 
@@ -133,78 +63,137 @@ Cada término del controlador tiene un papel diferente:
 - **Integral (Ki)** compensa errores acumulados  
 - **Derivativo (Kd)** suaviza cambios bruscos  
 
-El cálculo del término derivativo utiliza el tiempo real entre iteraciones (`dt`), lo que mejora la estabilidad del sistema.
+Además, el error se filtra mediante un suavizado exponencial para reducir el efecto del ruido en la detección visual.
 
 ---
 
-## Suavizado del error
+# Evolución del controlador
 
-Para evitar oscilaciones provocadas por pequeñas variaciones en la detección de la línea, el error se filtra mediante un suavizado exponencial.
-
-```python
-err_f = err_alpha * error + (1 - err_alpha) * err_f
-```
-
-Esto permite que el control sea más estable y menos sensible al ruido.
+Durante el desarrollo se probaron varias configuraciones con distintos compromisos entre velocidad y estabilidad.
 
 ---
 
-## Control adaptativo de velocidad
+# Versión rápida (control nervioso)
 
-La velocidad del vehículo se adapta dinámicamente según la magnitud del error.
+La primera versión del controlador priorizaba la **velocidad del recorrido**.
 
-Cuando el error es pequeño el robot puede avanzar más rápido, mientras que en curvas o desviaciones grandes se reduce la velocidad.
+En esta configuración el robot respondía de forma muy agresiva a los cambios de error, lo que permitía mantener una velocidad alta en rectas pero generaba **oscilaciones constantes en curvas**.
 
-```python
- if e < 18:  
-     v = 12.5  
- elif e < 45:  
-     v = 9.0  
-```
+Esto provocaba un movimiento lateral continuo intentando corregir el error.
 
-De esta forma se consigue un comportamiento más eficiente en rectas y más estable en curvas.
+Aun así, el circuito simple se completa en aproximadamente:
 
----
+**58 segundos**
 
-## Recuperación cuando se pierde la línea
+### Vídeo
 
-Si el sistema detecta menos de dos filas válidas, significa que la línea se ha perdido.
-
-```python
-if valid < 2:
-```
-
-En ese caso el robot entra en un modo de búsqueda y gira hacia el último lado donde se detectó la línea.
-
-```python
-w_cmd = 6.0 * last_seen_side
-```
-
-Esto permite recuperar la línea rápidamente sin detener completamente el movimiento.
+<!-- insertar vídeo -->
+<iframe width="560" height="315" src="VIDEO_YOUTUBE_AQUI" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-## Resultados
+# Versión estable
 
-Con esta versión del algoritmo, el sistema ha logrado completar el **circuito simple en aproximadamente 58 segundos**.
+Posteriormente se desarrolló una versión más refinada del controlador introduciendo:
 
-Este resultado supone una mejora significativa respecto a versiones anteriores del controlador, manteniendo además un comportamiento estable en curvas.
+- mayor filtrado del error
+- limitación de cambios bruscos en la dirección
+- ajuste fino de la velocidad según el error lateral
 
-Actualmente se están realizando pruebas adicionales en circuitos más complejos para evaluar la robustez del sistema.
+Esta versión reduce considerablemente las oscilaciones, produciendo un movimiento más suave y estable.
+
+Sin embargo, esta mejora en estabilidad implica una ligera pérdida de velocidad.
+
+El circuito simple se completa aproximadamente en:
+
+**63 segundos**
+
+### Vídeo
+
+<!-- insertar vídeo -->
+<iframe width="560" height="315" src="VIDEO_YOUTUBE_AQUI" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-## Conclusión
+# Circuito recorrido en sentido inverso
 
-El sistema final combina:
+También se probó ejecutar el circuito en sentido contrario.
 
-- detección robusta de la línea mediante HSV  
-- análisis de múltiples filas de la imagen  
-- estimación de curvatura de la trayectoria  
-- control PID con suavizado  
-- control adaptativo de velocidad  
-- recuperación automática de la línea  
+Aunque el algoritmo es exactamente el mismo, el comportamiento cambia debido a que:
 
-Todo ello permite obtener un comportamiento **rápido y estable en el seguimiento de línea**.
+- la geometría de las curvas se afronta desde el lado opuesto
+- algunas curvas se vuelven más difíciles de anticipar
 
-Esta práctica me ha permitido profundizar en la integración entre **visión por computador y control reactivo en robots móviles**.
+En este caso el tiempo total del circuito aumenta hasta aproximadamente:
+
+**78 segundos**
+
+### Vídeo
+
+<!-- insertar vídeo -->
+<iframe width="560" height="315" src="VIDEO_YOUTUBE_AQUI" frameborder="0" allowfullscreen></iframe>
+
+---
+
+# Prueba en circuito Montmeló
+
+Además del circuito simple se probó el algoritmo en un circuito más complejo inspirado en **Montmeló**.
+
+![Circuito Montmeló](/images/montmelo.png)
+
+En este circuito el robot comienza siguiendo la línea correctamente, pero termina saliéndose en un punto concreto.
+
+### Vídeo
+
+<!-- insertar vídeo -->
+<iframe width="560" height="315" src="VIDEO_YOUTUBE_AQUI" frameborder="0" allowfullscreen></iframe>
+
+Este comportamiento se debe principalmente a dos factores:
+
+- presencia de **curvas abiertas muy largas**, donde el error lateral crece lentamente  
+- dificultad para anticipar cambios de dirección con un controlador puramente reactivo
+
+En este tipo de curvas el robot tiende a oscilar ligeramente hasta que la corrección acumulada se vuelve demasiado grande.
+
+Esto muestra una limitación típica de los controladores reactivos basados únicamente en error lateral.
+
+---
+
+# Modelo Ackermann
+
+El modelo del vehículo utilizado en el simulador sigue una geometría **Ackermann**, típica de vehículos con dirección delantera.
+
+En el simulador utilizado la visualización del modelo Ackermann no funciona correctamente, por lo que no es posible observar la geometría de giro en pantalla.
+
+Sin embargo, el comportamiento del robot indica que la cinemática sigue aplicándose correctamente, ya que el vehículo responde a los comandos de velocidad lineal y angular como se espera.
+
+---
+
+# Resultados
+
+Los tiempos aproximados obtenidos fueron:
+
+| Versión | Tiempo |
+|-------|------|
+| Control nervioso | ~58 s |
+| Control estable | ~63 s |
+| Circuito en sentido inverso | ~78 s |
+
+Esto refleja el clásico compromiso entre **velocidad y estabilidad** en sistemas de control.
+
+Un controlador más agresivo permite completar el circuito más rápido, pero genera mayores oscilaciones y riesgo de salida de la trayectoria.
+
+---
+
+# Conclusión
+
+El seguimiento de línea mediante visión artificial es un problema aparentemente sencillo, pero que en la práctica requiere equilibrar múltiples factores:
+
+- percepción visual robusta  
+- estimación de trayectoria  
+- control dinámico del vehículo  
+- ajuste fino de parámetros  
+
+El sistema desarrollado demuestra cómo pequeños cambios en el controlador pueden producir diferencias significativas en el comportamiento del robot.
+
+Esta práctica ha permitido explorar la interacción entre **visión por computador y control reactivo**, dos elementos fundamentales en robótica móvil.
