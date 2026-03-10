@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Follow Line – Evolución de un controlador visual"
+title: "Follow Line – Unibotics"
 date: 2026-03-09
 thumbnail: "/images/coxe.png"
 excerpt: "Seguimiento de línea mediante visión artificial y control PID, analizando estabilidad, velocidad y comportamiento en distintos circuitos."
