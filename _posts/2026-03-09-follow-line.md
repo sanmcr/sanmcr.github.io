@@ -9,7 +9,7 @@ published: true
 
 ![Imagen de seguimiento de línea](/images/coxe.png)
 
-En esta práctica he desarrollado un sistema de **seguimiento de línea mediante visión artificial** cuyo objetivo es completar distintos circuitos de forma autónoma.
+En esta práctica he desarrollado un sistema de seguimiento de línea mediante visión artificial cuyo objetivo es completar distintos circuitos de forma autónoma.
 
 Aunque el problema puede parecer sencillo, en la práctica el comportamiento del robot depende de varios factores:
 
@@ -46,7 +46,7 @@ Esta región se denomina **ROI (Region of Interest)**.
 
 La detección de la línea comienza aplicando un pequeño suavizado a la imagen para reducir ruido.
 
-Después se convierte la imagen al espacio de color **HSV**.
+Después se convierte la imagen al espacio de color HSV.
 
 El rojo se detecta utilizando dos rangos de color, ya que este color aparece en dos zonas distintas dentro del espacio HSV.
 
