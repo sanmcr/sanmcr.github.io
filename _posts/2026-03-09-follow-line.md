@@ -280,4 +280,4 @@ El seguimiento de línea mediante visión artificial es un problema aparentement
 
 A lo largo de esta práctica pude comprobar cómo **pequeños cambios en el controlador producen diferencias significativas en el comportamiento del robot**.
 
-Este proyecto me ha permitido explorar la interacción entre **visión por computador y control reactivo**, dos elementos fundamentales en robótica móvil.
+Este proyecto me ha permitido explorar la interacción entre **visión por computador y control reactivo**, dos elementos importantes en visiónn robótica.
