@@ -119,12 +119,13 @@ Incluyo un vídeo donde se puede ver el proceso de reconstrucción en tiempo rea
 
 Incluyo un vídeo donde se puede ver el proceso de reconstrucción en tiempo real y el resultado final.
 
-<div style="text-align:center;">
-<iframe width="700" height="394"
-src="[https://www.youtube.com/embed/6KSY_JKuLIg](https://youtu.be/Wdp6Zce26XQ)"
-title="Control nervioso"
+## Demo
+
+Incluyo un vídeo donde se puede ver el proceso de reconstrucción en tiempo real y el resultado final.
+
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed/Wdp6Zce26XQ"
+title="Reconstrucción 3D"
 frameborder="0"
 allowfullscreen>
 </iframe>
-</div>
-
