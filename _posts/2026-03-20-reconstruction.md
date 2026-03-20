@@ -115,6 +115,10 @@ El sistema consigue una reconstrucción bastante coherente sin necesidad de téc
 
 Incluyo un vídeo donde se puede ver el proceso de reconstrucción en tiempo real y el resultado final.
 
+## Demo
+
+Incluyo un vídeo donde se puede ver el proceso de reconstrucción en tiempo real y el resultado final.
+
 <div style="text-align:center;">
 <iframe width="700" height="394"
 src="[https://www.youtube.com/embed/6KSY_JKuLIg](https://youtu.be/Wdp6Zce26XQ)"
