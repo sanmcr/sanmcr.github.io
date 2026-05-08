@@ -9,7 +9,7 @@ published: true
 
 # End-to-End Visual Control con PilotNet – Unibotics
 
-![End-to-End Visual Control](/images/e2e_cover.png)
+![End-to-End Visual Control](/images/pilot.png)
 
 En esta práctica he desarrollado un sistema de conducción autónoma end-to-end utilizando Deep Learning dentro del entorno de Unibotics / RoboticsAcademy.
 
