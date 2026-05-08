@@ -1,0 +1,346 @@
+---
+layout: post
+title: "End-to-End Visual Control con PilotNet – Unibotics"
+date: 2026-05-06
+thumbnail: "/images/e2e1.png"
+excerpt: "Conducción autónoma end-to-end mediante Deep Learning utilizando PilotNet y ONNX en Unibotics, comparando este enfoque con un controlador clásico basado en visión artificial y PID."
+published: true
+---
+
+# End-to-End Visual Control con PilotNet – Unibotics
+
+![End-to-End Visual Control](/images/e2e_cover.png)
+
+En esta práctica he desarrollado un sistema de conducción autónoma end-to-end utilizando Deep Learning dentro del entorno de Unibotics / RoboticsAcademy.
+
+A diferencia de la práctica anterior de Follow Line, donde el comportamiento del coche se programaba explícitamente mediante visión artificial clásica y controladores PID, en este caso el objetivo ha sido entrenar una red neuronal capaz de aprender directamente el comportamiento de conducción a partir de ejemplos.
+
+La red neuronal recibe como entrada una imagen de la cámara frontal y predice directamente:
+
+- Velocidad lineal (`V`)
+- Velocidad angular (`W`)
+
+Para ello se ha utilizado una arquitectura basada en PilotNet, originalmente propuesta por NVIDIA para tareas de conducción autónoma.
+
+<!--more-->
+
+---
+
+# Diferencia respecto a la práctica Follow Line
+
+En la práctica anterior el sistema estaba dividido en varias etapas independientes:
+
+- Detección de la línea mediante segmentación HSV
+- Cálculo del error lateral
+- Estimación de curvatura
+- Control PID
+- Generación de velocidades
+
+El comportamiento dependía completamente de reglas programadas manualmente y de múltiples parámetros ajustados a mano.
+
+Sin embargo, en esta práctica se utiliza un enfoque end-to-end. Esto significa que la red neuronal aprende directamente la relación entre:
+
+- Percepción visual
+- Acciones de control
+
+sin necesidad de implementar explícitamente:
+
+- Detección de línea
+- Segmentación de color
+- Cálculo geométrico de trayectoria
+- Controladores PID
+
+En lugar de programar reglas manuales, el comportamiento se aprende a partir de datos generados por un conductor experto.
+
+---
+
+# Dataset utilizado
+
+Se utilizó el dataset proporcionado por RoboticsAcademy para el ejercicio de End-to-End Visual Control.
+
+El dataset contiene aproximadamente:
+
+- 50 000 muestras etiquetadas
+- Imágenes de múltiples circuitos
+- Valores reales de velocidad y giro asociados a cada imagen
+
+Cada muestra contiene:
+
+- La imagen capturada por la cámara
+- La velocidad lineal aplicada
+- La velocidad angular utilizada por el conductor experto
+
+La estructura principal del dataset estaba formada por múltiples carpetas de imágenes y un fichero CSV con las etiquetas correspondientes.
+
+---
+
+# Preprocesado de imágenes
+
+Antes del entrenamiento y de la inferencia se aplicó un pipeline de preprocesado sobre todas las imágenes.
+
+Las operaciones realizadas fueron:
+
+- Conversión de BGR a RGB
+- Recorte de la parte superior de la imagen
+- Redimensionamiento
+- Normalización de píxeles
+
+El recorte superior de la imagen se realizó para eliminar información irrelevante como:
+
+- Cielo
+- Fondo
+- Elementos lejanos
+
+y centrar la atención de la red principalmente en:
+
+- La pista
+- La línea roja
+- Las curvas cercanas
+
+---
+
+# Arquitectura PilotNet
+
+La arquitectura utilizada se basa en PilotNet, una CNN diseñada específicamente para conducción autónoma.
+
+La red utiliza varias capas convolucionales para extraer automáticamente características visuales relevantes de la imagen, seguidas de capas fully connected encargadas de generar las predicciones finales.
+
+La salida del modelo corresponde directamente a:
+
+- Velocidad lineal (`V`)
+- Velocidad angular (`W`)
+
+---
+
+# Entrenamiento del modelo
+
+El entrenamiento se realizó mediante aprendizaje supervisado utilizando PyTorch.
+
+La configuración utilizada fue:
+
+- Optimizador Adam
+- Función de pérdida MSE
+- Batch size de 64
+- 25 epochs de entrenamiento
+
+Durante las primeras épocas se observó una reducción significativa de la pérdida de validación, indicando que el modelo estaba aprendiendo correctamente el comportamiento de conducción presente en el dataset.
+
+El mejor modelo fue almacenado automáticamente según la mínima pérdida de validación obtenida durante el entrenamiento.
+
+---
+
+# Exportación a ONNX
+
+Una vez finalizado el entrenamiento, el modelo fue exportado a formato ONNX para poder ejecutarlo dentro de RoboticsAcademy / Unibotics mediante ONNX Runtime.
+
+Durante la exportación se generaron dos archivos:
+
+- `model.onnx`
+- `model.onnx.data`
+
+Ambos archivos fueron subidos posteriormente al simulador para realizar inferencia en tiempo real.
+
+---
+
+# Integración en Unibotics
+
+Durante la ejecución, el sistema funciona como un bucle reactivo continuo.
+
+En cada iteración:
+
+1. El coche obtiene una imagen de la cámara frontal
+2. La imagen es preprocesada
+3. Se realiza inferencia mediante la red neuronal
+4. El modelo predice `V` y `W`
+5. Dichas velocidades son enviadas directamente al vehículo
+
+Además, se añadieron varios ajustes dinámicos para mejorar el comportamiento:
+
+- Limitación de velocidad máxima
+- Suavizado del giro
+- Reducción de velocidad en curvas fuertes
+- Aumento de velocidad en rectas
+
+---
+
+# Primeras pruebas
+
+La primera versión funcional consiguió completar el circuito, aunque aparecieron varios problemas importantes.
+
+## Problemas observados
+
+- Velocidad excesivamente baja
+- Oscilaciones fuertes
+- Curvas inestables
+- Frenadas demasiado agresivas
+- Comportamiento poco fluido
+
+El tiempo aproximado de vuelta obtenido inicialmente fue:
+
+## Resultado inicial
+
+**~187 segundos**
+
+### Vídeo
+
+> Añadir aquí el vídeo de la primera versión.
+
+---
+
+# Ajustes realizados
+
+Para mejorar el comportamiento del sistema se realizaron múltiples ajustes sobre:
+
+- Velocidad máxima
+- Agresividad del giro
+- Reducción dinámica de velocidad
+- Suavizado del control
+
+Se implementó una estrategia dinámica basada en el valor absoluto del giro predicho por la red neuronal:
+
+- Mayor velocidad en rectas
+- Velocidad intermedia en curvas suaves
+- Menor velocidad en curvas cerradas
+
+Gracias a ello se consiguió mejorar tanto la estabilidad como el tiempo total de vuelta.
+
+---
+
+# Resultados obtenidos
+
+Tras varias iteraciones y ajustes, el sistema consiguió una conducción considerablemente más estable y rápida.
+
+## Mejoras obtenidas
+
+- Menor oscilación
+- Mejor seguimiento de línea
+- Curvas más suaves
+- Conducción más estable
+- Mayor velocidad media
+
+## Resultado final
+
+**~125 segundos**
+
+### Vídeo
+
+> Añadir aquí el vídeo de la versión final optimizada.
+
+---
+
+# Comparación con el enfoque clásico basado en PID
+
+Comparando ambos enfoques se pueden observar diferencias importantes.
+
+## Sistema clásico PID
+
+Ventajas:
+
+- Mayor interpretabilidad
+- Control más directo del comportamiento
+- Mejor rendimiento en circuitos simples
+- Mayor velocidad final
+
+Inconvenientes:
+
+- Requiere ajustar muchos parámetros manualmente
+- Sensible a cambios del entorno
+- Necesita detección explícita de línea
+- Difícil generalización
+
+## Sistema end-to-end con Deep Learning
+
+Ventajas:
+
+- No necesita detección explícita de línea
+- Aprende directamente del comportamiento experto
+- Arquitectura más generalizable
+- Menor dependencia de reglas manuales
+
+Inconvenientes:
+
+- Mayor dificultad de entrenamiento
+- Menor interpretabilidad
+- Dependencia del dataset
+- Ajuste más complejo del comportamiento
+
+Además, el controlador clásico basado en PID consiguió tiempos considerablemente mejores en el circuito simple:
+
+| Sistema | Tiempo aproximado |
+|---|---|
+| PID clásico | ~58 s |
+| End-to-End PilotNet | ~125 s |
+
+Sin embargo, el objetivo principal de esta práctica no era maximizar velocidad, sino explorar un enfoque basado completamente en aprendizaje profundo.
+
+---
+
+# Problemas encontrados
+
+Durante el desarrollo aparecieron varios problemas importantes.
+
+## Exportación ONNX
+
+Uno de los primeros problemas fue la exportación del modelo a ONNX, debido a dependencias faltantes relacionadas con `onnxscript`.
+
+## Integración del modelo
+
+También aparecieron problemas relacionados con:
+
+- Carga del modelo dentro de Unibotics
+- Rutas de acceso
+- Diferencias entre versiones de la API
+- Configuración del runtime ONNX
+
+## Ajuste de velocidades
+
+Otro de los principales retos fue encontrar un equilibrio adecuado entre:
+
+- Velocidad
+- Estabilidad
+- Capacidad de giro
+
+Aumentar demasiado la velocidad provocaba salidas de pista, mientras que reducirla demasiado empeoraba considerablemente el tiempo final.
+
+---
+
+# Limitaciones
+
+Aunque el comportamiento final es funcional, el sistema todavía presenta algunas limitaciones.
+
+- La conducción depende completamente de los datos del dataset
+- El sistema no incorpora memoria temporal entre frames
+- No existe planificación de trayectoria
+- La velocidad y estabilidad dependen mucho de los parámetros ajustados manualmente
+- El modelo puede degradarse en circuitos significativamente distintos a los utilizados durante el entrenamiento
+
+---
+
+# Conclusiones
+
+En esta práctica he desarrollado un sistema de conducción autónoma end-to-end utilizando Deep Learning y la arquitectura PilotNet dentro del entorno de Unibotics.
+
+El sistema ha sido capaz de aprender directamente la relación entre percepción visual y acciones de conducción sin necesidad de implementar explícitamente algoritmos clásicos de visión artificial o control PID.
+
+Además, mediante múltiples ajustes iterativos se consiguió mejorar significativamente tanto la estabilidad como el tiempo final de vuelta.
+
+Esta práctica me ha permitido comparar directamente dos enfoques muy diferentes para resolver el mismo problema:
+
+- Un enfoque clásico basado en visión artificial y PID
+- Un enfoque basado completamente en Deep Learning
+
+mostrando las ventajas e inconvenientes de ambos sistemas.
+
+---
+
+# Posibles mejoras futuras
+
+Como trabajo futuro, algunas mejoras interesantes serían:
+
+- Aplicar data augmentation
+- Utilizar arquitecturas más profundas
+- Incorporar memoria temporal
+- Usar inferencia GPU
+- Implementar control híbrido CNN + PID
+- Entrenar con más circuitos
+- Utilizar reinforcement learning para optimizar la conducción
