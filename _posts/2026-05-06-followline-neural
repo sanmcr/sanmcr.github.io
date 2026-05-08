@@ -2,7 +2,7 @@
 layout: post
 title: "End-to-End Visual Control con PilotNet – Unibotics"
 date: 2026-05-06
-thumbnail: "/images/e2e1.png"
+thumbnail: "/images/net.png"
 excerpt: "Conducción autónoma end-to-end mediante Deep Learning utilizando PilotNet y ONNX en Unibotics, comparando este enfoque con un controlador clásico basado en visión artificial y PID."
 published: true
 ---
