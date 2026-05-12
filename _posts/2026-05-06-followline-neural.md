@@ -230,7 +230,6 @@ allowfullscreen>
 </iframe>
 </div>
 
-> Añadir aquí el vídeo de la versión final optimizada.
 
 ---
 
