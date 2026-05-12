@@ -181,9 +181,6 @@ El tiempo aproximado de vuelta obtenido inicialmente fue:
 
 **~187 segundos**
 
-### Vídeo
-
-> Añadir aquí el vídeo de la primera versión.
 
 ---
 
@@ -222,7 +219,15 @@ Tras varias iteraciones y ajustes, el sistema consiguió una conducción conside
 
 **~125 segundos**
 
-### Vídeo
+
+<div style="text-align:center;">
+<iframe width="700" height="394"
+src="[https://www.youtube.com/embed/tnBgYsc1wCk](https://youtu.be/iWcHlJdg2UA)"
+title="Circuito inverso"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
 
 > Añadir aquí el vídeo de la versión final optimizada.
 
