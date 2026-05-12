@@ -223,7 +223,7 @@ Tras varias iteraciones y ajustes, el sistema consiguió una conducción conside
 
 <div style="text-align:center;">
 <iframe width="700" height="394"
-src="https://youtu.be/iWcHlJdg2UA"
+src="https://www.youtube.com/embed/iWcHlJdg2UA"
 title="Control estable"
 frameborder="0"
 allowfullscreen>
