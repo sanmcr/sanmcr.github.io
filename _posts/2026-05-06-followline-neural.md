@@ -220,10 +220,11 @@ Tras varias iteraciones y ajustes, el sistema consiguió una conducción conside
 **~125 segundos**
 
 
+
 <div style="text-align:center;">
 <iframe width="700" height="394"
-src="[https://youtu.be/iWcHlJdg2UA]"
-title="Circuito inverso"
+src="https://youtu.be/iWcHlJdg2UA"
+title="Control estable"
 frameborder="0"
 allowfullscreen>
 </iframe>
